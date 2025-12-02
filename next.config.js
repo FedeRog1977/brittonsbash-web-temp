@@ -4,7 +4,7 @@ const nodeModulesPath = new URL('./node_modules', import.meta.url).pathname;
 const nextConfig = {
   basePath: '',
   // For production build
-  distDir: 'dist',
+  // distDir: 'dist',
   reactStrictMode: true,
   webpack: (config) => ({
     ...config,

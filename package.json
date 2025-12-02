@@ -6,7 +6,7 @@
     "build": "run-s build:tsc build:scss build:css build:css-bundle build:next",
     "build:css-bundle": "run-s --silent build:css-bundle:1 build:css-bundle:2",
     "build:css-bundle:1": "mkdir -p ./dist",
-    "build:css-bundle:2": "node ./concat-files.js \"./build/css-modules/libs/components/basics/{components,reference}/**/*.css\" --output ./src/app/styles.css",
+    "build:css-bundle:2": "node ./concat-files.js \"./build/css-modules/libs/components/basics/{components,reference}/**/*.css\" --output ./src/styles.css",
     "build:css": "postcss ./build/css --dir ./build/css-modules/libs/components/basics --base ./build/css",
     "build:scss": "sass --no-source-map ./src:./build/css",
     "build:next": "next build",
