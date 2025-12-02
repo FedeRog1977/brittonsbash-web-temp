@@ -1,0 +1,155 @@
+@use 'colors' as colors;
+
+// Dark 20
+
+$gradient-dark-20-left-right: linear-gradient(
+  90deg,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-20-right-left: linear-gradient(
+  270deg,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-20-top-bottom: linear-gradient(
+  180deg,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-20-bottom-top: linear-gradient(
+  0deg,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+
+// Dark 40
+
+$gradient-dark-40-left-right: linear-gradient(
+  90deg,
+  colors.$darker-grey-40 24%,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-40-right-left: linear-gradient(
+  270deg,
+  colors.$darker-grey-40 24%,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-40-top-bottom: linear-gradient(
+  180deg,
+  colors.$darker-grey-40 24%,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-40-bottom-top: linear-gradient(
+  0deg,
+  colors.$darker-grey-40 24%,
+  colors.$darker-grey-20 48%,
+  colors.$transparent 70%
+);
+
+// Dark 60
+
+$gradient-dark-60-left-right: linear-gradient(
+  90deg,
+  colors.$darker-grey-60 24%,
+  colors.$darker-grey-40 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-60-right-left: linear-gradient(
+  270deg,
+  colors.$darker-grey-60 24%,
+  colors.$darker-grey-40 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-60-top-bottom: linear-gradient(
+  180deg,
+  colors.$darker-grey-60 24%,
+  colors.$darker-grey-40 48%,
+  colors.$transparent 70%
+);
+$gradient-dark-60-bottom-top: linear-gradient(
+  0deg,
+  colors.$darker-grey-60 24%,
+  colors.$darker-grey-40 48%,
+  colors.$transparent 70%
+);
+
+// Light 20
+
+$gradient-light-20-left-right: linear-gradient(
+  90deg,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-20-right-left: linear-gradient(
+  270deg,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-20-top-bottom: linear-gradient(
+  180deg,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-20-bottom-top: linear-gradient(
+  0deg,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+
+// Light 40
+
+$gradient-light-40-left-right: linear-gradient(
+  90deg,
+  colors.$white-40 24%,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-40-right-left: linear-gradient(
+  270deg,
+  colors.$white-40 24%,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-40-top-bottom: linear-gradient(
+  180deg,
+  colors.$white-40 24%,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+$gradient-light-40-bottom-top: linear-gradient(
+  0deg,
+  colors.$white-40 24%,
+  colors.$white-20 48%,
+  colors.$transparent 70%
+);
+
+// Light 60
+
+$gradient-light-60-left-right: linear-gradient(
+  90deg,
+  colors.$white-60 24%,
+  colors.$white-40 48%,
+  colors.$transparent 70%
+);
+$gradient-light-60-right-left: linear-gradient(
+  270deg,
+  colors.$white-60 24%,
+  colors.$white-40 48%,
+  colors.$transparent 70%
+);
+$gradient-light-60-top-bottom: linear-gradient(
+  180deg,
+  colors.$white-60 24%,
+  colors.$white-40 48%,
+  colors.$transparent 70%
+);
+$gradient-light-60-bottom-top: linear-gradient(
+  0deg,
+  colors.$white-60 24%,
+  colors.$white-40 48%,
+  colors.$transparent 70%
+);

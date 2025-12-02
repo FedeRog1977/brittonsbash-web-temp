@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# . "$(dirname -- "$0")/_/husky.sh"
+
+# npm run parallel [HEAD] format:check
+# npm run serial ...[HEAD]... build
+# npm run parallel [HEAD] lint
+# npm run parallel ...[HEAD] test

@@ -1,0 +1,1 @@
+export default {"footer":"_footer_1n04b_3","footerContent":"_footerContent_1n04b_20","footerLogo":"_footerLogo_1n04b_29"} as const;

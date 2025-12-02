@@ -1,0 +1,28 @@
+@use '../styles' as styles;
+
+// TODO: align semantics with FlexBase
+@mixin responsive-alignment($prefix) {
+  @each $screen-size, $screen-variable in styles.$size-to-screen-variable {
+    @if $prefix == 'justify' {
+      @each $justify-type,
+        $justify-variable in styles.$justify-to-value-variable
+      {
+        .#{$prefix}Breakpoint#{$screen-size}#{$justify-type} {
+          @media (min-width: $screen-variable) {
+            @content ($justify-variable);
+          }
+        }
+      }
+    }
+
+    @if $prefix == 'align' {
+      @each $align-type, $align-variable in styles.$align-to-value-variable {
+        .#{$prefix}Breakpoint#{$screen-size}#{$align-type} {
+          @media (min-width: $screen-variable) {
+            @content ($align-variable);
+          }
+        }
+      }
+    }
+  }
+}

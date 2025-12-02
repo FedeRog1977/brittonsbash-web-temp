@@ -1,0 +1,154 @@
+@use '../../reference/styles' as styles;
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+
+.dark {
+  &20 {
+    &LeftAlign {
+      background: styles.$gradient-dark-20-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-20-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-dark-20-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-20-bottom-top;
+      }
+    }
+  }
+
+  &40 {
+    &LeftAlign {
+      background: styles.$gradient-dark-40-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-40-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-dark-40-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-40-bottom-top;
+      }
+    }
+  }
+
+  &60 {
+    &LeftAlign {
+      background: styles.$gradient-dark-60-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-60-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-dark-60-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-dark-60-bottom-top;
+      }
+    }
+  }
+
+  &Fill {
+    background: none;
+
+    &20 {
+      background-color: styles.$darker-grey-20;
+    }
+
+    &40 {
+      background-color: styles.$darker-grey-40;
+    }
+
+    &60 {
+      background-color: styles.$darker-grey-60;
+    }
+  }
+}
+
+.light {
+  &20 {
+    &LeftAlign {
+      background: styles.$gradient-light-20-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-20-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-light-20-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-20-bottom-top;
+      }
+    }
+  }
+
+  &40 {
+    &LeftAlign {
+      background: styles.$gradient-light-40-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-40-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-light-40-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-40-bottom-top;
+      }
+    }
+  }
+
+  &60 {
+    &LeftAlign {
+      background: styles.$gradient-light-60-left-right;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-60-bottom-top;
+      }
+    }
+
+    &RightAlign {
+      background: styles.$gradient-light-60-right-left;
+
+      @media (max-width: styles.$screen-md) {
+        background: styles.$gradient-light-60-bottom-top;
+      }
+    }
+  }
+
+  &Fill {
+    background: none;
+
+    &20 {
+      background-color: styles.$white-20;
+    }
+
+    &40 {
+      background-color: styles.$white-40;
+    }
+
+    &60 {
+      background-color: styles.$white-60;
+    }
+  }
+}

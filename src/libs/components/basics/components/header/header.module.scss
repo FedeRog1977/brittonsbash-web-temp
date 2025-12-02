@@ -1,0 +1,119 @@
+@use '../../reference/styles' as styles;
+
+@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
+
+.header {
+  background-color: styles.$black-special;
+  backdrop-filter: saturate(180%) blur(10px);
+  display: grid;
+  align-items: center;
+  color: styles.$white;
+  position: absolute;
+  top: 0px;
+  z-index: 1500;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 40px;
+  }
+
+  &Content {
+    font-family: 'Lato';
+    // font-family: Audi-Light;
+    color: styles.$white;
+
+    a {
+      text-decoration: none;
+      color: styles.$white;
+      transition: color styles.$transition-long;
+    }
+
+    a:hover {
+      color: styles.$light-blue;
+      transition: color styles.$transition-long;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      width: 960px;
+    }
+
+    @media (max-width: 768px) {
+      margin: 0 auto;
+      width: 340px;
+    }
+  }
+
+  &Image {
+    @media (min-width: 768px) {
+      height: 32px;
+    }
+
+    @media (max-width: 768px) {
+      height: 24px;
+    }
+  }
+
+  &Logo {
+    font-family: 'Lato';
+    // font-family: Audi-Light;
+    font-size: 24px;
+  }
+}
+
+.subheader {
+  background-color: styles.$black-special;
+  backdrop-filter: saturate(180%) blur(10px);
+  display: grid;
+  align-items: center;
+  position: absolute;
+  z-index: 1500;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    // height: 150px;
+    top: 80px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    // height: 150px;
+    top: 40px;
+  }
+
+  &Content {
+    font-family: 'Lato';
+    // font-family: Audi-Light;
+    color: styles.$white;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    a {
+      text-decoration: none;
+      color: styles.$white;
+      transition: color styles.$transition-long;
+    }
+
+    a:hover {
+      color: styles.$light-blue;
+      transition: color styles.$transition-long;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      width: 960px;
+    }
+
+    @media (max-width: 768px) {
+      margin: 0 auto;
+      width: 340px;
+    }
+  }
+}

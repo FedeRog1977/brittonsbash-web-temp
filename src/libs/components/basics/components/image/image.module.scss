@@ -1,0 +1,28 @@
+@use '../../reference/styles' as styles;
+
+.image {
+  display: block;
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageCaption {
+  position: absolute;
+  z-index: 10;
+  text-shadow: 0px 0px 5px styles.$darker-grey;
+  bottom: 24px;
+  left: 24px;
+  max-width: 75%;
+  opacity: 0.75;
+
+  @media (max-width: 768px) {
+    bottom: 16px;
+    left: 12px;
+  }
+}

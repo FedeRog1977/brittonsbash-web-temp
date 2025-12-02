@@ -1,0 +1,66 @@
+@use '../../../../reference/styles' as styles;
+
+.label {
+  position: absolute;
+  z-index: 2;
+  left: styles.$spacing-xs;
+  pointer-events: none;
+  color: styles.$darker-grey;
+  padding: 0 50px;
+  transform-origin: top left;
+  transform: translateY(-50%);
+  transition: 300ms cubic-bezier(0, 0, 0.2, 1) transform, 300ms cubic-bezier(0, 0, 0.2, 1) top,
+    300ms cubic-bezier(0, 0, 0.2, 1) left;
+
+  &ForInput {
+    top: 50%;
+  }
+
+  &ForTextArea {
+    top: styles.$spacing-md;
+  }
+
+  &Disabled {
+    color: styles.$white-60;
+  }
+
+  &Shrink {
+    top: 0;
+    left: styles.$spacing-xs;
+    background: styles.$white;
+    transform: scale(0.8) translateY(-50%);
+
+    &.labelFocused {
+      color: styles.$darker-grey-20;
+    }
+
+    &.labelError {
+      color: styles.$red;
+    }
+  }
+}
+
+.inputContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: styles.$white;
+  border-radius: styles.$corners-sm;
+
+  &Disabled {
+    background-color: styles.$darker-grey-20;
+    outline-color: styles.$white-60;
+  }
+
+  &Focused {
+    outline-width: 2px;
+    outline-color: styles.$darker-grey;
+  }
+
+  &Error {
+    outline-width: 2px;
+    outline-color: styles.$red;
+  }
+}

@@ -1,0 +1,36 @@
+@use '../../reference/styles' as styles;
+
+// TODO: segment these to separate stylesheets
+.containerColumns {
+  border-radius: styles.$corners-md;
+  background-color: styles.$darker-grey-60;
+  max-height: 300px;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    border-radius: none;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+}
+
+// TODO: segment these to separate stylesheets
+.containerRows {
+  border-radius: styles.$corners-md;
+  background-color: styles.$darker-grey-60;
+  max-height: 300px;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    border-radius: none;
+    overflow-x: scroll;
+  }
+}
+
+.table {
+  padding: 15px 75px 15px 75px;
+
+  @media (max-width: 768px) {
+    padding: 7.5px 20px 7.5px 20px;
+  }
+}

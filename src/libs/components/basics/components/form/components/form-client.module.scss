@@ -1,0 +1,9 @@
+.form {
+  width: 100%;
+}
+
+.formContent {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}

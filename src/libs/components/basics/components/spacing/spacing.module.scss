@@ -1,0 +1,42 @@
+@use '../../reference/mixins' as mixins;
+
+$-prefix-to-properties: (
+  'margin': 'margin',
+  'marginX': (
+    'margin-right',
+    'margin-left',
+  ),
+  'marginY': (
+    'margin-top',
+    'margin-bottom',
+  ),
+  'marginTop': 'margin-top',
+  'marginRight': 'margin-right',
+  'marginBottom': 'margin-bottom',
+  'marginLeft': 'margin-left',
+  'padding': 'padding',
+  'paddingX': (
+    'padding-right',
+    'padding-left',
+  ),
+  'paddingY': (
+    'padding-top',
+    'padding-bottom',
+  ),
+  'paddingTop': 'padding-top',
+  'paddingRight': 'padding-right',
+  'paddingBottom': 'padding-bottom',
+  'paddingLeft': 'padding-left',
+);
+
+.inline {
+  display: inline-block;
+}
+
+@each $prefix, $properties in $-prefix-to-properties {
+  @include mixins.responsive-spacing($prefix) using ($spacing-variable) {
+    @each $property in $properties {
+      #{$property}: $spacing-variable;
+    }
+  }
+}

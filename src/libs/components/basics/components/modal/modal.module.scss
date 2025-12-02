@@ -1,0 +1,54 @@
+@use '../../reference/styles' as styles;
+
+.modal {
+  max-width: 1080px;
+  max-height: 1080px;
+
+  &Solid {
+    background-color: styles.$lighter-grey;
+    box-shadow: styles.$shadow-x-bold;
+  }
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: styles.$darker-grey-60;
+}
+
+// .close {
+//   &Container {
+//     display: flex;
+//     justify-content: right;
+//     margin: 24px;
+//   }
+
+//   &Icon {
+//     font-size: 24px;
+//     color: styles.$darker-grey;
+//     cursor: pointer;
+//     user-select: none;
+//     transition: color styles.$transition-long;
+
+//     &:hover {
+//       color: styles.$light-blue;
+//       transition: color styles.$transition-long;
+//     }
+
+//     &:active {
+//       transform: scale(0.99);
+//       transition: transform styles.$transition-short;
+//     }
+
+//     @media (max-width: 768px) {
+//       padding-right: 12px;
+//     }
+//   }
+// }

@@ -1,0 +1,70 @@
+@use '../../reference/styles' as styles;
+
+.tile {
+  max-width: 1440px;
+  margin: 0 auto 0 auto;
+
+  @media (min-width: 768px) {
+    padding: styles.$spacing-xl 0 styles.$spacing-xl 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: styles.$spacing-md styles.$spacing-sm styles.$spacing-md styles.$spacing-sm;
+  }
+
+  &Clear {
+    background-color: styles.$transparent;
+  }
+
+  &Solid {
+    background-color: styles.$black-special;
+
+    @media (min-width: 768px) {
+      // border-radius: styles.$corners-xl;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: none;
+    }
+  }
+}
+
+.container {
+  &Wide {
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+  }
+
+  &Narrow {
+    max-width: 720px;
+    margin: 0 auto 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    border-radius: styles.$corners-xl;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: none;
+  }
+}
+
+.innerContainer {
+  z-index: 1000;
+  position: absolute;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 styles.$spacing-sm 0 styles.$spacing-sm;
+  }
+}
+
+.stacked {
+  display: grid;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}

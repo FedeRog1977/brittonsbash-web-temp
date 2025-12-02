@@ -1,0 +1,5 @@
+@mixin custom-attribute($attribute, $property, $value) {
+  &#{$attribute} {
+    #{$property}: #{$value};
+  }
+}

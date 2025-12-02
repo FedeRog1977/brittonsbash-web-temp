@@ -1,0 +1,34 @@
+@use 'sass:math' as math;
+@use '../../reference/mixins' as mixins;
+@use '../../reference/styles' as styles;
+
+@include mixins.responsive-column-span('width') using ($percentage) {
+  width: $percentage;
+}
+
+$-max-order: 12;
+
+.order {
+  @for $order from 0 to $-max-order {
+    @each $size, $screen-variable in styles.$size-to-screen-variable {
+      &#{$size} {
+        @media (min-width: #{$screen-variable}) {
+          &#{$order} {
+            order: $order;
+          }
+        }
+      }
+    }
+  }
+}
+
+.position {
+  &Underlay {
+    z-index: -1;
+  }
+
+  &Overlay {
+    z-index: 100;
+    position: absolute;
+  }
+}

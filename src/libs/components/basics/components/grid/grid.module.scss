@@ -1,0 +1,25 @@
+@use '../../reference/mixins' as mixins;
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+@include mixins.responsive-spacing('spacing') using ($spacing-variable) {
+  margin: -0.5 * $spacing-variable;
+
+  > * {
+    padding: 0.5 * $spacing-variable;
+  }
+}
+
+@include mixins.responsive-alignment('justify') using ($justify-variable) {
+  @include mixins.custom-attribute('Content', 'justify-content', $justify-variable);
+  @include mixins.custom-attribute('Items', 'justify-items', $justify-variable);
+}
+
+@include mixins.responsive-alignment('align') using ($align-variable) {
+  @include mixins.custom-attribute('Content', 'align-content', $align-variable);
+  @include mixins.custom-attribute('Items', 'align-items', $align-variable);
+}

@@ -1,0 +1,44 @@
+@use '../../reference' as reference;
+
+.background {
+  width: 100%;
+  height: 100%;
+}
+
+.color {
+  &Black {
+    background-color: reference.$black;
+  }
+
+  &DarkerGrey {
+    background-color: reference.$darker-grey;
+  }
+
+  &DarkGrey {
+    background-color: reference.$dark-grey;
+  }
+
+  &MediumGrey {
+    background-color: reference.$medium-grey;
+  }
+
+  &LightGrey {
+    background-color: reference.$light-grey;
+  }
+
+  &LighterGrey {
+    background-color: reference.$lighter-grey;
+  }
+
+  &LightBlue {
+    background-color: reference.$light-blue;
+  }
+
+  &White {
+    background-color: reference.$white;
+  }
+
+  &Transparent {
+    background-color: reference.$transparent;
+  }
+}

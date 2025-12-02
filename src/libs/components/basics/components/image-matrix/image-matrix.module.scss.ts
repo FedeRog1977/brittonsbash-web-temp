@@ -1,0 +1,1 @@
+export default {"image":"_image_7wv6x_1"} as const;

@@ -1,0 +1,13 @@
+@use '../styles' as styles;
+
+@mixin responsive-spacing($prefix) {
+  @each $screen-size, $screen-variable in styles.$size-to-screen-variable {
+    @each $spacing-size, $spacing-variable in styles.$size-to-spacing-variable {
+      .#{$prefix}Breakpoint#{$screen-size}Spacing#{$spacing-size} {
+        @media (min-width: $screen-variable) {
+          @content ($spacing-variable);
+        }
+      }
+    }
+  }
+}

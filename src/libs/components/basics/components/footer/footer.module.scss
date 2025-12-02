@@ -1,0 +1,36 @@
+@use '../../reference/styles' as styles;
+
+@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
+
+.footer {
+  @media (min-width: 768px) {
+    background-image: url('https://lewisbritton.com/images/general/background.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    background-image: url('https://lewisbritton.com/images/general/background-mobile.jpg');
+    background-size: 100% auto;
+  }
+
+  &Content {
+    background-color: styles.$black-special;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: styles.$light-grey;
+    padding: styles.$spacing-xl 0 styles.$spacing-xl 0;
+  }
+
+  &Logo {
+    font-family: Audi-Light;
+    font-size: 24px;
+  }
+}

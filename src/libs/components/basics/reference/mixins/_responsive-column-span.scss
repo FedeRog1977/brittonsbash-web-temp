@@ -1,0 +1,16 @@
+@use 'sass:math' as math;
+@use '../styles' as styles;
+
+$-column-count: 12;
+
+@mixin responsive-column-span($prefix) {
+  @each $screen-size, $screen-variable in styles.$size-to-screen-variable {
+    @for $column-span from 1 through $-column-count {
+      .#{$prefix}Breakpoint#{$screen-size}ColumnSpan#{$column-span} {
+        @media (min-width: $screen-variable) {
+          @content (math.percentage(math.div($column-span, $-column-count)));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@use '../../../../reference/styles' as styles;
+
+button {
+  border: 0 none !important;
+  margin: 0;
+  height: 36px;
+  line-height: 0;
+
+  &::-moz-focus-inner {
+    border: 0 none !important;
+    padding: 0 !important;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.variant {
+  &Default {
+    color: styles.$white;
+    background-color: styles.$apple-blue-60;
+    border-radius: styles.$corners-sm;
+    transition: background-color styles.$transition-long;
+
+    &:hover {
+      background-color: styles.$apple-blue;
+      transition: background-color styles.$transition-long;
+    }
+  }
+
+  &Clear {
+    background-color: styles.$transparent;
+    border-radius: styles.$corners-lg;
+    transition: background-color styles.$transition-long;
+
+    &:hover {
+      background-color: styles.$dark-grey;
+      transition: background-color styles.$transition-long;
+    }
+  }
+
+  &Solid {
+    background-color: styles.$dark-grey-60;
+    border-radius: styles.$corners-lg;
+    transition: background-color styles.$transition-long;
+
+    &:hover {
+      background-color: styles.$dark-grey;
+      transition: background-color styles.$transition-long;
+    }
+  }
+
+  &SolidDark {
+    background-color: styles.$darker-grey-60;
+    border-radius: styles.$corners-lg;
+    transition: background-color styles.$transition-long;
+
+    &:hover {
+      background-color: styles.$darker-grey;
+      transition: background-color styles.$transition-long;
+    }
+  }
+
+  &Inverse {
+    background-color: styles.$transparent;
+    border-radius: styles.$corners-lg;
+    transition: background-color styles.$transition-long;
+
+    &:hover {
+      background-color: styles.$darker-grey-60;
+      transition: background-color styles.$transition-long;
+    }
+  }
+}
+
+.width {
+  &Default {
+    width: auto;
+  }
+
+  &Quarter {
+    width: 25%;
+  }
+
+  &Half {
+    width: 50%;
+  }
+
+  &Full {
+    width: 100%;
+  }
+}
+
+.transition {
+  padding-left: 0;
+  padding-right: 0;
+  transition: background-color styles.$transition-long, padding styles.$transition-long;
+
+  &:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: background-color styles.$transition-long, padding styles.$transition-long;
+
+    @media (max-width: 768px) {
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+  }
+}

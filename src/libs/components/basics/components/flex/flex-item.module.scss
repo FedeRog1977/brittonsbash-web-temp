@@ -1,0 +1,13 @@
+@use '../../reference/mixins' as mixins;
+
+.flexItem {
+  flex-grow: 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+@include mixins.responsive-column-span('basis') using ($percentage) {
+  flex-basis: $percentage;
+}

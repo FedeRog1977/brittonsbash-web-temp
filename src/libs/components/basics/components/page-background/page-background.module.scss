@@ -1,0 +1,108 @@
+@use '../../reference/styles' as styles;
+
+.background {
+  @media (min-width: 768px) {
+    background-image: url('https://lewisbritton.com/images/general/background.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 500px;
+    overflow: hidden;
+    top: -80px;
+  }
+
+  @media (max-width: 768px) {
+    background-image: url('https://lewisbritton.com/images/general/background-mobile.jpg');
+    background-size: 100% auto;
+    height: 150px;
+  }
+}
+
+.text {
+  color: styles.$lighter-grey;
+  background-image: styles.$gradient-dark-60-bottom-top;
+  display: grid;
+  align-items: end;
+  position: absolute;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 500px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 150px;
+  }
+
+  &Content {
+    @media (min-width: 768px) {
+      font-size: 64px;
+      margin: 20px auto;
+      width: 960px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+      margin: 10px auto;
+      width: 340px;
+    }
+  }
+
+  &Std {
+    font-family: 'Lato';
+    // font-family: Sans-Light;
+  }
+
+  &Logo {
+    font-family: 'Lato';
+    // font-family: Audi-Light;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  &Ig {
+    font-family: 'Lato';
+    // font-family: Instagram;
+    // background: -webkit-linear-gradient(
+    //     0deg,
+    //     #a13cc2 -50%,
+    //     #9f1b7f 25%,
+    //     #ff971d 100%
+    // );
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+  }
+
+  &Sport {
+    font-family: 'Lato';
+    // font-family: NFS;
+  }
+
+  &Audi {
+    font-family: 'Lato';
+    // font-family: Audi-Extended;
+  }
+
+  &Miami {
+    font-family: 'Lato';
+    // font-family: Broadway;
+  }
+
+  &Calligraphy {
+    font-family: 'Lato';
+    // font-family: GreatVibes;
+  }
+
+  &Ibm {
+    font-family: 'Lato';
+    // font-family: IBM;
+  }
+}

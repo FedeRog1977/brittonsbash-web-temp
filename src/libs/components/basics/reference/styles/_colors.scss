@@ -1,0 +1,87 @@
+@use 'opacity' as opacity;
+
+// Good reference: https://www.colorhexa.com/
+
+// Black
+
+$black: #000000;
+$black-special: rgba(22, 22, 23, 0.8);
+$black-60: rgba($black, opacity.$opacity-60);
+$black-40: rgba($black, opacity.$opacity-40);
+$black-20: rgba($black, opacity.$opacity-20);
+
+// Grey
+
+$darker-grey: #181818;
+$darker-grey-60: rgba($darker-grey, opacity.$opacity-60);
+$darker-grey-40: rgba($darker-grey, opacity.$opacity-40);
+$darker-grey-20: rgba($darker-grey, opacity.$opacity-20);
+
+$dark-grey: #282828;
+$dark-grey-60: rgba($dark-grey, opacity.$opacity-60);
+$dark-grey-40: rgba($dark-grey, opacity.$opacity-40);
+$dark-grey-20: rgba($dark-grey, opacity.$opacity-20);
+
+$medium-grey: #585858;
+$medium-grey-60: rgba($medium-grey, opacity.$opacity-60);
+$medium-grey-40: rgba($medium-grey, opacity.$opacity-40);
+$medium-grey-20: rgba($medium-grey, opacity.$opacity-20);
+
+$light-grey: #a2a2a2;
+$light-grey-60: rgba($light-grey, opacity.$opacity-60);
+$light-grey-40: rgba($light-grey, opacity.$opacity-40);
+$light-grey-20: rgba($light-grey, opacity.$opacity-20);
+
+$lighter-grey: #f5f5f5;
+$lighter-grey-60: rgba($lighter-grey, opacity.$opacity-60);
+$lighter-grey-40: rgba($lighter-grey, opacity.$opacity-40);
+$lighter-grey-20: rgba($lighter-grey, opacity.$opacity-20);
+
+// Blue
+
+$light-blue: #96b9ee;
+$light-blue-60: rgba($light-blue, opacity.$opacity-60);
+$light-blue-40: rgba($light-blue, opacity.$opacity-40);
+$light-blue-20: rgba($light-blue, opacity.$opacity-20);
+
+$apple-blue: #0071e3;
+$apple-blue-60: rgba($apple-blue, opacity.$opacity-60);
+$apple-blue-40: rgba($apple-blue, opacity.$opacity-40);
+$apple-blue-20: rgba($apple-blue, opacity.$opacity-20);
+
+$miami-blue: #4fd0ff;
+$miami-blue-60: rgba($miami-blue, opacity.$opacity-60);
+$miami-blue-40: rgba($miami-blue, opacity.$opacity-40);
+$miami-blue-20: rgba($miami-blue, opacity.$opacity-20);
+
+// Green
+
+$lime-green: #00f865;
+$lime-green-60: rgba($lime-green, opacity.$opacity-60);
+$lime-green-40: rgba($lime-green, opacity.$opacity-40);
+$lime-green-20: rgba($lime-green, opacity.$opacity-20);
+
+// Orange
+
+$miami-coral: #ff7f50;
+$miami-coral-60: rgba($miami-coral, opacity.$opacity-60);
+$miami-coral-40: rgba($miami-coral, opacity.$opacity-40);
+$miami-coral-20: rgba($miami-coral, opacity.$opacity-20);
+
+// Red
+
+$red: #9d131f;
+$red-60: rgba($red, opacity.$opacity-60);
+$red-40: rgba($red, opacity.$opacity-40);
+$red-20: rgba($red, opacity.$opacity-20);
+
+// White
+
+$white: #ffffff;
+$white-60: rgba($white, opacity.$opacity-60);
+$white-40: rgba($white, opacity.$opacity-40);
+$white-20: rgba($white, opacity.$opacity-20);
+
+// Transparent
+
+$transparent: #ffffff00;

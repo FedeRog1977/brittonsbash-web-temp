@@ -1,0 +1,127 @@
+@use '../../reference/styles' as styles;
+
+// TODO: fix naming convention
+.imageSlider {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  @media (max-width: 768px) {
+    height: 300px;
+    overflow-x: hidden;
+  }
+
+  &Slide {
+    text-align: center;
+    opacity: 0.75;
+    transition-duration: 2s ease;
+
+    &Active {
+      opacity: 1;
+      transition-duration: 2s;
+    }
+  }
+
+  &Image {
+    width: 110%;
+  }
+
+  &Caption {
+    position: absolute;
+    z-index: 10;
+    text-shadow: 0px 0px 5px styles.$darker-grey;
+    bottom: 24px;
+    left: 24px;
+    max-width: 75%;
+    opacity: 0.75;
+
+    @media (max-width: 768px) {
+      bottom: 16px;
+      left: 12px;
+    }
+  }
+
+  &Index {
+    position: absolute;
+    z-index: 10;
+    text-shadow: 0px 0px 5px styles.$darker-grey;
+    bottom: 24px;
+    right: 24px;
+    max-width: 25%;
+    opacity: 0.75;
+
+    @media (max-width: 768px) {
+      bottom: 16px;
+      right: 12px;
+    }
+  }
+}
+
+.leftArrow,
+.rightArrow,
+.refresh {
+  color: styles.$darker-grey-60;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  transition: color styles.$transition-long;
+}
+
+.leftArrow {
+  font-size: 32px;
+  top: 48%;
+  left: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    color: styles.$darker-grey-60;
+    top: 45%;
+    left: 12px;
+  }
+}
+
+.rightArrow {
+  font-size: 32px;
+  top: 48%;
+  right: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    color: styles.$darker-grey-60;
+    top: 45%;
+    right: 12px;
+  }
+}
+
+.refresh {
+  font-size: 22px;
+  top: 24px;
+  right: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    top: 16px;
+    right: 12px;
+    color: styles.$darker-grey-60;
+  }
+}
+
+.leftArrow:hover,
+.rightArrow:hover,
+.refresh:hover {
+  color: styles.$light-grey;
+  transition: color styles.$transition-long;
+}
+
+.leftArrow:active,
+.rightArrow:active,
+.refresh:active {
+  transform: scale(0.99);
+  transition: transform styles.$transition-short;
+}
