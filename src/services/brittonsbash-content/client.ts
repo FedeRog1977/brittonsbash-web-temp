@@ -153,13 +153,9 @@ export class Client implements Interface {
             )) as Project;
 
             sport.push(sportIteration);
-            // console.log('SPORT_INSIDE::', sport);
           }
 
-          // console.log('SPORT_OUTSIDE::', sport);
-
           const mappedSport = mapEventProject(sport);
-          // console.log('MAPPED_SPORT::', mappedSport);
 
           const mappedParsedMappedMultipleSportResponse: Extract<Event, { type: 'mapped' }> = {
             ...parsedResponse,
@@ -168,6 +164,17 @@ export class Client implements Interface {
             // TODO: make keys of sports conditional based on whether or not the response contains them
             sport: mappedSport,
           };
+
+          // TODO: remove this temp workaround for the spacing issue
+          if (mappedParsedMappedMultipleSportResponse.description === '') {
+            return {
+              ...mappedParsedMappedMultipleSportResponse,
+              description: mappedParsedMappedMultipleSportResponse.description.replace(
+                /[\s\S]*/,
+                'TODO: write a valid description for this event. The string is bloody required in the FE, so if an empty string is returned from the service, it will be replaced by this to amend the horrific spacing issue.',
+              ),
+            };
+          }
 
           return mappedParsedMappedMultipleSportResponse;
         }
