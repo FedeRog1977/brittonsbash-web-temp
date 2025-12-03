@@ -140,14 +140,12 @@ export class Client implements Interface {
       ? mapEventFeaturesReadable(parsedResponse.features as Features)
       : undefined;
 
-    console.log(parsedResponse);
-
     try {
       try {
         if (Array.isArray(parsedResponse.projectId)) {
           const sport: Project[] = [];
 
-          parsedResponse.projectId.forEach(async (id: string) => {
+          for (const id of parsedResponse.projectId) {
             const sportIteration = (await this.getSport(
               'projects',
               parsedResponse.id.split('').slice(1, 5).join(''),
@@ -155,12 +153,13 @@ export class Client implements Interface {
             )) as Project;
 
             sport.push(sportIteration);
-            console.log('SPORT::', sport);
-          });
+            // console.log('SPORT_INSIDE::', sport);
+          }
 
-          // TODO: fix 0 length array issue, after return from the `forEach` loop
+          // console.log('SPORT_OUTSIDE::', sport);
+
           const mappedSport = mapEventProject(sport);
-          console.log('MAPPED_SPORT::', mappedSport);
+          // console.log('MAPPED_SPORT::', mappedSport);
 
           const mappedParsedMappedMultipleSportResponse: Extract<Event, { type: 'mapped' }> = {
             ...parsedResponse,
