@@ -85,13 +85,13 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             defaultValues={defaultEventsValues}
           >
             <Flex direction="vertical" alignHorizontal="left" gap="md">
-              <Select name="year" label="Select project year" options={yearOptions} />
+              <Select name="year" label="Find Projects by Year" options={yearOptions} />
 
               {isEventsSubmitting ? (
                 <Loading />
               ) : (
                 <Button variant="solidDark" type="submit" width="quarter">
-                  Find projects
+                  Find Projects
                 </Button>
               )}
             </Flex>
@@ -104,13 +104,13 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             defaultValues={defaultHillsValues}
           >
             <Flex direction="vertical" alignHorizontal="left" gap="md">
-              <Select name="type" label="Select hill type" options={typeOptions} />
+              <Select name="type" label="Find Hills by Type" options={typeOptions} />
 
               {isHillsSubmitting ? (
                 <Loading />
               ) : (
                 <Button variant="solidDark" type="submit" width="quarter">
-                  Find hills
+                  Find Hills
                 </Button>
               )}
             </Flex>
@@ -148,7 +148,7 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
                 entries: projectsStats.munros,
               },
               {
-                title: 'Tops',
+                title: 'Munro Tops',
                 entries: projectsStats.munroTops,
               },
               {
@@ -170,9 +170,14 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             ]}
           />
 
-          <ColumnTable
+          <Typography variant="footnote">
+            Islands and Corbett Tops stats are not included in the above table, in the interest of
+            aesthetics.
+          </Typography>
+
+          {/* <ColumnTable
             leftColumn={{
-              title: 'Cont.',
+              title: 'Hill Stats Cont.',
               entries: projectsStats.labels,
             }}
             rightColumns={[
@@ -181,15 +186,11 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
                 entries: projectsStats.islands,
               },
               {
-                title: 'Munro Tops',
-                entries: projectsStats.munroTops,
-              },
-              {
                 title: 'Corbett Tops',
                 entries: projectsStats.corbettTops,
               },
             ]}
-          />
+          /> */}
         </Flex>
       </Tile>
     </PageLayout>
