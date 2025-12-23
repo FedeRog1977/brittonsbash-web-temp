@@ -28,5 +28,5 @@ export * from './types/type-error.js';
 export * from './types/unique-items-error.js';
 export * from './types/unknown-error.js';
 export * from './types/validate-options.js';
-export { Client as ValidatorAjv } from './client.js';
+export { Implementation as ValidatorAjv } from './implementation.js';
 export type { Interface as Validator } from './interface.js';

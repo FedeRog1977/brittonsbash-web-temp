@@ -1,7 +1,12 @@
 export const routes = {
   home: '/',
   instantGram: {
-    search: '/instant-gram/search',
+    base: '/instant-gram',
     result: '/instant-gram/result',
+  },
+  projects: {
+    base: '/projects',
+    events: '/projects/events',
+    hills: '/projects/hills',
   },
 };

@@ -19,7 +19,7 @@ export const RowTable: FC<RowTableProps> = ({ titleRow, rows }) => (
         <Flex direction="horizontal" alignHorizontal="apart">
           {titleRow.leftItem != null ? (
             <FlexItem basis={4}>
-              <Typography variant="footnote" boldFace>
+              <Typography variant="h4" boldFace>
                 {titleRow.leftItem}
               </Typography>
             </FlexItem>

@@ -13,8 +13,8 @@ import {
 
 export interface Interface {
   getCulinary: () => Promise<Culinary>;
-  getEvents: () => Promise<Events>;
   getEventNames: (year: string) => Promise<Array<Pick<Event, 'id' | 'prefix' | 'names'>>>;
+  getEventYears: () => Promise<string[]>;
   getEvent: (year: string, event: string) => Promise<Extract<Event, { type: 'mapped' }>>;
   getHills: () => Promise<Hills>;
   getLinks: () => Promise<UrlGroup[]>;

@@ -8,6 +8,7 @@ import { useShowElement } from '~/libs/hooks';
 // import { isMobile } from '@libs/utils';
 import { Flex } from '../flex/flex.js';
 import { Button } from '../client-form/components/button/button.js';
+import { routes } from '../../../../../app/_libs/constants/routes.js';
 
 export type HeaderMobileProps = {
   funcMobile: () => void;
@@ -79,7 +80,9 @@ export const Header = () => {
               />
             ) : ( */}
             <Flex direction="horizontal" alignVertical="center" gap="sm">
-              <Button link={{ href: '/' }}>Home</Button>
+              <Button link={{ href: routes.home }}>Home</Button>
+              <Button link={{ href: routes.instantGram.base }}>Instant Gram</Button>
+              <Button link={{ href: routes.projects.base }}>Projects</Button>
               {/* <Link to="/">Home</Link>
                 <Link to="/academia">Academia</Link>
                 <Link to="/employment">Employment</Link>

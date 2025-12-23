@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
 import { PageParams } from './_libs/types/page-params.js';
-import { SearchParams } from './_libs/types/search-params.js';
-import { HomeTemplate } from './_interface/templates/home-template.jsx';
+import { HomeSearchParams } from './_libs/types/home-search-params.js';
+import { HomeTemplate } from './_app-ui/templates/home-template.jsx';
 
 export type HomePageProps = {
   params: Promise<PageParams>;
-  searchParams: Promise<SearchParams>;
+  searchParams: Promise<HomeSearchParams>;
 };
 
 export const revalidate = 300;

@@ -1,1 +1,1 @@
-export { Client as BrittonsBashContentClient } from './client.js';
+export { Implementation as BrittonsBashContentServiceClient } from './implementation.js';

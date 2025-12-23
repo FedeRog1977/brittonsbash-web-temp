@@ -1,49 +1,44 @@
-import { AggregationAlphabetical } from './aggregation-alphabetical.js';
-import { AggregationNumerical } from './aggregation-numerical.js';
+import { EventAggregation } from './event-aggregation.js';
+import { EventYear } from './event-year.js';
 import { Project } from './project.js';
 
 export type MappedProjects = {
   projects: {
-    2020: Project[];
-    2021: Project[];
-    2022: Project[];
-    2023: Project[];
-    2024: Project[];
-    2025: Project[];
+    [K in EventYear]: Project[];
   };
-  number: AggregationNumerical;
-  distance: AggregationAlphabetical;
-  elevation: AggregationAlphabetical;
+  number: EventAggregation<number>;
+  distance: EventAggregation<string | string[]>;
+  elevation: EventAggregation<string | string[]>;
   islands: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   munros: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   munroTops: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   corbetts: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   corbettTops: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   grahams: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   subTwos: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
   donalds: {
-    names: AggregationAlphabetical;
-    number: AggregationNumerical;
+    names: EventAggregation<string | string[]>;
+    number: EventAggregation<number>;
   };
 };

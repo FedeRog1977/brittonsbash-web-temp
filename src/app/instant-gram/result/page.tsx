@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { ReactElement } from 'react';
-import { facade } from '../../_libs/constants/facade.js';
-import { SearchParams } from '../../_libs/types/search-params.js';
-import { ResultTemplate } from '../../_interface/templates/instant-gram/result/result-template.jsx';
+import { InstantGramSearchParams } from '../../_libs/types/instant-gram-search-params.js';
+import { InstantGramResultTemplate } from '../../_app-ui/templates/instant-gram/result/instant-gram-result-template.jsx';
+import { facade } from '../../_app-facade/index.js';
 
-export type ResultProps = {
-  searchParams: Promise<SearchParams>;
+export type InstantGramResultProps = {
+  searchParams: Promise<InstantGramSearchParams>;
 };
 
 export const revalidate = 300;
@@ -16,7 +16,9 @@ export const generateMetadata = (): Metadata => ({
   keywords: ['brittonsbash', 'instant', 'gram'],
 });
 
-const Result = async ({ searchParams }: ResultProps): Promise<ReactElement> => {
+const InstantGramResult = async ({
+  searchParams,
+}: InstantGramResultProps): Promise<ReactElement> => {
   let eventData = await facade.getEvent('2025', 'e2025005');
 
   const params = await searchParams;
@@ -25,7 +27,7 @@ const Result = async ({ searchParams }: ResultProps): Promise<ReactElement> => {
   }
 
   return (
-    <ResultTemplate
+    <InstantGramResultTemplate
       prefix={eventData.prefix}
       names={eventData.names}
       startDate={eventData.startDate}
@@ -38,4 +40,4 @@ const Result = async ({ searchParams }: ResultProps): Promise<ReactElement> => {
   );
 };
 
-export default Result;
+export default InstantGramResult;

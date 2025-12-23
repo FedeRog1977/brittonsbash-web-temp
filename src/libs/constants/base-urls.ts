@@ -1,3 +1,3 @@
 export enum baseUrls {
-  brittonsBashContent = 'https://lewisbritton.com/data',
+  brittonsBashContentService = 'https://lewisbritton.com/data',
 }

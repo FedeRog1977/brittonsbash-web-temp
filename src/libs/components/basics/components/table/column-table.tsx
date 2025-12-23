@@ -15,8 +15,8 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
   <div className={styles.containerColumns}>
     <div className={styles.table}>
       <Flex direction="horizontal" alignHorizontal="apart">
-        <Flex direction="vertical" gap="xs">
-          <Typography variant="footnote" boldFace>
+        <Flex direction="vertical" alignVertical="bottom" gap="xs">
+          <Typography variant="h4" boldFace>
             {leftColumn.title != null ? leftColumn.title : <>&nbsp;</>}
           </Typography>
 
@@ -32,10 +32,11 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
             <Flex
               key={generateUniqueKey(index)}
               direction="vertical"
+              alignVertical="bottom"
               alignHorizontal="right"
               gap="xs"
             >
-              <Typography variant="footnote" boldFace>
+              <Typography variant="body" boldFace>
                 {title}
               </Typography>
 

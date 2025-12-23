@@ -7,6 +7,7 @@ export * from './generate-unique-key.js';
 export * from './get-parsed-date.js';
 export * from './is-defined.js';
 export * from './is-mobile.js';
+export * from './map-key-value.js';
 export * from './remove-duplicates.js';
 export * from './report-web-vitals.js';
 export * from './sort-alphabetical.js';
