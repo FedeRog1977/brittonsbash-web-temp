@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import styles from './table.module.scss.js';
 import { generateUniqueKey } from '~/libs/utils';
 import { FlexItem } from '../flex/flex-item.js';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.js';
+import styles from './table.module.scss.js';
 import { Row } from './types/row.js';
 
 export type RowTableProps = {
@@ -16,8 +16,8 @@ export const RowTable: FC<RowTableProps> = ({ titleRow, rows }) => (
   <div className={styles.containerRows}>
     <div className={styles.table}>
       <Flex direction="vertical" gap="xs">
-        <Flex direction="horizontal" alignHorizontal="apart">
-          {titleRow.leftItem != null ? (
+        <Flex direction="horizontal" alignVertical="center" alignHorizontal="apart">
+          {titleRow.leftItem ? (
             <FlexItem basis={4}>
               <Typography variant="h4" boldFace>
                 {titleRow.leftItem}
@@ -25,9 +25,7 @@ export const RowTable: FC<RowTableProps> = ({ titleRow, rows }) => (
             </FlexItem>
           ) : (
             <FlexItem basis={4}>
-              <Typography variant="footnote">
-                <>&nbsp;</>
-              </Typography>
+              <Typography variant="footnote">&nbsp;</Typography>
             </FlexItem>
           )}
 
@@ -39,7 +37,7 @@ export const RowTable: FC<RowTableProps> = ({ titleRow, rows }) => (
         </Flex>
 
         <Flex direction="vertical" gap="xs">
-          {rows?.map(({ leftItem, rightItem }, index) => {
+          {rows.map(({ leftItem, rightItem }, index) => {
             if (leftItem && rightItem) {
               return (
                 <Flex key={generateUniqueKey(index)} direction="horizontal" alignHorizontal="apart">

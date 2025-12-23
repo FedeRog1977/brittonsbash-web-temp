@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ReactElement } from 'react';
 import { hillTypesCountMap, hillTypesReadableMap } from '~/libs/constants';
+import { HillType } from '~/libs/types';
 import { getRate } from '~/libs/utils';
 import { facade } from '../../_facade/index.js';
 import { ProjectsSearchParams } from '../../_libs/types/projects-search-params.js';
@@ -20,13 +21,15 @@ export const generateMetadata = (): Metadata => ({
 
 const ProjectsHills = async ({ searchParams }: ProjectsHillsProps): Promise<ReactElement> => {
   let projectsHills = await facade.getProjectsHills('munros');
-  let hillType = 'Munros';
+  let hillType: HillType = 'munros';
+  let hillTypeReadable = 'Munros';
   let hillTypeCount = hillTypesCountMap.munros;
 
   const params = await searchParams;
   if (params.type) {
     projectsHills = await facade.getProjectsHills(params.type);
-    hillType = hillTypesReadableMap[params.type];
+    hillType = params.type;
+    hillTypeReadable = hillTypesReadableMap[params.type];
     hillTypeCount = hillTypesCountMap[params.type];
   }
 
@@ -35,6 +38,7 @@ const ProjectsHills = async ({ searchParams }: ProjectsHillsProps): Promise<Reac
   return (
     <ProjectsHillsTemplate
       hillType={hillType}
+      hillTypeReadable={hillTypeReadable}
       hillTypeCount={hillTypeCount}
       hillTypeCompletionRate={hillTypeCompletionRate}
       projectsHills={projectsHills}
