@@ -8,6 +8,7 @@
         "name": "next"
       }
     ],
+    "strictNullChecks": true,
     "paths": {
       "~/libs/components-basics/*": ["./src/libs/components/basics/components/*/index.ts"],
       "~/libs/components-blocks/*": ["./src/libs/components/blocks/*/index.ts"],

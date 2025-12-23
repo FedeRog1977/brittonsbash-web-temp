@@ -1,10 +1,10 @@
 import { JSONSchema } from '~/libs/types';
 import { ValidationError } from './errors/validation-error.js';
+import { ajvErrors } from './forks/ajv-errors.js';
+import { Ajv, AnySchema, ValidateFunction, DefinedError } from './forks/ajv.js';
+import { Interface } from './interface.js';
 import { ValidateOptions } from './types/validate-options.js';
 import { mapValidationError } from './utils/map-validation-error.js';
-import { Interface } from './interface.js';
-import { Ajv, AnySchema, ValidateFunction, DefinedError } from './forks/ajv.js';
-import { ajvErrors } from './forks/ajv-errors.js';
 
 export class Implementation implements Interface {
   private readonly compiledValidators: Map<AnySchema, ValidateFunction> = new Map();

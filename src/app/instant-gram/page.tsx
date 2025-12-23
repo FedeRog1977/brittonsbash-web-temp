@@ -1,12 +1,12 @@
-import { SubmitHandler } from '~/libs/components-basics/form';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { InstantGramData } from '../_app-schema/types/instant-gram-data.js';
-import { InstantGramTemplate } from '../_app-ui/templates/index.js';
+import { SubmitHandler } from '~/libs/components-basics/form';
+import { facade } from '../_facade/index.js';
 import { routes } from '../_libs/constants/routes.js';
 import { getEventNames } from '../_libs/utils/get-event-names.js';
-import { facade } from '../_app-facade/index.js';
+import { InstantGramData } from '../_schema/types/instant-gram-data.js';
+import { InstantGramTemplate } from '../_ui/templates/index.js';
 
 export const revalidate = 300;
 
@@ -20,6 +20,7 @@ const InstantGram = async (): Promise<ReactElement> => {
   const years = await facade.getEventYears();
   const events = await getEventNames(years);
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handleSubmit: SubmitHandler<InstantGramData> = async (formValues) => {
     'use server';
 

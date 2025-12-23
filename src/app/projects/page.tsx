@@ -1,17 +1,12 @@
 import { Metadata } from 'next';
-import { ReactElement } from 'react';
-import { Flex } from '~/libs/components-basics/flex';
-import { ColumnTable, RowTable } from '~/libs/components-basics/table';
-import { Tile } from '~/libs/components-basics/tile';
-import { PageLayout } from '~/libs/components-templates/page-layout';
-import { facade } from '../_app-facade/index.js';
-import { Typography } from '~/libs/components-basics/typography';
-import { ProjectsTemplate } from '../_app-ui/templates/index.js';
 import { redirect } from 'next/navigation.js';
+import { ReactElement } from 'react';
 import { SubmitHandler } from '~/libs/components-basics/form';
-import { ProjectsEventsData } from '../_app-schema/types/projects-events-data.js';
+import { facade } from '../_facade/index.js';
 import { routes } from '../_libs/constants/routes.js';
-import { ProjectsHillsData } from '../_app-schema/types/projects-hills-data.js';
+import { ProjectsEventsData } from '../_schema/types/projects-events-data.js';
+import { ProjectsHillsData } from '../_schema/types/projects-hills-data.js';
+import { ProjectsTemplate } from '../_ui/templates/index.js';
 
 export const revalidate = 300;
 
@@ -27,16 +22,14 @@ const Projects = async (): Promise<ReactElement> => {
   const projectsStats = await facade.getProjectsStats();
   const projectsSummary = await facade.getProjectsSummary();
 
-  // TODO: move to /hills
-  const projectsHills = await facade.getProjectsHills('munros');
-  console.log(projectsHills);
-
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handleEventsSubmit: SubmitHandler<ProjectsEventsData> = async (formValues) => {
     'use server';
 
     redirect(`${routes.projects.events}?year=${formValues.year}`);
   };
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handleHillsSubmit: SubmitHandler<ProjectsHillsData> = async (formValues) => {
     'use server';
 

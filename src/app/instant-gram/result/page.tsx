@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { ReactElement } from 'react';
+import { facade } from '../../_facade/index.js';
 import { InstantGramSearchParams } from '../../_libs/types/instant-gram-search-params.js';
-import { InstantGramResultTemplate } from '../../_app-ui/templates/instant-gram/result/instant-gram-result-template.jsx';
-import { facade } from '../../_app-facade/index.js';
+import { InstantGramResultTemplate } from '../../_ui/templates/instant-gram/result/instant-gram-result-template.jsx';
 
 export type InstantGramResultProps = {
   searchParams: Promise<InstantGramSearchParams>;

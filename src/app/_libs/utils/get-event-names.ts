@@ -1,12 +1,12 @@
-import { Event } from '../../_app-schema/types/event.js';
-import { facade } from '../constants/facade.js';
+import { facade } from '../../_facade/index.js';
+import { Event } from '../../_schema/types/event.js';
 
-export const getEventNames = async (years: string[]) => {
+export const getEventNames = async (years: string[]): Promise<Event[]> => {
   'use server';
 
-  let events: Event[] = [];
+  const events: Event[] = [];
 
-  for (const year of years) {
+  for await (const year of years) {
     const names = await facade.getEventNames(year);
 
     events.push({ year, events: names });

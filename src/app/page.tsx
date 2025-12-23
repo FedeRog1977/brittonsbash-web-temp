@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { PageParams } from './_libs/types/page-params.js';
 import { HomeSearchParams } from './_libs/types/home-search-params.js';
-import { HomeTemplate } from './_app-ui/templates/home-template.jsx';
+import { HomeTemplate } from './_ui/templates/home-template.jsx';
 
 export type HomePageProps = {
-  params: Promise<PageParams>;
+  // params: Promise<PageParams>;
   searchParams: Promise<HomeSearchParams>;
 };
 
