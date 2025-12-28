@@ -123,8 +123,8 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             }}
             rightColumns={[
               {
-                title: 'Occurrences',
-                entries: projectsSummary.occurrences,
+                title: 'Instances',
+                entries: projectsSummary.instances,
               },
               {
                 title: 'Distance',

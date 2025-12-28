@@ -149,11 +149,11 @@ export class Implementation implements Interface {
           const sport: Project[] = [];
 
           for (const id of parsedResponse.projectId) {
-            const sportIteration = (await this.getSport(
+            const sportIteration = await this.getSport(
               'projects',
               parsedResponse.id.split('').slice(1, 5).join(''),
               id.toLowerCase(),
-            )) as Project;
+            );
 
             sport.push(sportIteration);
           }
@@ -182,11 +182,11 @@ export class Implementation implements Interface {
           return mappedParsedMappedMultipleSportResponse;
         }
 
-        const sport = (await this.getSport(
+        const sport = await this.getSport(
           'projects',
           parsedResponse.id.split('').slice(1, 5).join(''),
           parsedResponse.projectId.toLowerCase(),
-        )) as Project;
+        );
 
         const mappedSport = mapEventProject(sport);
 

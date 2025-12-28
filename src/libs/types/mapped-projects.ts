@@ -6,39 +6,39 @@ export type MappedProjects = {
   projects: {
     [K in EventYear]: Project[];
   };
-  number: EventAggregation<number>;
-  distance: EventAggregation<string | string[]>;
-  elevation: EventAggregation<string | string[]>;
+  number: Extract<EventAggregation<number>, { type: 'sansUnique' }>;
+  distance: Extract<EventAggregation<string | string[]>, { type: 'sansUnique' }>;
+  elevation: Extract<EventAggregation<string | string[]>, { type: 'sansUnique' }>;
   islands: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   munros: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   munroTops: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   corbetts: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   corbettTops: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   grahams: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   subTwos: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
   donalds: {
-    names: EventAggregation<string | string[]>;
-    number: EventAggregation<number>;
+    names: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
+    number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
 };

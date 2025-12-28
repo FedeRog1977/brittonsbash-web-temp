@@ -55,17 +55,13 @@ export class Implementation implements Interface {
     const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
     const hills: string[] = [];
 
-    // We can be confident in this assertion due to `HillType` typesetting
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    for (const hill of mappedProjects[hillType].names.unique!) {
+    for (const hill of mappedProjects[hillType].names.unique) {
       hills.push(hill);
     }
 
     const projectsHills = {
       total: mappedProjects[hillType].number.total,
-      // `unique` will always exist on the object it is acquired from, just not some others
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      unique: mappedProjects[hillType].number.unique!,
+      unique: mappedProjects[hillType].number.unique,
       hills,
     };
 
@@ -112,18 +108,18 @@ export class Implementation implements Interface {
   public async getProjectsSummary(): Promise<ProjectsSummary> {
     const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
     const labels: string[] = [];
-    const occurrences: string[] = [];
+    const instances: string[] = [];
     const distances: string[] = [];
     const elevations: string[] = [];
 
     mapKeyValue('key', mappedProjects.number, labels);
-    mapKeyValue('value', mappedProjects.number, occurrences);
+    mapKeyValue('value', mappedProjects.number, instances);
     mapKeyValue('value', mappedProjects.distance, distances);
     mapKeyValue('value', mappedProjects.elevation, elevations);
 
     const projectsSummary = {
       labels: labels.reverse(),
-      occurrences: occurrences.reverse(),
+      instances: instances.reverse(),
       distances: distances.reverse(),
       elevations: elevations.reverse(),
     };

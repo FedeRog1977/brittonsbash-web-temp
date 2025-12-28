@@ -1,6 +1,6 @@
 export type ProjectsSummary = {
   labels: string[];
-  occurrences: string[];
+  instances: string[];
   distances: string[];
   elevations: string[];
 };

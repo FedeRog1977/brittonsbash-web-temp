@@ -16,7 +16,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //     {}
   // )
 
-  // const Occurrences: MappedProjects['occurrences'] = Object.keys(
+  // const Instances: MappedProjects['instances'] = Object.keys(
   //     sport
   // ).reduce((object, key) => {
   //     let total = 0
@@ -102,7 +102,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -130,7 +130,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -162,7 +162,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -190,7 +190,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -223,7 +223,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         [key]: yearTotal.sort(),
   //         totalCount: total.length,
   //         uniqueCount: removeDuplicates(total).length,
-  //         [key + 'Occurrences']: yearTotal.length,
+  //         [key + 'Instances']: yearTotal.length,
   //     }
   // }, {})
 
@@ -249,7 +249,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -277,7 +277,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -305,7 +305,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //             [key]: yearTotal.sort(),
   //             totalCount: total.length,
   //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Occurrences']: yearTotal.length,
+  //             [key + 'Instances']: yearTotal.length,
   //         }
   //     },
   //     {}
@@ -313,7 +313,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   // console.log({
   //     Projects,
-  //     Occurrences,
+  //     Instances,
   //     Distance,
   //     Elevation,
   //     Islands,
@@ -328,7 +328,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   // const MappedProjectsTemp: MappedProjects = {
   //     Projects,
-  //     Occurrences,
+  //     Instances,
   //     Distance,
   //     Elevation,
   //     Islands,
@@ -353,6 +353,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   };
 
   const number: MappedProjects['number'] = {
+    type: 'sansUnique',
     total:
       sport[2025].projects.length +
       sport[2024].projects.length +
@@ -377,8 +378,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwosTotal: string[] = [];
   const donaldsTotal: string[] = [];
 
-  var distance2025: number = 0;
-  var elevation2025: number = 0;
+  let distance2025 = 0;
+  let elevation2025 = 0;
 
   const islands2025: string[] = [];
   const munros2025: string[] = [];
@@ -444,8 +445,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
-  var distance2024: number = 0;
-  var elevation2024: number = 0;
+  let distance2024 = 0;
+  let elevation2024 = 0;
 
   const islands2024: string[] = [];
   const munros2024: string[] = [];
@@ -511,8 +512,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
-  var distance2023: number = 0;
-  var elevation2023: number = 0;
+  let distance2023 = 0;
+  let elevation2023 = 0;
 
   const islands2023: string[] = [];
   const munros2023: string[] = [];
@@ -578,8 +579,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
-  var distance2022: number = 0;
-  var elevation2022: number = 0;
+  let distance2022 = 0;
+  let elevation2022 = 0;
 
   const islands2022: string[] = [];
   const munros2022: string[] = [];
@@ -645,8 +646,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
-  var distance2021: number = 0;
-  var elevation2021: number = 0;
+  let distance2021 = 0;
+  let elevation2021 = 0;
 
   const islands2021: string[] = [];
   const munros2021: string[] = [];
@@ -712,8 +713,8 @@ export const mapProjects = (sport: Sport): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
-  var distance2020: number = 0;
-  var elevation2020: number = 0;
+  let distance2020 = 0;
+  let elevation2020 = 0;
 
   const islands2020: string[] = [];
   const munros2020: string[] = [];
@@ -781,6 +782,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const islands: MappedProjects['islands'] = {
     names: {
+      type: 'unique',
       total: islandsTotal.sort(),
       unique: removeDuplicates(islandsTotal).sort(),
       2025: islands2025.sort(),
@@ -791,6 +793,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: islands2020.sort(),
     },
     number: {
+      type: 'unique',
       total: islandsTotal.length,
       unique: removeDuplicates(islandsTotal).length,
       2025: islands2025.length,
@@ -804,6 +807,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const munros: MappedProjects['munros'] = {
     names: {
+      type: 'unique',
       total: munrosTotal.sort(),
       unique: removeDuplicates(munrosTotal).sort(),
       2025: munros2025.sort(),
@@ -814,6 +818,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: munros2020.sort(),
     },
     number: {
+      type: 'unique',
       total: munrosTotal.length,
       unique: removeDuplicates(munrosTotal).length,
       2025: munros2025.length,
@@ -827,6 +832,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const munroTops: MappedProjects['munroTops'] = {
     names: {
+      type: 'unique',
       total: munroTopsTotal.sort(),
       unique: removeDuplicates(munroTopsTotal).sort(),
       2025: munroTops2025.sort(),
@@ -837,6 +843,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: munroTops2020.sort(),
     },
     number: {
+      type: 'unique',
       total: munroTopsTotal.length,
       unique: removeDuplicates(munroTopsTotal).length,
       2025: munroTops2025.length,
@@ -850,6 +857,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const corbetts: MappedProjects['corbetts'] = {
     names: {
+      type: 'unique',
       total: corbettsTotal.sort(),
       unique: removeDuplicates(corbettsTotal).sort(),
       2025: corbetts2025.sort(),
@@ -860,6 +868,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: corbetts2020.sort(),
     },
     number: {
+      type: 'unique',
       total: corbettsTotal.length,
       unique: removeDuplicates(corbettsTotal).length,
       2025: corbetts2025.length,
@@ -873,6 +882,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const corbettTops: MappedProjects['corbettTops'] = {
     names: {
+      type: 'unique',
       total: corbettTopsTotal.sort(),
       unique: removeDuplicates(corbettTopsTotal).sort(),
       2025: corbettTops2025.sort(),
@@ -883,6 +893,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: corbettTops2020.sort(),
     },
     number: {
+      type: 'unique',
       total: corbettTopsTotal.length,
       unique: removeDuplicates(corbettTopsTotal).length,
       2025: corbettTops2025.length,
@@ -896,6 +907,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const grahams: MappedProjects['grahams'] = {
     names: {
+      type: 'unique',
       total: grahamsTotal.sort(),
       unique: removeDuplicates(grahamsTotal).sort(),
       2025: grahams2025.sort(),
@@ -906,6 +918,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: grahams2020.sort(),
     },
     number: {
+      type: 'unique',
       total: grahamsTotal.length,
       unique: removeDuplicates(grahamsTotal).length,
       2025: grahams2025.length,
@@ -919,6 +932,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const subTwos: MappedProjects['subTwos'] = {
     names: {
+      type: 'unique',
       total: subTwosTotal.sort(),
       unique: removeDuplicates(subTwosTotal).sort(),
       2025: subTwos2025.sort(),
@@ -929,6 +943,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: subTwos2020.sort(),
     },
     number: {
+      type: 'unique',
       total: subTwosTotal.length,
       unique: removeDuplicates(subTwosTotal).length,
       2025: subTwos2025.length,
@@ -942,6 +957,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
 
   const donalds: MappedProjects['donalds'] = {
     names: {
+      type: 'unique',
       total: donaldsTotal.sort(),
       unique: removeDuplicates(donaldsTotal).sort(),
       2025: donalds2025.sort(),
@@ -952,6 +968,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
       2020: donalds2020.sort(),
     },
     number: {
+      type: 'unique',
       total: donaldsTotal.length,
       unique: removeDuplicates(donaldsTotal).length,
       2025: donalds2025.length,
@@ -964,6 +981,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   };
 
   const distance: MappedProjects['distance'] = {
+    type: 'sansUnique',
     total: toMiles(
       distance2025 + distance2024 + distance2023 + distance2022 + distance2021 + distance2020,
     ),
@@ -976,6 +994,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   };
 
   const elevation: MappedProjects['elevation'] = {
+    type: 'sansUnique',
     total: toFeet(
       elevation2025 + elevation2024 + elevation2023 + elevation2022 + elevation2021 + elevation2020,
     ),

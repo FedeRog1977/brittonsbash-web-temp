@@ -1,10 +1,18 @@
 import { EventYear } from './event-year.js';
 
-type Base<T extends unknown> = {
+type BaseUnique<T extends string | string[] | number> = {
+  type: 'unique';
   total: T;
-  unique?: T;
+  unique: T;
 };
 
-export type EventAggregation<T extends unknown> = Base<T> & {
+type BaseSansUnique<T extends string | string[] | number> = {
+  type: 'sansUnique';
+  total: T;
+};
+
+type Base<T extends string | string[] | number> = BaseUnique<T> | BaseSansUnique<T>;
+
+export type EventAggregation<T extends string | string[] | number> = Base<T> & {
   [K in EventYear]: T;
 };
