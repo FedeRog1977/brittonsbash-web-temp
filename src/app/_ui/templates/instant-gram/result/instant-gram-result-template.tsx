@@ -17,7 +17,7 @@ export type InstantGramResultTemplateProps = {
   names: string[];
   startDate: string;
   endDate?: string;
-  description: string;
+  description: string | string[];
   features?: GenericDataContent[];
   sport?: MappedEventProject;
   images: Img[];
@@ -94,9 +94,17 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             />
           ) : null}
 
-          <Typography variant="footnote" textAlign="justify" markdown>
-            {description}
-          </Typography>
+          {Array.isArray(description) ? (
+            description.map((paragraph) => (
+              <Typography key={paragraph} variant="footnote" textAlign="justify" markdown>
+                {paragraph}
+              </Typography>
+            ))
+          ) : (
+            <Typography variant="footnote" textAlign="justify" markdown>
+              {description}
+            </Typography>
+          )}
 
           <Button
             variant="solidDark"

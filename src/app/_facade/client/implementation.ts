@@ -1,5 +1,5 @@
 import { Event, EventYear, HillType } from '~/libs/types';
-import { mapKeyValue, toFeet, toMiles } from '~/libs/utils';
+import { mapKeyValue, removeDuplicates, toFeet, toMiles } from '~/libs/utils';
 import { BrittonsBashContentServiceClient } from '~/services/brittonsbash-content';
 import { ProjectsEvent } from '../../_schema/types/projects-event.js';
 import { ProjectsHills } from '../../_schema/types/projects-hills.js';
@@ -55,14 +55,23 @@ export class Implementation implements Interface {
     const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
     const hills: string[] = [];
 
-    for (const hill of mappedProjects[hillType].names.unique) {
-      hills.push(hill);
+    for (const hill of mappedProjects[hillType].names.total) {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      const count = (mappedProjects[hillType].names.total as string[]).reduce(
+        (index, value) => (value === hill ? index + 1 : index),
+        0,
+      );
+
+      const countReadable = count > 1 ? ` [${count}]` : '';
+
+      hills.push(`${hill}${countReadable}`);
     }
 
     const projectsHills = {
       total: mappedProjects[hillType].number.total,
       unique: mappedProjects[hillType].number.unique,
-      hills,
+      // Already `sort()`ed in the service client
+      hills: removeDuplicates(hills),
     };
 
     return projectsHills;

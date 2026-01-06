@@ -14,6 +14,10 @@ export const mapEventFeaturesReadable = (features: Features): GenericDataContent
     content: features.airports?.sort().join(', '),
   },
   {
+    title: 'Transportation',
+    content: features.transportation?.sort().join(', '),
+  },
+  {
     title: 'Accommodation',
     content: features.accommodation?.sort().join(', '),
   },

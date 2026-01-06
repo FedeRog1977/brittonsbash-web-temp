@@ -1,8 +1,8 @@
-import { Img } from './img.js';
 import { Features } from './features.js';
-import { Project } from './project.js';
-import { MappedEventProject } from './mapped-event-project.js';
 import { GenericDataContent } from './generic-data-content.js';
+import { Img } from './img.js';
+import { MappedEventProject } from './mapped-event-project.js';
+import { Project } from './project.js';
 
 type EventBasics = {
   id: string;
@@ -11,7 +11,7 @@ type EventBasics = {
   names: string[];
   startDate: string;
   endDate?: string;
-  description: string;
+  description: string | string[];
   images: Img[];
 };
 

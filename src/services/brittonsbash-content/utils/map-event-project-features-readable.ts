@@ -1,4 +1,4 @@
-import { Features, GenericDataContent } from '~/libs/types';
+import { GenericDataContent } from '~/libs/types';
 
 export const mapEventProjectFeaturesReadable = (
   islands?: string[],
@@ -12,7 +12,7 @@ export const mapEventProjectFeaturesReadable = (
 ): GenericDataContent[] => [
   {
     title: 'Islands',
-    content: islands && islands?.length > 0 ? islands.sort().join(', ') : undefined,
+    content: islands && islands.length > 0 ? islands.sort().join(', ') : undefined,
   },
   {
     title: 'Munros',

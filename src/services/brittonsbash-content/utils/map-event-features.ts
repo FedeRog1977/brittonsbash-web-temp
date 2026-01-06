@@ -5,6 +5,7 @@ export const mapEventFeatures = (events: Events): Features => {
   const countries: string[] = [];
   const cities: string[] = [];
   const airports: string[] = [];
+  const transportation: string[] = [];
   const accommodation: string[] = [];
   const districts: string[] = [];
   const attractions: string[] = [];
@@ -43,6 +44,9 @@ export const mapEventFeatures = (events: Events): Features => {
     });
     event.features?.airports?.forEach((airport) => {
       airports.push(airport);
+    });
+    event.features?.transportation?.forEach((airport) => {
+      transportation.push(airport);
     });
     event.features?.accommodation?.forEach((accommodationIteration) => {
       accommodation.push(accommodationIteration);
@@ -140,6 +144,9 @@ export const mapEventFeatures = (events: Events): Features => {
     event.features?.airports?.forEach((airport) => {
       airports.push(airport);
     });
+    event.features?.transportation?.forEach((airport) => {
+      transportation.push(airport);
+    });
     event.features?.accommodation?.forEach((accommodationIteration) => {
       accommodation.push(accommodationIteration);
     });
@@ -235,6 +242,9 @@ export const mapEventFeatures = (events: Events): Features => {
     });
     event.features?.airports?.forEach((airport) => {
       airports.push(airport);
+    });
+    event.features?.transportation?.forEach((airport) => {
+      transportation.push(airport);
     });
     event.features?.accommodation?.forEach((accommodationIteration) => {
       accommodation.push(accommodationIteration);
@@ -332,6 +342,9 @@ export const mapEventFeatures = (events: Events): Features => {
     event.features?.airports?.forEach((airport) => {
       airports.push(airport);
     });
+    event.features?.transportation?.forEach((airport) => {
+      transportation.push(airport);
+    });
     event.features?.accommodation?.forEach((accommodationIteration) => {
       accommodation.push(accommodationIteration);
     });
@@ -428,6 +441,9 @@ export const mapEventFeatures = (events: Events): Features => {
     event.features?.airports?.forEach((airport) => {
       airports.push(airport);
     });
+    event.features?.transportation?.forEach((airport) => {
+      transportation.push(airport);
+    });
     event.features?.accommodation?.forEach((accommodationIteration) => {
       accommodation.push(accommodationIteration);
     });
@@ -518,6 +534,7 @@ export const mapEventFeatures = (events: Events): Features => {
     countries: removeDuplicates(countries.sort()),
     cities: removeDuplicates(cities.sort()),
     airports: removeDuplicates(airports.sort()),
+    transportation: removeDuplicates(transportation.sort()),
     accommodation: removeDuplicates(accommodation.sort()),
     districts: removeDuplicates(districts.sort()),
     attractions: removeDuplicates(attractions.sort()),

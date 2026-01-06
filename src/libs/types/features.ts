@@ -2,6 +2,7 @@ export type Features = {
   countries?: string[];
   cities?: string[];
   airports?: string[];
+  transportation?: string[];
   accommodation?: string[];
   districts?: string[];
   attractions?: string[];
