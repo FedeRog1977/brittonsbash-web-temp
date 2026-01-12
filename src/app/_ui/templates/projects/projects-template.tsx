@@ -76,7 +76,7 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
     <PageLayout background={{ type: 'sport', content: 'Projects' }}>
       <Tile type="clear" width="wide">
         <Flex direction="vertical" gap={isMobile() ? 'xs' : 'md'}>
-          <Typography variant="t2">Search</Typography>
+          <Typography variant="t2">Search Projects</Typography>
 
           <Form
             validationSchema={projectsEventsDataValidationSchema}

@@ -5,7 +5,6 @@ import { Button, Form, Select, useClientSubmit } from '~/libs/components-basics/
 import { Flex } from '~/libs/components-basics/flex';
 import { CustomErrors, SelectOption, SubmitHandler } from '~/libs/components-basics/form';
 import { Loading } from '~/libs/components-basics/loading';
-import { Spacing } from '~/libs/components-basics/spacing';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
 import { PageLayout } from '~/libs/components-templates/page-layout';
@@ -70,45 +69,44 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
   return (
     <PageLayout background={{ type: 'ig', content: 'Instant Gram' }}>
       <Tile type="clear" width="wide">
-        <Spacing marginY="xl">
-          <Flex direction="vertical" gap="md">
-            <Form
-              validationSchema={instantGramDataValidationSchema}
-              customErrors={customErrors}
-              onSubmit={handleSubmit}
-              defaultValues={defaultValues}
-            >
-              <Flex direction="vertical" alignHorizontal="left" gap="md">
-                <Typography variant="t2">Search Events</Typography>
+        <Flex direction="vertical" gap="md">
+          <Form
+            validationSchema={instantGramDataValidationSchema}
+            customErrors={customErrors}
+            onSubmit={handleSubmit}
+            defaultValues={defaultValues}
+          >
+            <Flex direction="vertical" alignHorizontal="left" gap="md">
+              <Typography variant="t2">Search Events</Typography>
 
-                <Select
-                  name="year"
-                  label="Select event year"
-                  options={yearOptions}
-                  onChange={(event): void => {
-                    onSelectYear(event);
-                  }}
-                  defaultValue=""
-                />
+              <Select
+                name="year"
+                label="Select Event Year"
+                options={yearOptions}
+                onChange={(event): void => {
+                  onSelectYear(event);
+                }}
+                defaultValue=""
+              />
 
-                <Select
-                  name="event"
-                  label="Select event"
-                  options={eventOptions}
-                  disabled={eventDisabled}
-                />
+              <Select
+                name="event"
+                label="Select Event"
+                options={eventOptions}
+                disabled={eventDisabled}
+              />
 
-                {isSubmitting ? (
-                  <Loading />
-                ) : (
-                  <Button variant="solidDark" type="submit" width="quarter">
-                    Submit
-                  </Button>
-                )}
-              </Flex>
-            </Form>
+              {isSubmitting ? (
+                <Loading />
+              ) : (
+                <Button variant="solidDark" type="submit" width="quarter">
+                  Submit
+                </Button>
+              )}
+            </Flex>
+          </Form>
 
-            {/* <form method="GET" action="/instant-gram/result">
+          {/* <form method="GET" action="/instant-gram/result">
             <Flex direction="vertical" alignHorizontal="center" gap="md">
               <input id="yearTestId" name="year"></input>
               <select
@@ -143,8 +141,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
               )}
             </Flex>
           </form> */}
-          </Flex>
-        </Spacing>
+        </Flex>
       </Tile>
     </PageLayout>
   );
