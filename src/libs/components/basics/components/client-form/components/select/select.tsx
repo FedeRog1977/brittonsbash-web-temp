@@ -22,6 +22,7 @@ export const Select: FC<SelectProps> = ({
   options,
   disabled = false,
   defaultValue,
+  // eslint-disable-next-line react/no-object-type-as-default-prop, @typescript-eslint/no-empty-function
   onChange = (): void => {},
 }) => {
   const id = useId();
@@ -72,6 +73,8 @@ export const Select: FC<SelectProps> = ({
           /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...controlProps}
         >
+          <option value={defaultValue}>{defaultValue}</option>
+
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

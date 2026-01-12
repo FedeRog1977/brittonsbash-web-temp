@@ -2,9 +2,11 @@
 
 // import cx from 'classnames';
 import { ChangeEvent, FC, useId, useState } from 'react';
+
 // import { useError } from '../../hooks/use-error.js';
 // import { FieldHelp } from '../utilities/field-help/field-help.js';
 import { SelectOption } from './types/select-option.js';
+
 // import styles from './select.module.scss.js';
 
 export type SelectProps = {
@@ -74,10 +76,7 @@ export const Select: FC<SelectProps> = ({
           onBlur={handleBlur}
           onChange={handleChange}
         >
-          <option
-            value=""
-            // className={styles.placeholder}
-          />
+          <option value={initialValue}>{initialValue}</option>
 
           {options.map((option) => (
             <option key={option.value} value={option.value}>

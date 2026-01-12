@@ -78,7 +78,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
               onSubmit={handleSubmit}
               defaultValues={defaultValues}
             >
-              <Flex direction="vertical" alignHorizontal="center" gap="md">
+              <Flex direction="vertical" alignHorizontal="left" gap="md">
                 <Typography variant="t2">Search Events</Typography>
 
                 <Select
@@ -88,7 +88,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
                   onChange={(event): void => {
                     onSelectYear(event);
                   }}
-                  defaultValue={selectedYear}
+                  defaultValue=""
                 />
 
                 <Select
@@ -101,7 +101,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
                 {isSubmitting ? (
                   <Loading />
                 ) : (
-                  <Button variant="default" type="submit" width="quarter">
+                  <Button variant="solidDark" type="submit" width="quarter">
                     Submit
                   </Button>
                 )}
