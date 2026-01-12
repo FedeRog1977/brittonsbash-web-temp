@@ -1,3 +1,4 @@
+import { EventTag } from './event-tag.js';
 import { Features } from './features.js';
 import { GenericDataContent } from './generic-data-content.js';
 import { Img } from './img.js';
@@ -6,6 +7,7 @@ import { Project } from './project.js';
 
 type EventBasics = {
   id: string;
+  tags?: EventTag[];
   projectId: string | string[];
   prefix?: string;
   names: string[];

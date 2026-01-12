@@ -1,10 +1,11 @@
-import { Event } from '~/libs/types';
+import { Event, EventTag } from '~/libs/types';
 import { ProjectsEvent } from '../../_schema/types/projects-event.js';
 import { ProjectsHills } from '../../_schema/types/projects-hills.js';
 import { ProjectsStats } from '../../_schema/types/projects-stats.js';
 import { ProjectsSummary } from '../../_schema/types/projects-summary.js';
 import { Interface } from '../interface.js';
 import { mockEventNames } from './data/mock-event-names.js';
+import { mockEventTags } from './data/mock-event-tags.js';
 import { mockEventYears } from './data/mock-event-years.js';
 import { mockEvent } from './data/mock-event.js';
 import { mockProjectsEvents } from './data/mock-projects-events.js';
@@ -13,8 +14,12 @@ import { mockProjectsStats } from './data/mock-projects-stats.js';
 import { mockProjectsSummary } from './data/mock-projects-summary.js';
 
 export class Implementation implements Interface {
-  public async getEventNames(): Promise<Array<Pick<Event, 'id' | 'prefix' | 'names'>>> {
+  public async getEventNames(): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
     return Promise.resolve(mockEventNames);
+  }
+
+  public async getEventTags(): Promise<EventTag[]> {
+    return Promise.resolve(mockEventTags);
   }
 
   public async getEventYears(): Promise<string[]> {

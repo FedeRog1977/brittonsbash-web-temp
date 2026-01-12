@@ -1,7 +1,6 @@
 import {
   Culinary,
   Event,
-  Events,
   Features,
   Hills,
   Img,
@@ -9,11 +8,13 @@ import {
   Project,
   UrlGroup,
   Regions,
+  EventTag,
 } from '~/libs/types';
 
 export interface Interface {
   getCulinary: () => Promise<Culinary>;
-  getEventNames: (year: string) => Promise<Array<Pick<Event, 'id' | 'prefix' | 'names'>>>;
+  getEventNames: (year: string) => Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>>;
+  getEventTags: () => Promise<EventTag[]>;
   getEventYears: () => Promise<string[]>;
   getEvent: (year: string, event: string) => Promise<Extract<Event, { type: 'mapped' }>>;
   getHills: () => Promise<Hills>;

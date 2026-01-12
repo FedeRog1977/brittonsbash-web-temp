@@ -32,6 +32,7 @@ const InstantGramResult = async ({
       names={eventData.names}
       startDate={eventData.startDate}
       endDate={eventData.endDate}
+      year={params.year}
       description={eventData.description}
       features={eventData.features}
       sport={eventData.sport}

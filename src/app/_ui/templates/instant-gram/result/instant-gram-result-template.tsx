@@ -17,6 +17,7 @@ export type InstantGramResultTemplateProps = {
   names: string[];
   startDate: string;
   endDate?: string;
+  year?: string;
   description: string | string[];
   features?: GenericDataContent[];
   sport?: MappedEventProject;
@@ -28,6 +29,7 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
   names,
   startDate,
   endDate,
+  year,
   description,
   features,
   sport,
@@ -65,6 +67,7 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
           <Typography variant="h4" color="lightGrey">
             {startDate}
             {endDate ? <>&nbsp;&#8212;&nbsp;{endDate}</> : null}
+            {year ? `, ${year}` : null}
           </Typography>
 
           {sport ? (

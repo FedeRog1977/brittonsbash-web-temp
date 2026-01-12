@@ -10,6 +10,7 @@ import {
   UrlGroup,
   Regions,
   Sport,
+  EventTag,
 } from '~/libs/types';
 import { Interface } from './interface.js';
 import { mapEventFeaturesReadable } from './utils/map-event-features-readable.js';
@@ -20,6 +21,7 @@ import { mapEventSports } from './utils/map-event-sports.js';
 import { mapEvents } from './utils/map-events.js';
 import { mapProjects } from './utils/map-projects.js';
 
+// TODO: pass responses through validator, rather than type asserting
 export class Implementation implements Interface {
   private readonly baseUrl: string;
 
@@ -29,6 +31,10 @@ export class Implementation implements Interface {
 
   private get eventsUrl(): string {
     return `${this.baseUrl}/events.data.json`;
+  }
+
+  private get eventTagsUrl(): string {
+    return `${this.baseUrl}/events/tags.json`;
   }
 
   private get eventYearsUrl(): string {
@@ -84,7 +90,9 @@ export class Implementation implements Interface {
     }
   }
 
-  public async getEventNames(year: string): Promise<Array<Pick<Event, 'id' | 'prefix' | 'names'>>> {
+  public async getEventNames(
+    year: string,
+  ): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
     const apiUrl = this.eventUrl.replace(':year', year).replace('/:event.json', '/names.json');
 
     const response = await fetch(apiUrl);
@@ -93,7 +101,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
-    const parsedResponse: Array<Pick<Event, 'id' | 'prefix' | 'names'>> = await response.json();
+    const parsedResponse: Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>> =
+      await response.json();
 
     try {
       return parsedResponse;
@@ -102,6 +111,27 @@ export class Implementation implements Interface {
       console.log(error);
 
       throw new Error('Invalid event names data received');
+    }
+  }
+
+  public async getEventTags(): Promise<EventTag[]> {
+    const apiUrl = this.eventTagsUrl;
+
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const parsedResponse: EventTag[] = await response.json();
+
+    try {
+      return parsedResponse;
+    } catch (error: unknown) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+
+      throw new Error('Invalid event tags data received');
     }
   }
 

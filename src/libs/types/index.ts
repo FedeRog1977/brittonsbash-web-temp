@@ -3,6 +3,7 @@ export * from './culinary.js';
 export * from './deep-partial.js';
 export * from './env.js';
 export * from './event-aggregation.js';
+export * from './event-tag.js';
 export * from './event-year.js';
 export * from './event.js';
 export * from './events.js';
