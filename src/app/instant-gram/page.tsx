@@ -27,8 +27,6 @@ const InstantGram = async (): Promise<ReactElement> => {
   const handleSubmit: SubmitHandler<InstantGramData> = async (formValues) => {
     'use server';
 
-    // TODO: flatten all events to single level in the API, making the req. for `year`
-    // in both the API request and therefore, Next.js params redundant
     redirect(`${routes.instantGram.result}?year=${formValues.year}&event=${formValues.event}`);
   };
 
