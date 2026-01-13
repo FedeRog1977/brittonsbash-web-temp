@@ -61,6 +61,7 @@ export class Implementation implements Interface {
     return `${this.baseUrl}/sport.data.json`;
   }
 
+  // TODO: flatten to `/projects` here and in the API, as there is no longer any other sport
   private get sportUrl(): string {
     return `${this.baseUrl}/sport/:group/:year/:sport.json`;
   }
