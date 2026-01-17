@@ -1,6 +1,6 @@
-import { toUpperCase } from '~/libs/utils';
 import cx from 'classnames';
 import { FC } from 'react';
+import { toUpperCase } from '~/libs/utils';
 import { TextStyle } from '../../reference/types/text-style.js';
 import styles from './loading.module.scss.js';
 

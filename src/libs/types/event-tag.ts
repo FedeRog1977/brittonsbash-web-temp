@@ -1,1 +1,3 @@
-export type EventTag = 'general' | 'projects' | 'miles' | 'roadies' | 'sleazyJetting';
+import { eventTags } from '~/libs/constants';
+
+export type EventTag = (typeof eventTags)[number];

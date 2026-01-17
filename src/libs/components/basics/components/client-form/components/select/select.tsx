@@ -10,7 +10,7 @@ import { getErrorText } from './utils/get-error-text.js';
 export type SelectProps = {
   name: string;
   label: string;
-  options: SelectOption[];
+  options?: SelectOption[];
   disabled?: boolean;
   defaultValue?: string;
   onChange?: (value: string) => void;
@@ -75,7 +75,7 @@ export const Select: FC<SelectProps> = ({
         >
           <option value={defaultValue}>{defaultValue}</option>
 
-          {options.map((option) => (
+          {options?.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>

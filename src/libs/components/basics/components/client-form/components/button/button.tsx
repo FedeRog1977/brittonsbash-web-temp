@@ -1,19 +1,21 @@
 'use client';
 
-import { Url } from '~/libs/types';
-import { toUpperCase } from '~/libs/utils';
 import cx from 'classnames';
 import { FC, ReactElement } from 'react';
+import { Spacing } from '~/libs/components-basics/spacing';
+import { Url } from '~/libs/types';
+import { toUpperCase } from '~/libs/utils';
 import { TextStyle } from '../../../../reference/index.js';
 import { Flex } from '../../../flex/flex.js';
 import { GridItem } from '../../../grid/grid-item.js';
 import { Grid } from '../../../grid/grid.js';
+import { Loading } from '../../../loading/loading.jsx';
 import { Typography } from '../../../typography/typography.js';
 import styles from './button.module.scss.js';
 
 export type ButtonProps = {
   variant?: 'default' | 'clear' | 'solid' | 'solidDark' | 'inverse';
-  type?: 'reset' | 'submit' | 'button';
+  type?: 'button' | 'reset' | 'submit';
   typeVariant?: TextStyle['variant'];
   typeColor?: TextStyle['color'];
   typeFontFamily?: TextStyle['fontFamily'];
@@ -23,6 +25,7 @@ export type ButtonProps = {
   icon?: ReactElement;
   value?: string;
   onClick?: (() => void) | ((e: any) => void);
+  isSubmitting?: boolean;
   link?: Url;
   width?: 'default' | 'quarter' | 'half' | 'full';
   transition?: boolean;
@@ -40,6 +43,7 @@ export const Button: FC<ButtonProps> = ({
   icon,
   value,
   onClick,
+  isSubmitting,
   link,
   width = 'default',
   transition,
@@ -52,7 +56,7 @@ export const Button: FC<ButtonProps> = ({
     },
   );
 
-  if (typeof children === 'string' && link)
+  if (typeof children === 'string' && link) {
     return (
       // <Typography variant={typeVariant} markdown>
       //   {`[${children}](${link.href})`}
@@ -60,41 +64,53 @@ export const Button: FC<ButtonProps> = ({
 
       <a href={link.href}>{children}</a>
     );
+  }
 
   return (
+    // eslint-disable-next-line react/button-has-type
     <button className={classNames} type={type} onClick={onClick} value={value}>
-      <Grid justifyContent="between" alignItems="center" spacing={icon ? 'xs' : 'none'}>
-        <GridItem xs={icon ? 6 : 12}>
-          <Flex
-            direction={subContentTop ? 'vertical' : 'horizontal'}
-            alignHorizontal={icon ? 'left' : 'center'}
-            alignVertical="center"
-            gap="xs"
-          >
-            {subContent ? (
-              <Typography variant="body" color="lightGrey" textAlign="center">
-                {subContent}
-              </Typography>
+      <Grid
+        justifyContent={isSubmitting ? 'center' : 'between'}
+        alignItems="center"
+        spacing={icon ? 'xs' : 'none'}
+      >
+        {isSubmitting ? (
+          <Loading />
+        ) : (
+          <>
+            <GridItem xs={icon ? 6 : 12}>
+              <Flex
+                direction={subContentTop ? 'vertical' : 'horizontal'}
+                alignHorizontal={icon ? 'left' : 'center'}
+                alignVertical="center"
+                gap="xs"
+              >
+                {subContent ? (
+                  <Typography variant="body" color="lightGrey" textAlign="center">
+                    {subContent}
+                  </Typography>
+                ) : null}
+
+                <Typography
+                  variant={typeVariant}
+                  color={typeColor}
+                  fontFamily={typeFontFamily}
+                  textAlign="center"
+                >
+                  {children}
+                </Typography>
+              </Flex>
+            </GridItem>
+
+            {icon ? (
+              <GridItem xs={1}>
+                <Typography variant="footnote" color={typeColor} textAlign="right">
+                  {icon}
+                </Typography>
+              </GridItem>
             ) : null}
-
-            <Typography
-              variant={typeVariant}
-              color={typeColor}
-              fontFamily={typeFontFamily}
-              textAlign="center"
-            >
-              {children}
-            </Typography>
-          </Flex>
-        </GridItem>
-
-        {icon ? (
-          <GridItem xs={1}>
-            <Typography variant="footnote" color={typeColor} textAlign="right">
-              {icon}
-            </Typography>
-          </GridItem>
-        ) : null}
+          </>
+        )}
       </Grid>
     </button>
   );

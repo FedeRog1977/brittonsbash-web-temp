@@ -1,4 +1,4 @@
-export const removeDuplicates = <T>(content: T[]) => {
+export const removeDuplicates = <T>(content: T[]): T[] => {
   const result: T[] = [];
 
   content.forEach((item) => {

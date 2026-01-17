@@ -2,8 +2,9 @@
 
 .loading {
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  // TODO: make small and large variants
+  width: 24px;
+  height: 24px;
   position: relative;
   animation: spin 1.4s linear infinite;
 }

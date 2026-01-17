@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800');
 html,
 body,
 div,
@@ -97,7 +97,7 @@ body {
 }
 
 code {
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 ul {
@@ -115,7 +115,7 @@ img {
 }
 
 ._variantSerifT1_7aq1g_6 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 64px;
 }
 @media (max-width: 768px) {
@@ -124,7 +124,7 @@ img {
   }
 }
 ._variantSerifT2_7aq1g_15 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 52px;
 }
 @media (max-width: 768px) {
@@ -133,7 +133,7 @@ img {
   }
 }
 ._variantSerifH1_7aq1g_24 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 46px;
 }
 @media (max-width: 768px) {
@@ -142,7 +142,7 @@ img {
   }
 }
 ._variantSerifH2_7aq1g_33 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 32px;
 }
 @media (max-width: 768px) {
@@ -151,7 +151,7 @@ img {
   }
 }
 ._variantSerifH3_7aq1g_42 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 24px;
 }
 @media (max-width: 768px) {
@@ -160,7 +160,7 @@ img {
   }
 }
 ._variantSerifH4_7aq1g_51 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 24px;
 }
 @media (max-width: 768px) {
@@ -169,7 +169,7 @@ img {
   }
 }
 ._variantSerifBody_7aq1g_60 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 16px;
 }
 @media (max-width: 768px) {
@@ -178,7 +178,7 @@ img {
   }
 }
 ._variantSerifCaption_7aq1g_69 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 16px;
 }
 @media (max-width: 768px) {
@@ -187,7 +187,7 @@ img {
   }
 }
 ._variantSerifFootnote_7aq1g_78 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 14px;
 }
 @media (max-width: 768px) {
@@ -196,7 +196,7 @@ img {
   }
 }
 ._variantSerifTiny_7aq1g_87 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-size: 10px;
 }
 @media (max-width: 768px) {
@@ -205,19 +205,19 @@ img {
   }
 }
 ._variantSerifBold_7aq1g_96 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-style: bold;
 }
 ._variantSerifItalic_7aq1g_100 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-style: italic;
 }
 ._variantSerifBoldItalic_7aq1g_104 {
-  font-family: "EB Garamond";
+  font-family: 'EB Garamond';
   font-style: bold-italic;
 }
 ._variantSansSerifT1_7aq1g_108 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 64px;
 }
 @media (max-width: 768px) {
@@ -226,7 +226,7 @@ img {
   }
 }
 ._variantSansSerifT2_7aq1g_117 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 52px;
 }
 @media (max-width: 768px) {
@@ -235,7 +235,7 @@ img {
   }
 }
 ._variantSansSerifH1_7aq1g_126 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 46px;
 }
 @media (max-width: 768px) {
@@ -244,7 +244,7 @@ img {
   }
 }
 ._variantSansSerifH2_7aq1g_135 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 32px;
 }
 @media (max-width: 768px) {
@@ -253,7 +253,7 @@ img {
   }
 }
 ._variantSansSerifH3_7aq1g_144 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 24px;
 }
 @media (max-width: 768px) {
@@ -262,7 +262,7 @@ img {
   }
 }
 ._variantSansSerifH4_7aq1g_153 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 24px;
 }
 @media (max-width: 768px) {
@@ -271,7 +271,7 @@ img {
   }
 }
 ._variantSansSerifBody_7aq1g_162 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 16px;
 }
 @media (max-width: 768px) {
@@ -280,7 +280,7 @@ img {
   }
 }
 ._variantSansSerifCaption_7aq1g_171 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 16px;
 }
 @media (max-width: 768px) {
@@ -289,7 +289,7 @@ img {
   }
 }
 ._variantSansSerifFootnote_7aq1g_180 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 14px;
 }
 @media (max-width: 768px) {
@@ -298,7 +298,7 @@ img {
   }
 }
 ._variantSansSerifTiny_7aq1g_189 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 10px;
 }
 @media (max-width: 768px) {
@@ -307,16 +307,16 @@ img {
   }
 }
 ._variantSansSerifBold_7aq1g_198 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: bold;
   letter-spacing: 0.25px;
 }
 ._variantSansSerifItalic_7aq1g_203 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: italic;
 }
 ._variantSansSerifBoldItalic_7aq1g_207 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: bold-italic;
 }
 ._variantInstagramT1_7aq1g_211 {
@@ -6722,7 +6722,7 @@ a:hover {
 }
 @media (min-width: 768px) {
   ._background_14a54_2 {
-    background-image: url("https://lewisbritton.com/images/general/background.jpg");
+    background-image: url('https://lewisbritton.com/images/general/background.jpg');
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -6737,7 +6737,7 @@ a:hover {
 }
 @media (max-width: 768px) {
   ._background_14a54_2 {
-    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
+    background-image: url('https://lewisbritton.com/images/general/background-mobile.jpg');
     background-size: 100% auto;
     height: 150px;
   }
@@ -6745,7 +6745,12 @@ a:hover {
 
 ._text_14a54_24 {
   color: #f5f5f5;
-  background-image: linear-gradient(0deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  background-image: linear-gradient(
+    0deg,
+    rgba(24, 24, 24, 0.6) 24%,
+    rgba(24, 24, 24, 0.4) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
   display: grid;
   align-items: end;
   position: absolute;
@@ -6777,10 +6782,10 @@ a:hover {
   }
 }
 ._textStd_14a54_57 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textLogo_14a54_60 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 @media (max-width: 768px) {
   ._textLogo_14a54_60 {
@@ -6788,22 +6793,22 @@ a:hover {
   }
 }
 ._textIg_14a54_68 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textSport_14a54_71 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textAudi_14a54_74 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textMiami_14a54_77 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textCalligraphy_14a54_80 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._textIbm_14a54_83 {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 ._modal_1ranq_1 {
   max-width: 1080px;
@@ -6828,8 +6833,8 @@ a:hover {
 }
 ._loading_iadvn_1 {
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   position: relative;
   animation: _spin_iadvn_1 1.4s linear infinite;
 }
@@ -7052,8 +7057,8 @@ a:hover {
 ._image_7wv6x_1 {
   max-width: 100%;
 }
-@import url("https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css");
-input[type=text]._search_1mtl7_2 {
+@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
+input[type='text']._search_1mtl7_2 {
   font-family: Sans-Regular;
   font-size: 16px;
   background-color: rgba(24, 24, 24, 0.6);
@@ -7064,7 +7069,7 @@ input[type=text]._search_1mtl7_2 {
   padding: 15px;
 }
 @media (max-width: 768px) {
-  input[type=text]._search_1mtl7_2 {
+  input[type='text']._search_1mtl7_2 {
     font-size: 12px;
     padding: 5px;
   }
@@ -7081,7 +7086,7 @@ select._search_1mtl7_2 {
   cursor: pointer;
   padding: 5px;
 }
-@import url("https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css");
+@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
 ._header_3jwj3_2 {
   background-color: rgba(22, 22, 23, 0.8);
   backdrop-filter: saturate(180%) blur(10px);
@@ -7105,7 +7110,7 @@ select._search_1mtl7_2 {
   }
 }
 ._headerContent_3jwj3_24 {
-  font-family: "Lato";
+  font-family: 'Lato';
   color: #ffffff;
 }
 ._headerContent_3jwj3_24 a {
@@ -7141,7 +7146,7 @@ select._search_1mtl7_2 {
   }
 }
 ._headerLogo_3jwj3_60 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 24px;
 }
 
@@ -7166,7 +7171,7 @@ select._search_1mtl7_2 {
   }
 }
 ._subheaderContent_3jwj3_85 {
-  font-family: "Lato";
+  font-family: 'Lato';
   color: #ffffff;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -7219,35 +7224,75 @@ select._search_1mtl7_2 {
   }
 }
 ._dark40LeftAlign_3e5gy_26 {
-  background: linear-gradient(90deg, rgba(24, 24, 24, 0.4) 24%, rgba(24, 24, 24, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    90deg,
+    rgba(24, 24, 24, 0.4) 24%,
+    rgba(24, 24, 24, 0.2) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._dark40LeftAlign_3e5gy_26 {
-    background: linear-gradient(0deg, rgba(24, 24, 24, 0.4) 24%, rgba(24, 24, 24, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(24, 24, 24, 0.4) 24%,
+      rgba(24, 24, 24, 0.2) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._dark40RightAlign_3e5gy_34 {
-  background: linear-gradient(270deg, rgba(24, 24, 24, 0.4) 24%, rgba(24, 24, 24, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    270deg,
+    rgba(24, 24, 24, 0.4) 24%,
+    rgba(24, 24, 24, 0.2) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._dark40RightAlign_3e5gy_34 {
-    background: linear-gradient(0deg, rgba(24, 24, 24, 0.4) 24%, rgba(24, 24, 24, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(24, 24, 24, 0.4) 24%,
+      rgba(24, 24, 24, 0.2) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._dark60LeftAlign_3e5gy_42 {
-  background: linear-gradient(90deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    90deg,
+    rgba(24, 24, 24, 0.6) 24%,
+    rgba(24, 24, 24, 0.4) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._dark60LeftAlign_3e5gy_42 {
-    background: linear-gradient(0deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(24, 24, 24, 0.6) 24%,
+      rgba(24, 24, 24, 0.4) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._dark60RightAlign_3e5gy_50 {
-  background: linear-gradient(270deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    270deg,
+    rgba(24, 24, 24, 0.6) 24%,
+    rgba(24, 24, 24, 0.4) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._dark60RightAlign_3e5gy_50 {
-    background: linear-gradient(0deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(24, 24, 24, 0.6) 24%,
+      rgba(24, 24, 24, 0.4) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._darkFill_3e5gy_58 {
@@ -7280,35 +7325,75 @@ select._search_1mtl7_2 {
   }
 }
 ._light40LeftAlign_3e5gy_87 {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 24%, rgba(255, 255, 255, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4) 24%,
+    rgba(255, 255, 255, 0.2) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._light40LeftAlign_3e5gy_87 {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 24%, rgba(255, 255, 255, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4) 24%,
+      rgba(255, 255, 255, 0.2) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._light40RightAlign_3e5gy_95 {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.4) 24%, rgba(255, 255, 255, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.4) 24%,
+    rgba(255, 255, 255, 0.2) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._light40RightAlign_3e5gy_95 {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 24%, rgba(255, 255, 255, 0.2) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4) 24%,
+      rgba(255, 255, 255, 0.2) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._light60LeftAlign_3e5gy_103 {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 24%, rgba(255, 255, 255, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6) 24%,
+    rgba(255, 255, 255, 0.4) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._light60LeftAlign_3e5gy_103 {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.6) 24%, rgba(255, 255, 255, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.6) 24%,
+      rgba(255, 255, 255, 0.4) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._light60RightAlign_3e5gy_111 {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.6) 24%, rgba(255, 255, 255, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.6) 24%,
+    rgba(255, 255, 255, 0.4) 48%,
+    rgba(255, 255, 255, 0) 70%
+  );
 }
 @media (max-width: 768px) {
   ._light60RightAlign_3e5gy_111 {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.6) 24%, rgba(255, 255, 255, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.6) 24%,
+      rgba(255, 255, 255, 0.4) 48%,
+      rgba(255, 255, 255, 0) 70%
+    );
   }
 }
 ._lightFill_3e5gy_119 {
@@ -9316,10 +9401,10 @@ select._search_1mtl7_2 {
   z-index: 100;
   position: absolute;
 }
-@import url("https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css");
+@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
 @media (min-width: 768px) {
   ._footer_1n04b_3 {
-    background-image: url("https://lewisbritton.com/images/general/background.jpg");
+    background-image: url('https://lewisbritton.com/images/general/background.jpg');
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -9331,7 +9416,7 @@ select._search_1mtl7_2 {
 }
 @media (max-width: 768px) {
   ._footer_1n04b_3 {
-    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
+    background-image: url('https://lewisbritton.com/images/general/background-mobile.jpg');
     background-size: 100% auto;
   }
 }
@@ -11097,7 +11182,7 @@ select._search_1mtl7_2 {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   appearance: none;
-  font-family: "Lato";
+  font-family: 'Lato';
   font-size: 16px;
   color: #181818;
   background-color: #f5f5f5;
@@ -11114,7 +11199,8 @@ select._search_1mtl7_2 {
   padding: 0 50px;
   transform-origin: top left;
   transform: translateY(-50%);
-  transition: 300ms cubic-bezier(0, 0, 0.2, 1) transform, 300ms cubic-bezier(0, 0, 0.2, 1) top, 300ms cubic-bezier(0, 0, 0.2, 1) left;
+  transition: 300ms cubic-bezier(0, 0, 0.2, 1) transform, 300ms cubic-bezier(0, 0, 0.2, 1) top,
+    300ms cubic-bezier(0, 0, 0.2, 1) left;
 }
 ._labelForInput_1mb4k_12 {
   top: 50%;

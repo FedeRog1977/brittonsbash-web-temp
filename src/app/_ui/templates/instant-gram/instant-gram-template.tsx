@@ -5,16 +5,18 @@
 import { FC, useState } from 'react';
 import { Button, Form, Select, useClientSubmit } from '~/libs/components-basics/client-form';
 import { Flex } from '~/libs/components-basics/flex';
-import { CustomErrors, SelectOption, SubmitHandler } from '~/libs/components-basics/form';
-import { Loading } from '~/libs/components-basics/loading';
+import { SelectOption, SubmitHandler } from '~/libs/components-basics/form';
 import { Spacing } from '~/libs/components-basics/spacing';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
 import { PageLayout } from '~/libs/components-templates/page-layout';
-import { EventTag, Event as ClientEvent } from '~/libs/types';
-import { sortAlphabetical, toSentenceCase } from '~/libs/utils';
+import { EventTag } from '~/libs/types';
+import { sortAlphabetical } from '~/libs/utils';
+import { mapEventTagReadable } from '../../../../libs/constants/map-event-tag-readable.js';
+import { instantGramCustomErrors } from '../../../_schema/constants/instant-gram-custom-errors.js';
 import { instantGramDataValidationSchema } from '../../../_schema/constants/instant-gram-data-validation-schema.js';
-import { Event } from '../../../_schema/types/event.js';
+import { EventNamesByTag } from '../../../_schema/types/event-names-by-tag.js';
+import { EventNamesByYear } from '../../../_schema/types/event-names-by-year.js';
 import { InstantGramData } from '../../../_schema/types/instant-gram-data.js';
 
 export type InstantGramTemplateProps = {
@@ -22,8 +24,8 @@ export type InstantGramTemplateProps = {
   defaultValues?: Partial<InstantGramData>;
   tags: EventTag[];
   years: string[];
-  events: Event[];
-  flatEvents: Array<Pick<ClientEvent, 'id' | 'tags' | 'prefix' | 'names'>>;
+  eventNamesByTag: EventNamesByTag[];
+  eventNamesByYear: EventNamesByYear[];
 };
 
 export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
@@ -31,20 +33,11 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
   defaultValues,
   tags,
   years,
-  events,
-  flatEvents,
+  eventNamesByTag,
+  eventNamesByYear,
 }) => {
-  const customErrors: CustomErrors<InstantGramData> = {
-    properties: {
-      event: {
-        required: 'Required field, input a value',
-        enum: 'Required field, input a value',
-      },
-    },
-  };
-
   const [selectedTag, setSelectedTag] = useState<EventTag | undefined>(undefined);
-  const [selectedYear, setSelectedYear] = useState<string>(years[0]!);
+  const [selectedYear, setSelectedYear] = useState<string | undefined>(undefined);
   const [eventsDisabled, setEventsDisabled] = useState<boolean>(true);
 
   const onSelectTag = (tag: EventTag): void => {
@@ -53,6 +46,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
   };
 
   const onSelectYear = (year: string): void => {
+    // Prevent error API calls
     if (year === '') {
       return;
     }
@@ -60,8 +54,8 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
     setEventsDisabled(false);
   };
 
-  const tagOptions: SelectOption[] = tags
-    .map((tag) => ({ label: toSentenceCase(tag), value: tag }))
+  const tagOptions: Array<SelectOption<EventTag>> = tags
+    .map((tag) => ({ label: mapEventTagReadable(tag), value: tag }))
     .sort(({ value: a }, { value: b }) => sortAlphabetical(b, a));
 
   const yearOptions: SelectOption[] = years
@@ -71,14 +65,12 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
     }))
     .sort(({ value: a }, { value: b }) => sortAlphabetical(b, a));
 
-  const eventsFilteredByTag = [];
-  for (const flatEvent of flatEvents) {
-    if (selectedTag && flatEvent.tags?.includes(selectedTag)) {
-      eventsFilteredByTag.push(flatEvent);
-    }
-  }
+  const eventsFilteredByTag = eventNamesByTag.find((event) => event.tag === selectedTag);
+
+  const eventsFilteredByYear = eventNamesByYear.find((event) => event.year === selectedYear);
+
   const eventsFilteredByTagOptions: SelectOption[] | undefined = selectedTag
-    ? eventsFilteredByTag
+    ? eventsFilteredByTag?.events
         .map((event) => ({
           label: `${event.prefix ? `${event.prefix}: ` : ''}${event.names.join(', ')}`,
           value: event.id.toLowerCase(),
@@ -86,13 +78,23 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
         .sort(({ value: a }, { value: b }) => sortAlphabetical(b, a))!
     : undefined;
 
-  const eventsFilteredByYear = events.find((event) => event.year === selectedYear);
-  const eventsFilteredByYearOptions: SelectOption[] = eventsFilteredByYear?.events
-    .map((event) => ({
-      label: `${event.prefix ? `${event.prefix}: ` : ''}${event.names.join(', ')}`,
-      value: event.id.toLowerCase(),
-    }))
-    .sort(({ value: a }, { value: b }) => sortAlphabetical(b, a))!;
+  const eventsFilteredByYearOptions: SelectOption[] | undefined = selectedYear
+    ? eventsFilteredByYear?.events
+        .map((event) => ({
+          label: `${event.prefix ? `${event.prefix}: ` : ''}${event.names.join(', ')}`,
+          value: event.id.toLowerCase(),
+        }))
+        .sort(({ value: a }, { value: b }) => sortAlphabetical(b, a))!
+    : undefined;
+
+  // eslint-disable-next-line @typescript-eslint/init-declarations
+  let eventsOptions: SelectOption[] | undefined;
+  if (selectedTag && !selectedYear) {
+    eventsOptions = eventsFilteredByTagOptions;
+  }
+  if (selectedYear && !selectedTag) {
+    eventsOptions = eventsFilteredByYearOptions;
+  }
 
   const { handleSubmit, isSubmitting } = useClientSubmit(onSubmit);
 
@@ -101,8 +103,9 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
       <Tile type="clear" width="wide">
         <Flex direction="vertical" gap="md">
           <Form
+            mode="onTouched"
             validationSchema={instantGramDataValidationSchema}
-            customErrors={customErrors}
+            customErrors={instantGramCustomErrors}
             onSubmit={handleSubmit}
             defaultValues={defaultValues}
           >
@@ -114,10 +117,12 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
                 label="Filter by Tag"
                 options={tagOptions}
                 onChange={(event): void => {
+                  // This type cannot be inferred from `tagOptions` -> `value`, despite line 56
                   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                   onSelectTag(event as EventTag);
                 }}
                 defaultValue=""
+                disabled={Boolean(selectedYear)}
               />
 
               <Select
@@ -136,17 +141,13 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
               <Select
                 name="event"
                 label="Select Event"
-                options={eventsFilteredByTagOptions ?? eventsFilteredByYearOptions}
+                options={eventsOptions}
                 disabled={eventsDisabled}
               />
 
-              {isSubmitting ? (
-                <Loading />
-              ) : (
-                <Button variant="solidDark" type="submit" width="quarter">
-                  Submit
-                </Button>
-              )}
+              <Button variant="solidDark" type="submit" width="quarter" isSubmitting={isSubmitting}>
+                Submit
+              </Button>
             </Flex>
           </Form>
         </Flex>

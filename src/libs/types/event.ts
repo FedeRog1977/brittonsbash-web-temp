@@ -7,7 +7,7 @@ import { Project } from './project.js';
 
 type EventBasics = {
   id: string;
-  tags?: EventTag[];
+  tags: EventTag[];
   projectId: string | string[];
   prefix?: string;
   names: string[];

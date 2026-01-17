@@ -40,7 +40,9 @@ export class Implementation implements Interface {
       return compiledValidator as ValidateFunction<T>;
     }
 
-    const ajv = ajvErrors(new Ajv({ allowUnionTypes: true, allErrors: true, coerceTypes }));
+    const ajv = ajvErrors(
+      new Ajv({ allowUnionTypes: true, allErrors: true, coerceTypes, $data: true }),
+    );
     const validator = ajv.compile(schema);
     this.compiledValidators.set(schema, validator);
 
