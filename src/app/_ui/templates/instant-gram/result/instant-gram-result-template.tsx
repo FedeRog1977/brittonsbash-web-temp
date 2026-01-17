@@ -10,9 +10,11 @@ import { RowTable } from '~/libs/components-basics/table';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
 import { PageLayout } from '~/libs/components-templates/page-layout';
-import { GenericDataContent, Img, MappedEventProject } from '~/libs/types';
+import { mapEventTagReadable } from '~/libs/constants';
+import { EventTag, GenericDataContent, Img, MappedEventProject } from '~/libs/types';
 
 export type InstantGramResultTemplateProps = {
+  tags: EventTag[];
   prefix?: string;
   names: string[];
   startDate: string;
@@ -25,6 +27,7 @@ export type InstantGramResultTemplateProps = {
 };
 
 export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
+  tags,
   prefix,
   names,
   startDate,
@@ -70,19 +73,18 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             {year ? `, ${year}` : null}
           </Typography>
 
-          {sport ? (
-            <RowTable
-              titleRow={{
-                leftItem: 'Sport',
-                rightItem: [sport.distance, sport.elevation, sport.time].join(', '),
-              }}
-              rows={sport.features.map(({ title, content }) => ({
-                leftItem: title,
-                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                rightItem: content as string,
-              }))}
-            />
-          ) : null}
+          <Flex direction="horizontal" alignVertical="center" gap="sm">
+            <Typography variant="body">Tags:</Typography>
+
+            {tags.map((tag) => (
+              <div
+                key={tag}
+                style={{ border: '1px solid white', borderRadius: '8px', padding: '4px' }}
+              >
+                <Typography variant="body">{mapEventTagReadable(tag)}</Typography>
+              </div>
+            ))}
+          </Flex>
 
           {features ? (
             <RowTable
@@ -90,6 +92,20 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
                 leftItem: 'Features',
               }}
               rows={features.map(({ title, content }) => ({
+                leftItem: title,
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                rightItem: content as string,
+              }))}
+            />
+          ) : null}
+
+          {sport ? (
+            <RowTable
+              titleRow={{
+                leftItem: 'Sport',
+                rightItem: [sport.distance, sport.elevation, sport.time].join(', '),
+              }}
+              rows={sport.features.map(({ title, content }) => ({
                 leftItem: title,
                 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 rightItem: content as string,

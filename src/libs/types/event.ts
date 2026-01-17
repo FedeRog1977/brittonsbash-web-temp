@@ -10,6 +10,7 @@ type EventBasics = {
   tags: EventTag[];
   projectId: string | string[];
   prefix?: string;
+  // TODO: make `string | string[]` and amend in the API and page template
   names: string[];
   startDate: string;
   endDate?: string;

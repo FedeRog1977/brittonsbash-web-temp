@@ -19,24 +19,27 @@ export const generateMetadata = (): Metadata => ({
 const InstantGramResult = async ({
   searchParams,
 }: InstantGramResultProps): Promise<ReactElement> => {
-  let eventData = await facade.getEvent('2025', 'e2025005');
+  let event = await facade.getEvent('2025', 'e2025005');
 
   const params = await searchParams;
   if (params.year && params.event) {
-    eventData = await facade.getEvent(params.year, params.event);
+    event = await facade.getEvent(params.year, params.event);
   }
 
   return (
     <InstantGramResultTemplate
-      prefix={eventData.prefix}
-      names={eventData.names}
-      startDate={eventData.startDate}
-      endDate={eventData.endDate}
+      // tags={event.tags}
+      // prefix={event.prefix}
+      // names={event.names}
+      // startDate={event.startDate}
+      // endDate={event.endDate}
       year={params.year}
-      description={eventData.description}
-      features={eventData.features}
-      sport={eventData.sport}
-      images={eventData.images}
+      // description={event.description}
+      // features={event.features}
+      // sport={event.sport}
+      // images={event.images}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...event}
     />
   );
 };

@@ -694,6 +694,11 @@
   &LineThrough {
     text-decoration-line: line-through;
   }
+
+  // TODO: implement this properly
+  &Border {
+    border: 2px;
+  }
 }
 
 .align {
