@@ -1,14 +1,10 @@
 import {
-  Culinary,
   Event,
   Events,
   Features,
-  Hills,
   Img,
   MappedProjects,
   Project,
-  UrlGroup,
-  Regions,
   Sport,
   EventTag,
 } from '~/libs/types';
@@ -21,13 +17,8 @@ import { mapEventSports } from './utils/map-event-sports.js';
 import { mapEvents } from './utils/map-events.js';
 import { mapProjects } from './utils/map-projects.js';
 
-// TODO: pass responses through validator, rather than type asserting
 export class Implementation implements Interface {
   private readonly baseUrl: string;
-
-  private get culinaryUrl(): string {
-    return `${this.baseUrl}/culinary.data.json`;
-  }
 
   private get eventsUrl(): string {
     return `${this.baseUrl}/events.data.json`;
@@ -45,50 +36,12 @@ export class Implementation implements Interface {
     return `${this.baseUrl}/events/:year/:event.json`;
   }
 
-  private get hillsUrl(): string {
-    return `${this.baseUrl}/hills.data.json`;
-  }
-
-  private get linksUrl(): string {
-    return `${this.baseUrl}/links.data.json`;
-  }
-
-  private get regionsUrl(): string {
-    return `${this.baseUrl}/regions.data.json`;
-  }
-
-  private get sportsUrl(): string {
-    return `${this.baseUrl}/sport.data.json`;
-  }
-
-  // TODO: flatten to `/projects` here and in the API, as there is no longer any other sport
-  private get sportUrl(): string {
-    return `${this.baseUrl}/sport/:group/:year/:sport.json`;
+  private get projectsUrl(): string {
+    return `${this.baseUrl}/projects/:year/:project.json`;
   }
 
   public constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
-  }
-
-  public async getCulinary(): Promise<Culinary> {
-    const apiUrl = this.culinaryUrl;
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    const parsedResponse: Culinary = await response.json();
-
-    try {
-      return parsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid events data received');
-    }
   }
 
   public async getEventNames(
@@ -102,6 +55,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>> =
       await response.json();
 
@@ -124,6 +79,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: EventTag[] = await response.json();
 
     try {
@@ -145,6 +102,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: string[] = await response.json();
 
     try {
@@ -166,12 +125,15 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
-    // TODO: make this type fix
-    // const parsedResponse: Omit<Extract<Event, { type: 'unmapped' }>, 'sport' | 'type'> = await response.json();
-    const parsedResponse: any = await response.json();
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const parsedResponse: Omit<
+      Extract<Event, { type: 'unmapped' }>,
+      'sport' | 'type'
+    > = await response.json();
 
     const mappedFeatures = parsedResponse.features
-      ? mapEventFeaturesReadable(parsedResponse.features as Features)
+      ? mapEventFeaturesReadable(parsedResponse.features)
       : undefined;
 
     try {
@@ -179,9 +141,8 @@ export class Implementation implements Interface {
         if (Array.isArray(parsedResponse.projectId)) {
           const sport: Project[] = [];
 
-          for (const id of parsedResponse.projectId) {
-            const sportIteration = await this.getSport(
-              'projects',
+          for await (const id of parsedResponse.projectId) {
+            const sportIteration = await this.getProject(
               parsedResponse.id.split('').slice(1, 5).join(''),
               id.toLowerCase(),
             );
@@ -193,13 +154,12 @@ export class Implementation implements Interface {
 
           const mappedParsedMappedMultipleSportResponse: Extract<Event, { type: 'mapped' }> = {
             ...parsedResponse,
-            // TODO: make features conditional
+            type: 'mapped',
             features: mappedFeatures,
-            // TODO: make keys of sports conditional based on whether or not the response contains them
             sport: mappedSport,
           };
 
-          // TODO: remove this temp workaround for the spacing issue
+          // TODO: remove this temporary workaround for the spacing issue
           if (mappedParsedMappedMultipleSportResponse.description === '') {
             return {
               ...mappedParsedMappedMultipleSportResponse,
@@ -213,8 +173,7 @@ export class Implementation implements Interface {
           return mappedParsedMappedMultipleSportResponse;
         }
 
-        const sport = await this.getSport(
-          'projects',
+        const sport = await this.getProject(
           parsedResponse.id.split('').slice(1, 5).join(''),
           parsedResponse.projectId.toLowerCase(),
         );
@@ -223,9 +182,8 @@ export class Implementation implements Interface {
 
         const mappedParsedMappedSingleSportResponse: Extract<Event, { type: 'mapped' }> = {
           ...parsedResponse,
-          // TODO: make features conditional
+          type: 'mapped',
           features: mappedFeatures,
-          // TODO: make keys of sports conditional based on whether or not the response contains them
           sport: mappedSport,
         };
 
@@ -233,7 +191,7 @@ export class Implementation implements Interface {
       } catch {
         const mappedParsedUnmappedNullSportResponse: Extract<Event, { type: 'mapped' }> = {
           ...parsedResponse,
-          // TODO: make features conditional
+          type: 'mapped',
           features: mappedFeatures,
         };
 
@@ -247,48 +205,6 @@ export class Implementation implements Interface {
     }
   }
 
-  public async getHills(): Promise<Hills> {
-    const apiUrl = this.hillsUrl;
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    const parsedResponse: Hills = await response.json();
-
-    try {
-      return parsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid hills data received');
-    }
-  }
-
-  public async getLinks(): Promise<UrlGroup[]> {
-    const apiUrl = this.linksUrl;
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    const parsedResponse: UrlGroup[] = await response.json();
-
-    try {
-      return parsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid links data received');
-    }
-  }
-
   public async getMappedEventFeatures(): Promise<Features> {
     const apiUrl = this.eventsUrl;
 
@@ -298,6 +214,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Events = await response.json();
 
     const mappedParsedResponse: Features = mapEventFeatures(parsedResponse);
@@ -321,6 +239,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Events = await response.json();
 
     const mappedParsedResponse: Img[] = mapEventImages(parsedResponse);
@@ -336,7 +256,9 @@ export class Implementation implements Interface {
   }
 
   public async getMappedEventSports(): Promise<Project[]> {
-    const apiUrl = this.sportsUrl;
+    // TODO: correctly amend this method
+
+    const apiUrl = '';
 
     const response = await fetch(apiUrl);
 
@@ -344,6 +266,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Sport = await response.json();
 
     const mappedParsedResponse: Project[] = mapEventSports(parsedResponse);
@@ -367,6 +291,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Events = await response.json();
 
     const mappedParsedResponse: Event[] = mapEvents(parsedResponse);
@@ -382,7 +308,8 @@ export class Implementation implements Interface {
   }
 
   public async getMappedProjects(): Promise<MappedProjects> {
-    const apiUrl = this.sportsUrl;
+    // TODO: correctly amend this method
+    const apiUrl = '';
 
     const response = await fetch(apiUrl);
 
@@ -390,6 +317,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Sport = await response.json();
 
     const mappedParsedResponse: MappedProjects = mapProjects(parsedResponse);
@@ -404,8 +333,8 @@ export class Implementation implements Interface {
     }
   }
 
-  public async getRegions(): Promise<Regions> {
-    const apiUrl = this.regionsUrl;
+  public async getProject(year: string, projectId: string): Promise<Project> {
+    const apiUrl = this.projectsUrl.replace(':year', year).replace(':project', projectId);
 
     const response = await fetch(apiUrl);
 
@@ -413,30 +342,8 @@ export class Implementation implements Interface {
       throw new Error(response.statusText);
     }
 
-    const parsedResponse: Regions = await response.json();
-
-    try {
-      return parsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid regions data received');
-    }
-  }
-
-  public async getSport(group: 'projects', year: string, sport: string): Promise<Project> {
-    const apiUrl = this.sportUrl
-      .replace(':group', group)
-      .replace(':year', year)
-      .replace(':sport', sport);
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const parsedResponse: Project = await response.json();
 
     try {

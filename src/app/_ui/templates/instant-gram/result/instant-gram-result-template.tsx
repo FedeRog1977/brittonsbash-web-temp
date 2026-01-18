@@ -12,6 +12,7 @@ import { Typography } from '~/libs/components-basics/typography';
 import { PageLayout } from '~/libs/components-templates/page-layout';
 import { mapEventTagReadable } from '~/libs/constants';
 import { EventTag, GenericDataContent, Img, MappedEventProject } from '~/libs/types';
+import { Description } from './components/description.jsx';
 
 export type InstantGramResultTemplateProps = {
   tags: EventTag[];
@@ -19,7 +20,6 @@ export type InstantGramResultTemplateProps = {
   names: string[];
   startDate: string;
   endDate?: string;
-  year?: string;
   description: string | string[];
   features?: GenericDataContent[];
   sport?: MappedEventProject;
@@ -32,7 +32,6 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
   names,
   startDate,
   endDate,
-  year,
   description,
   features,
   sport,
@@ -70,12 +69,9 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
           <Typography variant="h4" color="lightGrey">
             {startDate}
             {endDate ? <>&nbsp;&#8212;&nbsp;{endDate}</> : null}
-            {year ? `, ${year}` : null}
           </Typography>
 
-          <Flex direction="horizontal" alignVertical="center" gap="sm">
-            <Typography variant="body">Tags:</Typography>
-
+          <Flex direction="horizontal" alignVertical="center" gap={{ xs: 'xs', lg: 'sm' }}>
             {tags.map((tag) => (
               <div
                 key={tag}
@@ -113,17 +109,7 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             />
           ) : null}
 
-          {Array.isArray(description) ? (
-            description.map((paragraph) => (
-              <Typography key={paragraph} variant="footnote" textAlign="justify" markdown>
-                {paragraph}
-              </Typography>
-            ))
-          ) : (
-            <Typography variant="footnote" textAlign="justify" markdown>
-              {description}
-            </Typography>
-          )}
+          <Description text={description} />
 
           <Button
             variant="solidDark"

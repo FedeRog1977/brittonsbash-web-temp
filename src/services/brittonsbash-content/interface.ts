@@ -1,29 +1,14 @@
-import {
-  Culinary,
-  Event,
-  Features,
-  Hills,
-  Img,
-  MappedProjects,
-  Project,
-  UrlGroup,
-  Regions,
-  EventTag,
-} from '~/libs/types';
+import { Event, Features, Img, MappedProjects, Project, EventTag } from '~/libs/types';
 
 export interface Interface {
-  getCulinary: () => Promise<Culinary>;
   getEventNames: (year: string) => Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>>;
   getEventTags: () => Promise<EventTag[]>;
   getEventYears: () => Promise<string[]>;
   getEvent: (year: string, event: string) => Promise<Extract<Event, { type: 'mapped' }>>;
-  getHills: () => Promise<Hills>;
-  getLinks: () => Promise<UrlGroup[]>;
   getMappedEventFeatures: () => Promise<Features>;
   getMappedEventImages: () => Promise<Img[]>;
   getMappedEventSports: () => Promise<Project[]>;
   getMappedEvents: () => Promise<Event[]>;
   getMappedProjects: () => Promise<MappedProjects>;
-  getRegions: () => Promise<Regions>;
-  getSport: (group: 'projects', year: string, sport: string) => Promise<Project>;
+  getProject: (year: string, projectId: string) => Promise<Project>;
 }

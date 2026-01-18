@@ -25,8 +25,13 @@ export const getEventNamesByTag = async (
     const eventNamesByTagNames = [];
 
     for (const eventNameFlat of eventNamesFlat) {
-      if (eventNameFlat.tags.includes(tag)) {
-        eventNamesByTagNames.push(eventNameFlat);
+      // This is temporary as although the type suggests the prop should always exist,
+      // I have not completed population in the API yet
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      if (eventNameFlat.tags !== undefined) {
+        if (eventNameFlat.tags.includes(tag)) {
+          eventNamesByTagNames.push(eventNameFlat);
+        }
       }
     }
 

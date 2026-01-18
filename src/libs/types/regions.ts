@@ -2,11 +2,11 @@ import { Region } from './region.js';
 
 export type Regions = {
   counties: Region[];
-  regions: {
+  regions: Array<{
     name: string;
-    subRegions: {
+    subRegions: Array<{
       name: string;
       subSubRegions: Region[];
-    }[];
-  }[];
+    }>;
+  }>;
 };

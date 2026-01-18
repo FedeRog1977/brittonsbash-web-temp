@@ -28,18 +28,15 @@ const InstantGramResult = async ({
 
   return (
     <InstantGramResultTemplate
-      // tags={event.tags}
-      // prefix={event.prefix}
-      // names={event.names}
-      // startDate={event.startDate}
-      // endDate={event.endDate}
-      year={params.year}
-      // description={event.description}
-      // features={event.features}
-      // sport={event.sport}
-      // images={event.images}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...event}
+      tags={event.tags}
+      prefix={event.prefix}
+      names={event.names}
+      startDate={event.startDate}
+      endDate={event.endDate}
+      description={event.description}
+      features={event.features}
+      sport={event.sport}
+      images={event.images}
     />
   );
 };

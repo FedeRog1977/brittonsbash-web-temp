@@ -30,15 +30,14 @@ export const Typography: FC<TypographyProps> = ({
     [styles[`variant${toUpperCase(fontFamily)}Italic`]]: italicize,
     [styles[`variant${toUpperCase(fontFamily)}BoldItalic`]]: Boolean(boldFace && italicize),
     [styles.smallCaps]: smallCaps,
-    [styles[`textDecoration${textDecoration ? toUpperCase(textDecoration) : 'None'}`]]:
-      textDecoration,
-    [styles[`color${color ? toUpperCase(color) : 'DarkerGrey'}`]]: color,
+    [styles[`textDecoration${toUpperCase(textDecoration)}`]]: textDecoration,
+    [styles[`color${toUpperCase(color)}`]]: color,
     [styles.shadow]: shadow,
     [styles[`align${toUpperCase(textAlign)}`]]: textAlign,
     [styles.paragraphMargins]: paragraphMargins,
   });
 
-  // Reason for downgrading back to React 18
+  // Reason for downgrading to React 18
   // https://github.com/remarkjs/react-markdown/issues/877
   // react-markdown relies on JSX being in the global namespace, which has been removed in @types/react^19
   return typeof children === 'string' && markdown ? (
@@ -46,6 +45,7 @@ export const Typography: FC<TypographyProps> = ({
       {enrichMarkdown(children)}
     </ReactMarkdown>
   ) : (
+    // eslint-disable-next-line react/no-children-prop
     createElement(element ?? tagMap[variant], {
       className: classNames,
       children,
