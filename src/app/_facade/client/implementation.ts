@@ -1,4 +1,4 @@
-import { Event, EventTag, EventYear, HillType } from '~/libs/types';
+import { Event, EventId, EventTag, EventYear, HillType } from '~/libs/types';
 import { mapKeyValue, removeDuplicates, toFeet, toMiles } from '~/libs/utils';
 import { BrittonsBashContentServiceClient } from '~/services/brittonsbash-content';
 import { ProjectsEvent } from '../../_schema/types/projects-event.js';
@@ -19,7 +19,7 @@ export class Implementation implements Interface {
   }
 
   public async getEventNames(
-    year: string,
+    year: EventYear,
   ): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
     return this.brittonsBashContentServiceClient.getEventNames(year);
   }
@@ -28,11 +28,14 @@ export class Implementation implements Interface {
     return this.brittonsBashContentServiceClient.getEventTags();
   }
 
-  public async getEventYears(): Promise<string[]> {
+  public async getEventYears(): Promise<EventYear[]> {
     return this.brittonsBashContentServiceClient.getEventYears();
   }
 
-  public async getEvent(year: string, event: string): Promise<Extract<Event, { type: 'mapped' }>> {
+  public async getEvent(
+    year: EventYear,
+    event: EventId,
+  ): Promise<Extract<Event, { type: 'mapped' }>> {
     return this.brittonsBashContentServiceClient.getEvent(year, event);
   }
 

@@ -1,7 +1,7 @@
-import { Sport, MappedProjects, Project } from '~/libs/types';
+import { MappedProjects, Project, Projects } from '~/libs/types';
 import { removeDuplicates, toMiles, toFeet } from '~/libs/utils';
 
-export const mapProjects = (sport: Sport): MappedProjects => {
+export const mapProjects = (sport: Projects): MappedProjects => {
   // type SportDataKeys = keyof typeof sport;
 
   // const years = Object.keys(sport)
@@ -10,7 +10,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //     (object, key) => {
   //         return {
   //             ...object,
-  //             [key]: sport[key].projects,
+  //             [key]: sport[key],
   //         }
   //     },
   //     {}
@@ -22,13 +22,13 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //     let total = 0
 
   //     years.forEach((year) => {
-  //         total += sport[year].projects.length
+  //         total += sport[year].length
   //     })
 
   //     return {
   //         ...object,
   //         total: total,
-  //         [key]: sport[key].projects.length,
+  //         [key]: sport[key].length,
   //     }
   // }, {})
 
@@ -38,12 +38,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal = 0
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach(
+  //             sport[year].forEach(
   //                 (project: Project) => (total += project.distance)
   //             )
   //         })
 
-  //         sport[key].projects.forEach(
+  //         sport[key].forEach(
   //             (project: Project) => (yearTotal += project.distance)
   //         )
 
@@ -62,12 +62,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal = 0
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach(
+  //             sport[year].forEach(
   //                 (project: Project) => (total += project.elevation)
   //             )
   //         })
 
-  //         sport[key].projects.forEach(
+  //         sport[key].forEach(
   //             (project: Project) => (yearTotal += project.elevation)
   //         )
 
@@ -86,12 +86,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.islands?.forEach((island) => total.push(island))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.islands?.forEach((island) => yearTotal.push(island))
   //         )
 
@@ -114,12 +114,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.munros?.forEach((munro) => total.push(munro))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.munros?.forEach((munro) => yearTotal.push(munro))
   //         )
 
@@ -142,14 +142,14 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.munroTops?.forEach((munroTop) =>
   //                     total.push(munroTop)
   //                 )
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.munroTops?.forEach((munroTop) =>
   //                 yearTotal.push(munroTop)
   //             )
@@ -174,12 +174,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.corbetts?.forEach((corbett) => total.push(corbett))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.corbetts?.forEach((corbett) => yearTotal.push(corbett))
   //         )
 
@@ -203,14 +203,14 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //     let yearTotal: string[] = []
 
   //     years.forEach((year) => {
-  //         sport[year].projects.forEach((project: Project) =>
+  //         sport[year].forEach((project: Project) =>
   //             project.corbettTops?.forEach((corbettTop) =>
   //                 total.push(corbettTop)
   //             )
   //         )
   //     })
 
-  //     sport[key].projects.forEach((project: Project) =>
+  //     sport[key].forEach((project: Project) =>
   //         project.corbettTops?.forEach((corbettTop) =>
   //             yearTotal.push(corbettTop)
   //         )
@@ -233,12 +233,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.grahams?.forEach((graham) => total.push(graham))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.grahams?.forEach((graham) => yearTotal.push(graham))
   //         )
 
@@ -261,12 +261,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.subTwos?.forEach((subTwo) => total.push(subTwo))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.subTwos?.forEach((subTwo) => yearTotal.push(subTwo))
   //         )
 
@@ -289,12 +289,12 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   //         let yearTotal: string[] = []
 
   //         years.forEach((year) => {
-  //             sport[year].projects.forEach((project: Project) =>
+  //             sport[year].forEach((project: Project) =>
   //                 project.donalds?.forEach((donald) => total.push(donald))
   //             )
   //         })
 
-  //         sport[key].projects.forEach((project: Project) =>
+  //         sport[key].forEach((project: Project) =>
   //             project.donalds?.forEach((donald) => yearTotal.push(donald))
   //         )
 
@@ -344,29 +344,29 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   // Old gen:
 
   const projects: MappedProjects['projects'] = {
-    2025: sport[2025].projects,
-    2024: sport[2024].projects,
-    2023: sport[2023].projects,
-    2022: sport[2022].projects,
-    2021: sport[2021].projects,
-    2020: sport[2020].projects,
+    2025: sport[2025],
+    2024: sport[2024],
+    2023: sport[2023],
+    2022: sport[2022],
+    2021: sport[2021],
+    2020: sport[2020],
   };
 
   const number: MappedProjects['number'] = {
     type: 'sansUnique',
     total:
-      sport[2025].projects.length +
-      sport[2024].projects.length +
-      sport[2023].projects.length +
-      sport[2022].projects.length +
-      sport[2021].projects.length +
-      sport[2020].projects.length,
-    2025: sport[2025].projects.length,
-    2024: sport[2024].projects.length,
-    2023: sport[2023].projects.length,
-    2022: sport[2022].projects.length,
-    2021: sport[2021].projects.length,
-    2020: sport[2020].projects.length,
+      sport[2025].length +
+      sport[2024].length +
+      sport[2023].length +
+      sport[2022].length +
+      sport[2021].length +
+      sport[2020].length,
+    2025: sport[2025].length,
+    2024: sport[2024].length,
+    2023: sport[2023].length,
+    2022: sport[2022].length,
+    2021: sport[2021].length,
+    2020: sport[2020].length,
   };
 
   const islandsTotal: string[] = [];
@@ -390,7 +390,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2025: string[] = [];
   const donalds2025: string[] = [];
 
-  sport[2025].projects.forEach((event: Project) => {
+  sport[2025].forEach((event: Project) => {
     distance2025 = distance2025 + event.distance;
     elevation2025 = elevation2025 + event.elevation;
 
@@ -457,7 +457,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2024: string[] = [];
   const donalds2024: string[] = [];
 
-  sport[2024].projects.forEach((event: Project) => {
+  sport[2024].forEach((event: Project) => {
     distance2024 = distance2024 + event.distance;
     elevation2024 = elevation2024 + event.elevation;
 
@@ -524,7 +524,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2023: string[] = [];
   const donalds2023: string[] = [];
 
-  sport[2023].projects.forEach((event: Project) => {
+  sport[2023].forEach((event: Project) => {
     distance2023 = distance2023 + event.distance;
     elevation2023 = elevation2023 + event.elevation;
 
@@ -591,7 +591,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2022: string[] = [];
   const donalds2022: string[] = [];
 
-  sport[2022].projects.forEach((event: Project) => {
+  sport[2022].forEach((event: Project) => {
     distance2022 = distance2022 + event.distance;
     elevation2022 = elevation2022 + event.elevation;
 
@@ -658,7 +658,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2021: string[] = [];
   const donalds2021: string[] = [];
 
-  sport[2021].projects.forEach((event: Project) => {
+  sport[2021].forEach((event: Project) => {
     distance2021 = distance2021 + event.distance;
     elevation2021 = elevation2021 + event.elevation;
 
@@ -725,7 +725,7 @@ export const mapProjects = (sport: Sport): MappedProjects => {
   const subTwos2020: string[] = [];
   const donalds2020: string[] = [];
 
-  sport[2020].projects.forEach((event: Project) => {
+  sport[2020].forEach((event: Project) => {
     distance2020 = distance2020 + event.distance;
     elevation2020 = elevation2020 + event.elevation;
 

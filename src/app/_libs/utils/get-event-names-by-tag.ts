@@ -1,10 +1,10 @@
-import { Event, EventTag } from '~/libs/types';
+import { Event, EventTag, EventYear } from '~/libs/types';
 import { removeDuplicates } from '~/libs/utils';
 import { facade } from '../../_facade/index.js';
 import { EventNamesByTag } from '../../_schema/types/event-names-by-tag.js';
 
 export const getEventNamesByTag = async (
-  years: string[],
+  years: EventYear[],
   tags: EventTag[],
 ): Promise<EventNamesByTag[]> => {
   'use server';

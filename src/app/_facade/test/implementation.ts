@@ -1,4 +1,4 @@
-import { Event, EventTag } from '~/libs/types';
+import { Event, EventTag, EventYear } from '~/libs/types';
 import { ProjectsEvent } from '../../_schema/types/projects-event.js';
 import { ProjectsHills } from '../../_schema/types/projects-hills.js';
 import { ProjectsStats } from '../../_schema/types/projects-stats.js';
@@ -22,7 +22,7 @@ export class Implementation implements Interface {
     return Promise.resolve(mockEventTags);
   }
 
-  public async getEventYears(): Promise<string[]> {
+  public async getEventYears(): Promise<EventYear[]> {
     return Promise.resolve(mockEventYears);
   }
 

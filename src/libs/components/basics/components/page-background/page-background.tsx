@@ -10,7 +10,6 @@ export type PageBackgroundProps = {
 };
 
 export const PageBackground: FC<PageBackgroundProps> = ({ type = 'sansSerif', content }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const classNamesText = cx(styles.text, styles[`text${toUpperCase(type)}`]);
 
   return (

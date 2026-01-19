@@ -5,8 +5,9 @@ import {
   Img,
   MappedProjects,
   Project,
-  Sport,
   EventTag,
+  Projects,
+  EventYear,
 } from '~/libs/types';
 import { Interface } from './interface.js';
 import { mapEventFeaturesReadable } from './utils/map-event-features-readable.js';
@@ -26,7 +27,7 @@ export class Implementation implements Interface {
     return `${this.baseUrl}/events/years.json`;
   }
 
-  private get eventUrl(): string {
+  private get eventsUrl(): string {
     return `${this.baseUrl}/events/:year/:event.json`;
   }
 
@@ -39,44 +40,30 @@ export class Implementation implements Interface {
   }
 
   public async getAllProjects(): Promise<MappedProjects> {
-    /**
-     * TODO: correctly implement this method
-     *
-     * - Implement `names` array for projects in the API
-     * - For each `year` in `years` ...
-     * - For each `projectName` in `projectNames` ...
-     * - Call `getProject(year, projectName.id)`
-     * - Concat
-     */
+    const years = await this.getEventYears();
+    const parsedProjects: Projects = {
+      2020: [],
+      2021: [],
+      2022: [],
+      2023: [],
+      2024: [],
+      2025: [],
+    };
 
-    // const years = await this.getEventYears();
-    // const projectNames = await this.getProjectNames();
+    for await (const year of years) {
+      const projectNames = await this.getProjectNames(year);
 
-    // const projects = [];
+      for await (const projectName of projectNames) {
+        const project = await this.getProject(year, projectName.id.toLocaleLowerCase());
 
-    // for (const year of years) {
-    //   for (const projectName of projectNames) {
-    //     const project = await this.getProject(year, projectName.id);
-    //     projects.push(project);
-    //   }
-    // }
-
-    const apiUrl = '';
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
+        parsedProjects[year].push(project);
+      }
     }
 
-    // Replace with AJV validation
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const parsedResponse: Sport = await response.json();
-
-    const mappedParsedResponse: MappedProjects = mapProjects(parsedResponse);
+    const mappedParsedProjects: MappedProjects = mapProjects(parsedProjects);
 
     try {
-      return mappedParsedResponse;
+      return mappedParsedProjects;
     } catch (error: unknown) {
       // eslint-disable-next-line no-console
       console.log(error);
@@ -88,7 +75,7 @@ export class Implementation implements Interface {
   public async getEventNames(
     year: string,
   ): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
-    const apiUrl = this.eventUrl.replace(':year', year).replace('/:event.json', '/names.json');
+    const apiUrl = this.eventsUrl.replace(':year', year).replace(':event.json', 'names.json');
 
     const response = await fetch(apiUrl);
 
@@ -134,7 +121,7 @@ export class Implementation implements Interface {
     }
   }
 
-  public async getEventYears(): Promise<string[]> {
+  public async getEventYears(): Promise<EventYear[]> {
     const apiUrl = this.eventYearsUrl;
 
     const response = await fetch(apiUrl);
@@ -145,7 +132,7 @@ export class Implementation implements Interface {
 
     // Replace with AJV validation
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const parsedResponse: string[] = await response.json();
+    const parsedResponse: EventYear[] = await response.json();
 
     try {
       return parsedResponse;
@@ -161,7 +148,7 @@ export class Implementation implements Interface {
     year: string,
     eventId: string,
   ): Promise<Extract<Event, { type: 'mapped' }>> {
-    const apiUrl = this.eventUrl.replace(':year', year).replace(':event', eventId);
+    const apiUrl = this.eventsUrl.replace(':year', year).replace(':event', eventId);
 
     const response = await fetch(apiUrl);
 
@@ -300,6 +287,29 @@ export class Implementation implements Interface {
       console.log(error);
 
       throw new Error('Invalid event data received');
+    }
+  }
+
+  public async getProjectNames(year: string): Promise<Array<Pick<Project, 'id' | 'name'>>> {
+    const apiUrl = this.projectsUrl.replace(':year', year).replace(':project.json', 'names.json');
+
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const parsedResponse: Array<Pick<Project, 'id' | 'name'>> = await response.json();
+
+    try {
+      return parsedResponse;
+    } catch (error: unknown) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+
+      throw new Error('Invalid event names data received');
     }
   }
 

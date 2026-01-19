@@ -1,4 +1,6 @@
+import { EventId, EventYear } from '~/libs/types';
+
 export type InstantGramSearchParams = {
-  event?: string;
-  year?: string;
+  event?: EventId;
+  year?: EventYear;
 };
