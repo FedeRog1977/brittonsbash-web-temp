@@ -99,7 +99,7 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
   const { handleSubmit, isSubmitting } = useClientSubmit(onSubmit);
 
   return (
-    <PageLayout background={{ type: 'ig', content: 'Instant Gram' }}>
+    <PageLayout background={{ type: 'instagram', content: 'Instant Gram' }}>
       <Tile type="clear" width="wide">
         <Flex direction="vertical" gap="md">
           <Form

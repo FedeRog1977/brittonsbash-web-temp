@@ -1,16 +1,16 @@
-import { toUpperCase } from '~/libs/utils';
-import styles from './page-background.module.scss.js';
 import cx from 'classnames';
 import { FC } from 'react';
+import { toUpperCase } from '~/libs/utils';
+import { TypographyProps } from '../typography/typography.jsx';
+import styles from './page-background.module.scss.js';
 
 export type PageBackgroundProps = {
-  // TODO: clean up the order and naming of these
-  // Also do this in the module
-  type?: 'std' | 'logo' | 'ig' | 'sport' | 'audi' | 'miami' | 'calligraphy' | 'ibm';
+  type?: TypographyProps['fontFamily'];
   content: string;
 };
 
-export const PageBackground: FC<PageBackgroundProps> = ({ type = 'logo', content }) => {
+export const PageBackground: FC<PageBackgroundProps> = ({ type = 'sansSerif', content }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const classNamesText = cx(styles.text, styles[`text${toUpperCase(type)}`]);
 
   return (

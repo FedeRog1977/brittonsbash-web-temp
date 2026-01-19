@@ -4,7 +4,6 @@ import { FC } from 'react';
 import { Button, Form, Select, useClientSubmit } from '~/libs/components-basics/client-form';
 import { Flex } from '~/libs/components-basics/flex';
 import { CustomErrors, SelectOption, SubmitHandler } from '~/libs/components-basics/form';
-import { Loading } from '~/libs/components-basics/loading';
 import { ColumnTable } from '~/libs/components-basics/table';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
@@ -87,13 +86,14 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             <Flex direction="vertical" alignHorizontal="left" gap="md">
               <Select name="year" label="Find Projects by Year" options={yearOptions} />
 
-              {isEventsSubmitting ? (
-                <Loading />
-              ) : (
-                <Button variant="solidDark" type="submit" width="quarter">
-                  Find Projects
-                </Button>
-              )}
+              <Button
+                variant="solidDark"
+                type="submit"
+                width="quarter"
+                isSubmitting={isEventsSubmitting}
+              >
+                Find Projects
+              </Button>
             </Flex>
           </Form>
 
@@ -106,13 +106,14 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             <Flex direction="vertical" alignHorizontal="left" gap="md">
               <Select name="type" label="Find Hills by Type" options={typeOptions} />
 
-              {isHillsSubmitting ? (
-                <Loading />
-              ) : (
-                <Button variant="solidDark" type="submit" width="quarter">
-                  Find Hills
-                </Button>
-              )}
+              <Button
+                variant="solidDark"
+                type="submit"
+                width="quarter"
+                isSubmitting={isHillsSubmitting}
+              >
+                Find Hills
+              </Button>
             </Flex>
           </Form>
 

@@ -13,16 +13,10 @@ import { mapEventFeaturesReadable } from './utils/map-event-features-readable.js
 import { mapEventFeatures } from './utils/map-event-features.js';
 import { mapEventImages } from './utils/map-event-images.js';
 import { mapEventProject } from './utils/map-event-project.js';
-import { mapEventSports } from './utils/map-event-sports.js';
-import { mapEvents } from './utils/map-events.js';
 import { mapProjects } from './utils/map-projects.js';
 
 export class Implementation implements Interface {
   private readonly baseUrl: string;
-
-  private get eventsUrl(): string {
-    return `${this.baseUrl}/events.data.json`;
-  }
 
   private get eventTagsUrl(): string {
     return `${this.baseUrl}/events/tags.json`;
@@ -42,6 +36,53 @@ export class Implementation implements Interface {
 
   public constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
+  }
+
+  public async getAllProjects(): Promise<MappedProjects> {
+    /**
+     * TODO: correctly implement this method
+     *
+     * - Implement `names` array for projects in the API
+     * - For each `year` in `years` ...
+     * - For each `projectName` in `projectNames` ...
+     * - Call `getProject(year, projectName.id)`
+     * - Concat
+     */
+
+    // const years = await this.getEventYears();
+    // const projectNames = await this.getProjectNames();
+
+    // const projects = [];
+
+    // for (const year of years) {
+    //   for (const projectName of projectNames) {
+    //     const project = await this.getProject(year, projectName.id);
+    //     projects.push(project);
+    //   }
+    // }
+
+    const apiUrl = '';
+
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    // Replace with AJV validation
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const parsedResponse: Sport = await response.json();
+
+    const mappedParsedResponse: MappedProjects = mapProjects(parsedResponse);
+
+    try {
+      return mappedParsedResponse;
+    } catch (error: unknown) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+
+      throw new Error('Invalid sport data received');
+    }
   }
 
   public async getEventNames(
@@ -116,8 +157,11 @@ export class Implementation implements Interface {
     }
   }
 
-  public async getEvent(year: string, event: string): Promise<Extract<Event, { type: 'mapped' }>> {
-    const apiUrl = this.eventUrl.replace(':year', year).replace(':event', event);
+  public async getEvent(
+    year: string,
+    eventId: string,
+  ): Promise<Extract<Event, { type: 'mapped' }>> {
+    const apiUrl = this.eventUrl.replace(':year', year).replace(':event', eventId);
 
     const response = await fetch(apiUrl);
 
@@ -206,7 +250,9 @@ export class Implementation implements Interface {
   }
 
   public async getMappedEventFeatures(): Promise<Features> {
-    const apiUrl = this.eventsUrl;
+    // TODO: correctly implement this method
+
+    const apiUrl = '';
 
     const response = await fetch(apiUrl);
 
@@ -231,7 +277,9 @@ export class Implementation implements Interface {
   }
 
   public async getMappedEventImages(): Promise<Img[]> {
-    const apiUrl = this.eventsUrl;
+    // TODO: correctly implement this method
+
+    const apiUrl = '';
 
     const response = await fetch(apiUrl);
 
@@ -252,84 +300,6 @@ export class Implementation implements Interface {
       console.log(error);
 
       throw new Error('Invalid event data received');
-    }
-  }
-
-  public async getMappedEventSports(): Promise<Project[]> {
-    // TODO: correctly amend this method
-
-    const apiUrl = '';
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    // Replace with AJV validation
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const parsedResponse: Sport = await response.json();
-
-    const mappedParsedResponse: Project[] = mapEventSports(parsedResponse);
-
-    try {
-      return mappedParsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid sport data received');
-    }
-  }
-
-  public async getMappedEvents(): Promise<Event[]> {
-    const apiUrl = this.eventsUrl;
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    // Replace with AJV validation
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const parsedResponse: Events = await response.json();
-
-    const mappedParsedResponse: Event[] = mapEvents(parsedResponse);
-
-    try {
-      return mappedParsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid event data received');
-    }
-  }
-
-  public async getMappedProjects(): Promise<MappedProjects> {
-    // TODO: correctly amend this method
-    const apiUrl = '';
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    // Replace with AJV validation
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const parsedResponse: Sport = await response.json();
-
-    const mappedParsedResponse: MappedProjects = mapProjects(parsedResponse);
-
-    try {
-      return mappedParsedResponse;
-    } catch (error: unknown) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
-      throw new Error('Invalid sport data received');
     }
   }
 

@@ -1,10 +1,10 @@
 import cx from 'classnames';
-import styles from './tile.module.scss.js';
 import { FC, ReactNode } from 'react';
+import { Img } from '~/libs/types';
 import { toUpperCase } from '~/libs/utils';
 import { GradientProps, Gradient } from '../gradient/gradient.js';
 import { Image } from '../image/image.js';
-import { Img } from '~/libs/types';
+import styles from './tile.module.scss.js';
 
 export type TileProps = {
   type: 'clear' | 'solid';

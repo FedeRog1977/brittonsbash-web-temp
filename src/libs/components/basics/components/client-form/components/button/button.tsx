@@ -1,8 +1,7 @@
 'use client';
 
 import cx from 'classnames';
-import { FC, ReactElement } from 'react';
-import { Spacing } from '~/libs/components-basics/spacing';
+import { FC, MouseEvent, ReactElement } from 'react';
 import { Url } from '~/libs/types';
 import { toUpperCase } from '~/libs/utils';
 import { TextStyle } from '../../../../reference/index.js';
@@ -24,7 +23,7 @@ export type ButtonProps = {
   subContentTop?: boolean;
   icon?: ReactElement;
   value?: string;
-  onClick?: (() => void) | ((e: any) => void);
+  onClick?: (() => void) | ((event: MouseEvent) => void);
   isSubmitting?: boolean;
   link?: Url;
   width?: 'default' | 'quarter' | 'half' | 'full';
@@ -62,7 +61,9 @@ export const Button: FC<ButtonProps> = ({
       //   {`[${children}](${link.href})`}
       // </Typography>
 
-      <a href={link.href}>{children}</a>
+      <a href={link.href} onClick={onClick}>
+        {children}
+      </a>
     );
   }
 

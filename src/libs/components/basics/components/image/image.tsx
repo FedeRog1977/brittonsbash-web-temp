@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import styles from './image.module.scss.js';
-import { Typography } from '../typography/typography.js';
 import { Img } from '~/libs/types';
+import { Typography } from '../typography/typography.js';
+import styles from './image.module.scss.js';
 
 export const Image: FC<Img> = ({ url, alt, description }) => (
   <div className={styles.imageContainer}>

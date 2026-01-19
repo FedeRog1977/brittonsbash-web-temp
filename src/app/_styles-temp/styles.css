@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800');
+@font-face {
+  font-family: Lato;
+  src: url(./Lato-Thin.ttf);
+}
+
+@font-face {
+  font-family: Instagram;
+  src: url(./Grandista.ttf);
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800'); */
+
 html,
 body,
 div,
@@ -6778,38 +6789,14 @@ a:hover {
   ._textContent_14a54_44 {
     font-size: 28px;
     margin: 10px auto;
-    width: 340px;
+    width: 410px;
+    padding: 0 0 0 1rem;
   }
 }
-._textStd_14a54_57 {
-  font-family: 'Lato';
+._textInstagram_14a54_68 {
+  font-family: Instagram;
 }
-._textLogo_14a54_60 {
-  font-family: 'Lato';
-}
-@media (max-width: 768px) {
-  ._textLogo_14a54_60 {
-    font-size: 24px;
-  }
-}
-._textIg_14a54_68 {
-  font-family: 'Lato';
-}
-._textSport_14a54_71 {
-  font-family: 'Lato';
-}
-._textAudi_14a54_74 {
-  font-family: 'Lato';
-}
-._textMiami_14a54_77 {
-  font-family: 'Lato';
-}
-._textCalligraphy_14a54_80 {
-  font-family: 'Lato';
-}
-._textIbm_14a54_83 {
-  font-family: 'Lato';
-}
+
 ._modal_1ranq_1 {
   max-width: 1080px;
   max-height: 1080px;
@@ -7132,7 +7119,7 @@ select._search_1mtl7_2 {
 @media (max-width: 768px) {
   ._headerContent_3jwj3_24 {
     margin: 0 auto;
-    width: 340px;
+    width: 390px;
   }
 }
 @media (min-width: 768px) {
@@ -7195,7 +7182,7 @@ select._search_1mtl7_2 {
 @media (max-width: 768px) {
   ._subheaderContent_3jwj3_85 {
     margin: 0 auto;
-    width: 340px;
+    width: 390px;
   }
 }
 ._gradient_3e5gy_1 {

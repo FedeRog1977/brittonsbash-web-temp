@@ -15,6 +15,7 @@ import { EventTag, GenericDataContent, Img, MappedEventProject } from '~/libs/ty
 import { Description } from './components/description.jsx';
 
 export type InstantGramResultTemplateProps = {
+  year: string;
   tags: EventTag[];
   prefix?: string;
   names: string[];
@@ -27,6 +28,7 @@ export type InstantGramResultTemplateProps = {
 };
 
 export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
+  year,
   tags,
   prefix,
   names,
@@ -40,12 +42,12 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <PageLayout background={{ type: 'ig', content: 'Instant Gram' }}>
+    <PageLayout background={{ type: 'instagram', content: 'Instant Gram' }}>
       <Tile type="clear" width="wide">
         <Flex direction="vertical" gap="sm">
-          {prefix ? <Typography variant="t2">{prefix}:</Typography> : null}
-
           <Flex direction="vertical" rowGap="3xs">
+            {prefix ? <Typography variant="t2">{prefix}:</Typography> : null}
+
             {names.length > 1 ? (
               names.map((name, index) => (
                 <Flex key={name} direction="horizontal" gap="xs">
@@ -66,16 +68,20 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             )}
           </Flex>
 
-          <Typography variant="h4" color="lightGrey">
-            {startDate}
-            {endDate ? <>&nbsp;&#8212;&nbsp;{endDate}</> : null}
+          <Typography variant="h4" color="lightGrey" markdown>
+            {`${startDate}${endDate ? ` - ${endDate}` : ''}, ${year}`}
           </Typography>
 
           <Flex direction="horizontal" alignVertical="center" gap={{ xs: 'xs', lg: 'sm' }}>
             {tags.map((tag) => (
+              // TODO: add this functionality to the `Typography` component once concat is repaired
               <div
                 key={tag}
-                style={{ border: '1px solid white', borderRadius: '8px', padding: '4px' }}
+                style={{
+                  border: '0.5px solid white',
+                  borderRadius: '8px',
+                  padding: '4px 8px 4px 8px',
+                }}
               >
                 <Typography variant="body">{mapEventTagReadable(tag)}</Typography>
               </div>

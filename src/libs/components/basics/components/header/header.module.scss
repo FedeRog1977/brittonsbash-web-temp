@@ -24,7 +24,6 @@
 
   &Content {
     font-family: 'Lato';
-    // font-family: Audi-Light;
     color: styles.$white;
 
     a {
@@ -46,7 +45,7 @@
 
     @media (max-width: 768px) {
       margin: 0 auto;
-      width: 340px;
+      width: 390px;
     }
   }
 
@@ -62,7 +61,6 @@
 
   &Logo {
     font-family: 'Lato';
-    // font-family: Audi-Light;
     font-size: 24px;
   }
 }
@@ -89,7 +87,6 @@
 
   &Content {
     font-family: 'Lato';
-    // font-family: Audi-Light;
     color: styles.$white;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -113,7 +110,8 @@
 
     @media (max-width: 768px) {
       margin: 0 auto;
-      width: 340px;
+      width: 390px;
+      padding: styles.$spacing-sm;
     }
   }
 }

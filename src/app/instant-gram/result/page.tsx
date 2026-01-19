@@ -28,6 +28,7 @@ const InstantGramResult = async ({
 
   return (
     <InstantGramResultTemplate
+      year={event.id.slice(1, 5)}
       tags={event.tags}
       prefix={event.prefix}
       names={event.names}

@@ -37,7 +37,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsEvents(year: EventYear): Promise<ProjectsEvent[]> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
+    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
 
     const projectsEvents = mappedProjects.projects[year].reverse().map((project) => ({
       ...project,
@@ -58,7 +58,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsHills(hillType: HillType): Promise<ProjectsHills> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
+    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const hills: string[] = [];
 
     for (const hill of mappedProjects[hillType].names.total) {
@@ -84,7 +84,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsStats(): Promise<ProjectsStats> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
+    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const labels: string[] = [];
     const islands: string[] = [];
     const munros: string[] = [];
@@ -121,7 +121,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsSummary(): Promise<ProjectsSummary> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getMappedProjects();
+    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const labels: string[] = [];
     const instances: string[] = [];
     const distances: string[] = [];

@@ -49,27 +49,12 @@
     @media (max-width: 768px) {
       font-size: 28px;
       margin: 10px auto;
-      width: 340px;
-    }
-  }
-
-  &Std {
-    font-family: 'Lato';
-    // font-family: Sans-Light;
-  }
-
-  &Logo {
-    font-family: 'Lato';
-    // font-family: Audi-Light;
-
-    @media (max-width: 768px) {
-      font-size: 24px;
+      width: 390px;
     }
   }
 
   &Ig {
-    font-family: 'Lato';
-    // font-family: Instagram;
+    font-family: Instagram;
     // background: -webkit-linear-gradient(
     //     0deg,
     //     #a13cc2 -50%,
@@ -79,30 +64,5 @@
     // background-clip: text;
     // -webkit-background-clip: text;
     // -webkit-text-fill-color: transparent;
-  }
-
-  &Sport {
-    font-family: 'Lato';
-    // font-family: NFS;
-  }
-
-  &Audi {
-    font-family: 'Lato';
-    // font-family: Audi-Extended;
-  }
-
-  &Miami {
-    font-family: 'Lato';
-    // font-family: Broadway;
-  }
-
-  &Calligraphy {
-    font-family: 'Lato';
-    // font-family: GreatVibes;
-  }
-
-  &Ibm {
-    font-family: 'Lato';
-    // font-family: IBM;
   }
 }
