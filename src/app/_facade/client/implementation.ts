@@ -98,6 +98,23 @@ export class Implementation implements Interface {
     const subTwos: string[] = [];
     const donalds: string[] = [];
 
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.islands.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.munros.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.munroTops.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.corbetts.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.corbettTops.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.grahams.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.subTwos.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.donalds.number.type;
+
     mapKeyValue('key', mappedProjects.islands.number, labels);
     mapKeyValue('value', mappedProjects.islands.number, islands);
     mapKeyValue('value', mappedProjects.munros.number, munros);
@@ -129,6 +146,13 @@ export class Implementation implements Interface {
     const instances: string[] = [];
     const distances: string[] = [];
     const elevations: string[] = [];
+
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.number.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.distance.type;
+    // @ts-expect-error safely remove type key
+    delete mappedProjects.elevation.type;
 
     mapKeyValue('key', mappedProjects.number, labels);
     mapKeyValue('value', mappedProjects.number, instances);
