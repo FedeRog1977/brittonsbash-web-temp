@@ -28,11 +28,11 @@ export class Implementation implements Interface {
   }
 
   private get eventsUrl(): string {
-    return `${this.baseUrl}/events/:year/:event.json`;
+    return `${this.baseUrl}/events/:year/:eventId.json`;
   }
 
   private get projectsUrl(): string {
-    return `${this.baseUrl}/projects/:year/:project.json`;
+    return `${this.baseUrl}/projects/:year/:projectId.json`;
   }
 
   public constructor(baseUrl: string) {
@@ -75,7 +75,7 @@ export class Implementation implements Interface {
   public async getEventNames(
     year: string,
   ): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
-    const apiUrl = this.eventsUrl.replace(':year', year).replace(':event.json', 'names.json');
+    const apiUrl = this.eventsUrl.replace(':year', year).replace(':eventId.json', 'names.json');
 
     const response = await fetch(apiUrl);
 
@@ -148,7 +148,7 @@ export class Implementation implements Interface {
     year: string,
     eventId: string,
   ): Promise<Extract<Event, { type: 'mapped' }>> {
-    const apiUrl = this.eventsUrl.replace(':year', year).replace(':event', eventId);
+    const apiUrl = this.eventsUrl.replace(':year', year).replace(':eventId', eventId);
 
     const response = await fetch(apiUrl);
 
@@ -190,7 +190,7 @@ export class Implementation implements Interface {
             sport: mappedSport,
           };
 
-          // TODO: remove this temporary workaround for the spacing issue
+          // TODO: remove this temporary workaround for the spacing issue (1/3)
           if (mappedParsedMappedMultipleSportResponse.description === '') {
             return {
               ...mappedParsedMappedMultipleSportResponse,
@@ -201,7 +201,16 @@ export class Implementation implements Interface {
             };
           }
 
-          return mappedParsedMappedMultipleSportResponse;
+          // TODO: remove this temporary workaround for for missing tags (1/3)
+          let tagsTemp: EventTag[] = [];
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+          if (mappedParsedMappedMultipleSportResponse.tags === undefined) {
+            tagsTemp = [];
+          } else {
+            tagsTemp = mappedParsedMappedMultipleSportResponse.tags;
+          }
+
+          return { ...mappedParsedMappedMultipleSportResponse, tags: tagsTemp };
         }
 
         const sport = await this.getProject(
@@ -218,7 +227,27 @@ export class Implementation implements Interface {
           sport: mappedSport,
         };
 
-        return mappedParsedMappedSingleSportResponse;
+        // TODO: remove this temporary workaround for the spacing issue (2/3)
+        if (mappedParsedMappedSingleSportResponse.description === '') {
+          return {
+            ...mappedParsedMappedSingleSportResponse,
+            description: mappedParsedMappedSingleSportResponse.description.replace(
+              /[\s\S]*/,
+              'TODO: write a valid description for this event. The string is bloody required in the FE, so if an empty string is returned from the service, it will be replaced by this to amend the horrific spacing issue.',
+            ),
+          };
+        }
+
+        // TODO: remove this temporary workaround for for missing tags (2/3)
+        let tagsTemp: EventTag[] = [];
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        if (mappedParsedMappedSingleSportResponse.tags === undefined) {
+          tagsTemp = [];
+        } else {
+          tagsTemp = mappedParsedMappedSingleSportResponse.tags;
+        }
+
+        return { ...mappedParsedMappedSingleSportResponse, tags: tagsTemp };
       } catch {
         const mappedParsedUnmappedNullSportResponse: Extract<Event, { type: 'mapped' }> = {
           ...parsedResponse,
@@ -226,7 +255,27 @@ export class Implementation implements Interface {
           features: mappedFeatures,
         };
 
-        return mappedParsedUnmappedNullSportResponse;
+        // TODO: remove this temporary workaround for the spacing issue (3/3)
+        if (mappedParsedUnmappedNullSportResponse.description === '') {
+          return {
+            ...mappedParsedUnmappedNullSportResponse,
+            description: mappedParsedUnmappedNullSportResponse.description.replace(
+              /[\s\S]*/,
+              'TODO: write a valid description for this event. The string is bloody required in the FE, so if an empty string is returned from the service, it will be replaced by this to amend the horrific spacing issue.',
+            ),
+          };
+        }
+
+        // TODO: remove this temporary workaround for for missing tags (3/3)
+        let tagsTemp: EventTag[] = [];
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        if (mappedParsedUnmappedNullSportResponse.tags === undefined) {
+          tagsTemp = [];
+        } else {
+          tagsTemp = mappedParsedUnmappedNullSportResponse.tags;
+        }
+
+        return { ...mappedParsedUnmappedNullSportResponse, tags: tagsTemp };
       }
     } catch (error: unknown) {
       // eslint-disable-next-line no-console
@@ -291,7 +340,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectNames(year: string): Promise<Array<Pick<Project, 'id' | 'name'>>> {
-    const apiUrl = this.projectsUrl.replace(':year', year).replace(':project.json', 'names.json');
+    const apiUrl = this.projectsUrl.replace(':year', year).replace(':projectId.json', 'names.json');
 
     const response = await fetch(apiUrl);
 
@@ -314,7 +363,7 @@ export class Implementation implements Interface {
   }
 
   public async getProject(year: string, projectId: string): Promise<Project> {
-    const apiUrl = this.projectsUrl.replace(':year', year).replace(':project', projectId);
+    const apiUrl = this.projectsUrl.replace(':year', year).replace(':projectId', projectId);
 
     const response = await fetch(apiUrl);
 
