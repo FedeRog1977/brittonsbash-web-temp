@@ -344,6 +344,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   // Old gen:
 
   const projects: MappedProjects['projects'] = {
+    2026: sport[2026],
     2025: sport[2025],
     2024: sport[2024],
     2023: sport[2023],
@@ -355,12 +356,14 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   const number: MappedProjects['number'] = {
     type: 'sansUnique',
     total:
+      sport[2026].length +
       sport[2025].length +
       sport[2024].length +
       sport[2023].length +
       sport[2022].length +
       sport[2021].length +
       sport[2020].length,
+    2026: sport[2026].length,
     2025: sport[2025].length,
     2024: sport[2024].length,
     2023: sport[2023].length,
@@ -377,6 +380,77 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   const grahamsTotal: string[] = [];
   const subTwosTotal: string[] = [];
   const donaldsTotal: string[] = [];
+
+  // 2026
+
+  let distance2026 = 0;
+  let elevation2026 = 0;
+
+  const islands2026: string[] = [];
+  const munros2026: string[] = [];
+  const munroTops2026: string[] = [];
+  const corbetts2026: string[] = [];
+  const corbettTops2026: string[] = [];
+  const grahams2026: string[] = [];
+  const subTwos2026: string[] = [];
+  const donalds2026: string[] = [];
+
+  sport[2026].forEach((event: Project) => {
+    distance2026 = distance2026 + event.distance;
+    elevation2026 = elevation2026 + event.elevation;
+
+    event.islands?.forEach((island: string) => {
+      islands2026.push(island);
+    });
+    event.munros?.forEach((munro: string) => {
+      munros2026.push(munro);
+    });
+    event.munroTops?.forEach((munroTop: string) => {
+      munroTops2026.push(munroTop);
+    });
+    event.corbetts?.forEach((corbett: string) => {
+      corbetts2026.push(corbett);
+    });
+    event.corbettTops?.forEach((corbettTop: string) => {
+      corbettTops2026.push(corbettTop);
+    });
+    event.grahams?.forEach((graham: string) => {
+      grahams2026.push(graham);
+    });
+    event.subTwos?.forEach((subTwo: string) => {
+      subTwos2026.push(subTwo);
+    });
+    event.donalds?.forEach((donald: string) => {
+      donalds2026.push(donald);
+    });
+  });
+
+  islands2026.forEach((island: string) => {
+    islandsTotal.push(island);
+  });
+  munros2026.forEach((munro: string) => {
+    munrosTotal.push(munro);
+  });
+  munroTops2026.forEach((munroTop: string) => {
+    munroTopsTotal.push(munroTop);
+  });
+  corbetts2026.forEach((corbett: string) => {
+    corbettsTotal.push(corbett);
+  });
+  corbettTops2026.forEach((corbettTop: string) => {
+    corbettTopsTotal.push(corbettTop);
+  });
+  grahams2026.forEach((graham: string) => {
+    grahamsTotal.push(graham);
+  });
+  subTwos2026.forEach((subTwo: string) => {
+    subTwosTotal.push(subTwo);
+  });
+  donalds2026.forEach((donald: string) => {
+    donaldsTotal.push(donald);
+  });
+
+  // 2025
 
   let distance2025 = 0;
   let elevation2025 = 0;
@@ -445,6 +519,8 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
+  // 2024
+
   let distance2024 = 0;
   let elevation2024 = 0;
 
@@ -511,6 +587,8 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   donalds2024.forEach((donald: string) => {
     donaldsTotal.push(donald);
   });
+
+  // 2023
 
   let distance2023 = 0;
   let elevation2023 = 0;
@@ -579,6 +657,8 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
+  // 2022
+
   let distance2022 = 0;
   let elevation2022 = 0;
 
@@ -646,6 +726,8 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     donaldsTotal.push(donald);
   });
 
+  // 2021
+
   let distance2021 = 0;
   let elevation2021 = 0;
 
@@ -712,6 +794,8 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   donalds2021.forEach((donald: string) => {
     donaldsTotal.push(donald);
   });
+
+  // 2020
 
   let distance2020 = 0;
   let elevation2020 = 0;
@@ -785,6 +869,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: islandsTotal.sort(),
       unique: removeDuplicates(islandsTotal).sort(),
+      2026: islands2026.sort(),
       2025: islands2025.sort(),
       2024: islands2024.sort(),
       2023: islands2023.sort(),
@@ -796,6 +881,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: islandsTotal.length,
       unique: removeDuplicates(islandsTotal).length,
+      2026: islands2026.length,
       2025: islands2025.length,
       2024: islands2024.length,
       2023: islands2023.length,
@@ -810,6 +896,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: munrosTotal.sort(),
       unique: removeDuplicates(munrosTotal).sort(),
+      2026: munros2026.sort(),
       2025: munros2025.sort(),
       2024: munros2024.sort(),
       2023: munros2023.sort(),
@@ -821,6 +908,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: munrosTotal.length,
       unique: removeDuplicates(munrosTotal).length,
+      2026: munros2026.length,
       2025: munros2025.length,
       2024: munros2024.length,
       2023: munros2023.length,
@@ -835,6 +923,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: munroTopsTotal.sort(),
       unique: removeDuplicates(munroTopsTotal).sort(),
+      2026: munroTops2026.sort(),
       2025: munroTops2025.sort(),
       2024: munroTops2024.sort(),
       2023: munroTops2023.sort(),
@@ -846,6 +935,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: munroTopsTotal.length,
       unique: removeDuplicates(munroTopsTotal).length,
+      2026: munroTops2026.length,
       2025: munroTops2025.length,
       2024: munroTops2024.length,
       2023: munroTops2023.length,
@@ -860,6 +950,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: corbettsTotal.sort(),
       unique: removeDuplicates(corbettsTotal).sort(),
+      2026: corbetts2026.sort(),
       2025: corbetts2025.sort(),
       2024: corbetts2024.sort(),
       2023: corbetts2023.sort(),
@@ -871,6 +962,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: corbettsTotal.length,
       unique: removeDuplicates(corbettsTotal).length,
+      2026: corbetts2026.length,
       2025: corbetts2025.length,
       2024: corbetts2024.length,
       2023: corbetts2023.length,
@@ -885,6 +977,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: corbettTopsTotal.sort(),
       unique: removeDuplicates(corbettTopsTotal).sort(),
+      2026: corbettTops2026.sort(),
       2025: corbettTops2025.sort(),
       2024: corbettTops2024.sort(),
       2023: corbettTops2023.sort(),
@@ -896,6 +989,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: corbettTopsTotal.length,
       unique: removeDuplicates(corbettTopsTotal).length,
+      2026: corbettTops2026.length,
       2025: corbettTops2025.length,
       2024: corbettTops2024.length,
       2023: corbettTops2023.length,
@@ -910,6 +1004,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: grahamsTotal.sort(),
       unique: removeDuplicates(grahamsTotal).sort(),
+      2026: grahams2026.sort(),
       2025: grahams2025.sort(),
       2024: grahams2024.sort(),
       2023: grahams2023.sort(),
@@ -921,6 +1016,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: grahamsTotal.length,
       unique: removeDuplicates(grahamsTotal).length,
+      2026: grahams2026.length,
       2025: grahams2025.length,
       2024: grahams2024.length,
       2023: grahams2023.length,
@@ -930,36 +1026,12 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     },
   };
 
-  const subTwos: MappedProjects['subTwos'] = {
-    names: {
-      type: 'unique',
-      total: subTwosTotal.sort(),
-      unique: removeDuplicates(subTwosTotal).sort(),
-      2025: subTwos2025.sort(),
-      2024: subTwos2024.sort(),
-      2023: subTwos2023.sort(),
-      2022: subTwos2022.sort(),
-      2021: subTwos2021.sort(),
-      2020: subTwos2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: subTwosTotal.length,
-      unique: removeDuplicates(subTwosTotal).length,
-      2025: subTwos2025.length,
-      2024: subTwos2024.length,
-      2023: subTwos2023.length,
-      2022: subTwos2022.length,
-      2021: subTwos2021.length,
-      2020: subTwos2020.length,
-    },
-  };
-
   const donalds: MappedProjects['donalds'] = {
     names: {
       type: 'unique',
       total: donaldsTotal.sort(),
       unique: removeDuplicates(donaldsTotal).sort(),
+      2026: donalds2026.sort(),
       2025: donalds2025.sort(),
       2024: donalds2024.sort(),
       2023: donalds2023.sort(),
@@ -971,6 +1043,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
       type: 'unique',
       total: donaldsTotal.length,
       unique: removeDuplicates(donaldsTotal).length,
+      2026: donalds2026.length,
       2025: donalds2025.length,
       2024: donalds2024.length,
       2023: donalds2023.length,
@@ -980,11 +1053,45 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     },
   };
 
+  const subTwos: MappedProjects['subTwos'] = {
+    names: {
+      type: 'unique',
+      total: subTwosTotal.sort(),
+      unique: removeDuplicates(subTwosTotal).sort(),
+      2026: subTwos2026.sort(),
+      2025: subTwos2025.sort(),
+      2024: subTwos2024.sort(),
+      2023: subTwos2023.sort(),
+      2022: subTwos2022.sort(),
+      2021: subTwos2021.sort(),
+      2020: subTwos2020.sort(),
+    },
+    number: {
+      type: 'unique',
+      total: subTwosTotal.length,
+      unique: removeDuplicates(subTwosTotal).length,
+      2026: subTwos2026.length,
+      2025: subTwos2025.length,
+      2024: subTwos2024.length,
+      2023: subTwos2023.length,
+      2022: subTwos2022.length,
+      2021: subTwos2021.length,
+      2020: subTwos2020.length,
+    },
+  };
+
   const distance: MappedProjects['distance'] = {
     type: 'sansUnique',
     total: toMiles(
-      distance2025 + distance2024 + distance2023 + distance2022 + distance2021 + distance2020,
+      distance2026 +
+        distance2025 +
+        distance2024 +
+        distance2023 +
+        distance2022 +
+        distance2021 +
+        distance2020,
     ),
+    2026: toMiles(distance2026),
     2025: toMiles(distance2025),
     2024: toMiles(distance2024),
     2023: toMiles(distance2023),
@@ -996,8 +1103,15 @@ export const mapProjects = (sport: Projects): MappedProjects => {
   const elevation: MappedProjects['elevation'] = {
     type: 'sansUnique',
     total: toFeet(
-      elevation2025 + elevation2024 + elevation2023 + elevation2022 + elevation2021 + elevation2020,
+      elevation2026 +
+        elevation2025 +
+        elevation2024 +
+        elevation2023 +
+        elevation2022 +
+        elevation2021 +
+        elevation2020,
     ),
+    2026: toFeet(elevation2026),
     2025: toFeet(elevation2025),
     2024: toFeet(elevation2024),
     2023: toFeet(elevation2023),
@@ -1017,7 +1131,7 @@ export const mapProjects = (sport: Projects): MappedProjects => {
     corbetts,
     corbettTops,
     grahams,
-    subTwos,
     donalds,
+    subTwos,
   };
 };
