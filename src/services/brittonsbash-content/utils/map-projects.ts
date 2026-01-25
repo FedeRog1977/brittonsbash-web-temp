@@ -96,7 +96,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const islandsInstances: MappedProjects['islands']['names'] = years.reduce((object, key) => {
+  const islandsInstances: MappedProjects['islands']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -125,7 +125,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const islands: MappedProjects['islands'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: islandsNames,
+    instances: islandsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: islandsInstances,
   };
@@ -159,7 +159,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const munrosInstances: MappedProjects['munros']['names'] = years.reduce((object, key) => {
+  const munrosInstances: MappedProjects['munros']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -188,7 +188,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const munros: MappedProjects['munros'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: munrosNames,
+    instances: munrosNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: munrosInstances,
   };
@@ -222,36 +222,39 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const munroTopsInstances: MappedProjects['munroTops']['names'] = years.reduce((object, key) => {
-    const total: string[] = [];
-    const yearTotal: string[] = [];
+  const munroTopsInstances: MappedProjects['munroTops']['instances'] = years.reduce(
+    (object, key) => {
+      const total: string[] = [];
+      const yearTotal: string[] = [];
 
-    years.forEach((year) => {
-      // eslint-disable-next-line array-callback-return
-      projects[year].forEach((project) =>
+      years.forEach((year) => {
         // eslint-disable-next-line array-callback-return
-        project.munroTops?.forEach((munroTop) => total.push(munroTop)),
-      );
-    });
+        projects[year].forEach((project) =>
+          // eslint-disable-next-line array-callback-return
+          project.munroTops?.forEach((munroTop) => total.push(munroTop)),
+        );
+      });
 
-    // eslint-disable-next-line array-callback-return
-    projects[key].forEach((project) =>
       // eslint-disable-next-line array-callback-return
-      project.munroTops?.forEach((munroTop) => yearTotal.push(munroTop)),
-    );
+      projects[key].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.munroTops?.forEach((munroTop) => yearTotal.push(munroTop)),
+      );
 
-    return {
-      ...object,
-      type: 'unique',
-      total: total.length,
-      unique: removeDuplicates(total).length,
-      [key]: yearTotal.length,
-    };
-  }, {});
+      return {
+        ...object,
+        type: 'unique',
+        total: total.length,
+        unique: removeDuplicates(total).length,
+        [key]: yearTotal.length,
+      };
+    },
+    {},
+  );
 
   const munroTops: MappedProjects['munroTops'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: munroTopsNames,
+    instances: munroTopsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: munroTopsInstances,
   };
@@ -285,7 +288,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const corbettsInstances: MappedProjects['corbetts']['names'] = years.reduce((object, key) => {
+  const corbettsInstances: MappedProjects['corbetts']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -314,7 +317,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const corbetts: MappedProjects['corbetts'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: corbettsNames,
+    instances: corbettsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: corbettsInstances,
   };
@@ -348,7 +351,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const corbettTopsInstances: MappedProjects['corbettTops']['names'] = years.reduce(
+  const corbettTopsInstances: MappedProjects['corbettTops']['instances'] = years.reduce(
     (object, key) => {
       const total: string[] = [];
       const yearTotal: string[] = [];
@@ -380,7 +383,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const corbettTops: MappedProjects['corbettTops'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: corbettTopsNames,
+    instances: corbettTopsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: corbettTopsInstances,
   };
@@ -414,7 +417,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const grahamsInstances: MappedProjects['grahams']['names'] = years.reduce((object, key) => {
+  const grahamsInstances: MappedProjects['grahams']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -443,7 +446,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const grahams: MappedProjects['grahams'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: grahamsNames,
+    instances: grahamsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: grahamsInstances,
   };
@@ -477,7 +480,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const donaldsInstances: MappedProjects['donalds']['names'] = years.reduce((object, key) => {
+  const donaldsInstances: MappedProjects['donalds']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -506,7 +509,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const donalds: MappedProjects['donalds'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: donaldsNames,
+    instances: donaldsNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: donaldsInstances,
   };
@@ -540,7 +543,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
   }, {});
 
   // @ts-expect-error: Years will match type `EventYear`
-  const subTwosInstances: MappedProjects['subTwos']['names'] = years.reduce((object, key) => {
+  const subTwosInstances: MappedProjects['subTwos']['instances'] = years.reduce((object, key) => {
     const total: string[] = [];
     const yearTotal: string[] = [];
 
@@ -569,7 +572,7 @@ export const mapProjects = (projects: Projects): MappedProjects => {
 
   const subTwos: MappedProjects['subTwos'] = {
     // @ts-expect-error: Years will match type `EventYear`
-    names: subTwosNames,
+    instances: subTwosNames,
     // @ts-expect-error: Years will match type `EventYear`
     number: subTwosInstances,
   };

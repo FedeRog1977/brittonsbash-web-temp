@@ -40,9 +40,9 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsEvents(year: EventYear): Promise<ProjectsEvent[]> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
 
-    const projectsEvents = mappedProjects.projects[year].reverse().map((project) => ({
+    const projectsEvents = allProjects.projects[year].reverse().map((project) => ({
       ...project,
       distance: toMiles(project.distance),
       elevation: toFeet(project.elevation),
@@ -61,12 +61,12 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsHills(hillType: HillType): Promise<ProjectsHills> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const hills: string[] = [];
 
-    for (const hill of mappedProjects[hillType].names.total) {
+    for (const hill of allProjects[hillType].instances.total) {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-      const count = (mappedProjects[hillType].names.total as string[]).reduce(
+      const count = (allProjects[hillType].instances.total as string[]).reduce(
         (index, value) => (value === hill ? index + 1 : index),
         0,
       );
@@ -77,8 +77,8 @@ export class Implementation implements Interface {
     }
 
     const projectsHills = {
-      total: mappedProjects[hillType].number.total,
-      unique: mappedProjects[hillType].number.unique,
+      total: allProjects[hillType].number.total,
+      unique: allProjects[hillType].number.unique,
       // Already `sort()`ed in the service client
       hills: removeDuplicates(hills),
     };
@@ -87,7 +87,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsStats(): Promise<ProjectsStats> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const labels: string[] = [];
     const islands: string[] = [];
     const munros: string[] = [];
@@ -99,31 +99,31 @@ export class Implementation implements Interface {
     const donalds: string[] = [];
 
     // @ts-expect-error safely remove type key
-    delete mappedProjects.islands.number.type;
+    delete allProjects.islands.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.munros.number.type;
+    delete allProjects.munros.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.munroTops.number.type;
+    delete allProjects.munroTops.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.corbetts.number.type;
+    delete allProjects.corbetts.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.corbettTops.number.type;
+    delete allProjects.corbettTops.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.grahams.number.type;
+    delete allProjects.grahams.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.subTwos.number.type;
+    delete allProjects.subTwos.number.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.donalds.number.type;
+    delete allProjects.donalds.number.type;
 
-    mapKeyValue('key', mappedProjects.islands.number, labels);
-    mapKeyValue('value', mappedProjects.islands.number, islands);
-    mapKeyValue('value', mappedProjects.munros.number, munros);
-    mapKeyValue('value', mappedProjects.munroTops.number, munroTops);
-    mapKeyValue('value', mappedProjects.corbetts.number, corbetts);
-    mapKeyValue('value', mappedProjects.corbettTops.number, corbettTops);
-    mapKeyValue('value', mappedProjects.grahams.number, grahams);
-    mapKeyValue('value', mappedProjects.subTwos.number, subTwos);
-    mapKeyValue('value', mappedProjects.donalds.number, donalds);
+    mapKeyValue('key', allProjects.islands.number, labels);
+    mapKeyValue('value', allProjects.islands.number, islands);
+    mapKeyValue('value', allProjects.munros.number, munros);
+    mapKeyValue('value', allProjects.munroTops.number, munroTops);
+    mapKeyValue('value', allProjects.corbetts.number, corbetts);
+    mapKeyValue('value', allProjects.corbettTops.number, corbettTops);
+    mapKeyValue('value', allProjects.grahams.number, grahams);
+    mapKeyValue('value', allProjects.subTwos.number, subTwos);
+    mapKeyValue('value', allProjects.donalds.number, donalds);
 
     const projectsHills = {
       labels: labels.reverse(),
@@ -141,23 +141,23 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsSummary(): Promise<ProjectsSummary> {
-    const mappedProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const labels: string[] = [];
     const instances: string[] = [];
     const distances: string[] = [];
     const elevations: string[] = [];
 
     // @ts-expect-error safely remove type key
-    delete mappedProjects.instances.type;
+    delete allProjects.instances.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.distance.type;
+    delete allProjects.distance.type;
     // @ts-expect-error safely remove type key
-    delete mappedProjects.elevation.type;
+    delete allProjects.elevation.type;
 
-    mapKeyValue('key', mappedProjects.instances, labels);
-    mapKeyValue('value', mappedProjects.instances, instances);
-    mapKeyValue('value', mappedProjects.distance, distances);
-    mapKeyValue('value', mappedProjects.elevation, elevations);
+    mapKeyValue('key', allProjects.instances, labels);
+    mapKeyValue('value', allProjects.instances, instances);
+    mapKeyValue('value', allProjects.distance, distances);
+    mapKeyValue('value', allProjects.elevation, elevations);
 
     const projectsSummary = {
       labels: labels.reverse(),
