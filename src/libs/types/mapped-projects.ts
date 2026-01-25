@@ -4,7 +4,6 @@ import { Projects } from './projects.js';
 
 type MappedHills = {
   [K in HillType]: {
-    // TODO: update to `instances`
     instances: Extract<EventAggregation<string | string[]>, { type: 'unique' }>;
     number: Extract<EventAggregation<number>, { type: 'unique' }>;
   };
