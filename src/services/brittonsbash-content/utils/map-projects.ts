@@ -1,1128 +1,582 @@
-import { MappedProjects, Project, Projects } from '~/libs/types';
+import { EventYear, MappedProjects, Projects } from '~/libs/types';
 import { removeDuplicates, toMiles, toFeet } from '~/libs/utils';
 
-export const mapProjects = (sport: Projects): MappedProjects => {
-  // type SportDataKeys = keyof typeof sport;
+export const mapProjects = (projects: Projects): MappedProjects => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  const years = Object.keys(projects) as unknown as EventYear[];
 
-  // const years = Object.keys(sport)
+  // @ts-expect-error: Years will match type `EventYear`
+  const instances: MappedProjects['instances'] = years.reduce((object, key) => {
+    let total = 0;
 
-  // const Projects: MappedProjects['projects'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         return {
-  //             ...object,
-  //             [key]: sport[key],
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Instances: MappedProjects['instances'] = Object.keys(
-  //     sport
-  // ).reduce((object, key) => {
-  //     let total = 0
-
-  //     years.forEach((year) => {
-  //         total += sport[year].length
-  //     })
-
-  //     return {
-  //         ...object,
-  //         total: total,
-  //         [key]: sport[key].length,
-  //     }
-  // }, {})
-
-  // const Distance: MappedProjects['distance'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total = 0
-  //         let yearTotal = 0
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach(
-  //                 (project: Project) => (total += project.distance)
-  //             )
-  //         })
-
-  //         sport[key].forEach(
-  //             (project: Project) => (yearTotal += project.distance)
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: toMiles(total),
-  //             [key]: toMiles(yearTotal),
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Elevation: MappedProjects['elevation'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total = 0
-  //         let yearTotal = 0
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach(
-  //                 (project: Project) => (total += project.elevation)
-  //             )
-  //         })
-
-  //         sport[key].forEach(
-  //             (project: Project) => (yearTotal += project.elevation)
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: toFeet(total),
-  //             [key]: toFeet(yearTotal),
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Islands: MappedProjects['islands'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.islands?.forEach((island) => total.push(island))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.islands?.forEach((island) => yearTotal.push(island))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Munros: MappedProjects['munros'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.munros?.forEach((munro) => total.push(munro))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.munros?.forEach((munro) => yearTotal.push(munro))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const MunroTops: MappedProjects['munroTops'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.munroTops?.forEach((munroTop) =>
-  //                     total.push(munroTop)
-  //                 )
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.munroTops?.forEach((munroTop) =>
-  //                 yearTotal.push(munroTop)
-  //             )
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Corbetts: MappedProjects['corbetts'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.corbetts?.forEach((corbett) => total.push(corbett))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.corbetts?.forEach((corbett) => yearTotal.push(corbett))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const CorbettTops: MappedProjects['corbettTops'] = Object.keys(
-  //     sport
-  // ).reduce((object, key) => {
-  //     let total: string[] = []
-  //     let yearTotal: string[] = []
-
-  //     years.forEach((year) => {
-  //         sport[year].forEach((project: Project) =>
-  //             project.corbettTops?.forEach((corbettTop) =>
-  //                 total.push(corbettTop)
-  //             )
-  //         )
-  //     })
-
-  //     sport[key].forEach((project: Project) =>
-  //         project.corbettTops?.forEach((corbettTop) =>
-  //             yearTotal.push(corbettTop)
-  //         )
-  //     )
-
-  //     return {
-  //         ...object,
-  //         total: total.sort(),
-  //         unique: removeDuplicates(total).sort(),
-  //         [key]: yearTotal.sort(),
-  //         totalCount: total.length,
-  //         uniqueCount: removeDuplicates(total).length,
-  //         [key + 'Instances']: yearTotal.length,
-  //     }
-  // }, {})
-
-  // const Grahams: MappedProjects['grahams'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.grahams?.forEach((graham) => total.push(graham))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.grahams?.forEach((graham) => yearTotal.push(graham))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const SubTwos: MappedProjects['subTwos'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.subTwos?.forEach((subTwo) => total.push(subTwo))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.subTwos?.forEach((subTwo) => yearTotal.push(subTwo))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // const Donalds: MappedProjects['donalds'] = Object.keys(sport).reduce(
-  //     (object, key) => {
-  //         let total: string[] = []
-  //         let yearTotal: string[] = []
-
-  //         years.forEach((year) => {
-  //             sport[year].forEach((project: Project) =>
-  //                 project.donalds?.forEach((donald) => total.push(donald))
-  //             )
-  //         })
-
-  //         sport[key].forEach((project: Project) =>
-  //             project.donalds?.forEach((donald) => yearTotal.push(donald))
-  //         )
-
-  //         return {
-  //             ...object,
-  //             total: total.sort(),
-  //             unique: removeDuplicates(total).sort(),
-  //             [key]: yearTotal.sort(),
-  //             totalCount: total.length,
-  //             uniqueCount: removeDuplicates(total).length,
-  //             [key + 'Instances']: yearTotal.length,
-  //         }
-  //     },
-  //     {}
-  // )
-
-  // console.log({
-  //     Projects,
-  //     Instances,
-  //     Distance,
-  //     Elevation,
-  //     Islands,
-  //     Munros,
-  //     MunroTops,
-  //     Corbetts,
-  //     CorbettTops,
-  //     Grahams,
-  //     SubTwos,
-  //     Donalds,
-  // })
-
-  // const MappedProjectsTemp: MappedProjects = {
-  //     Projects,
-  //     Instances,
-  //     Distance,
-  //     Elevation,
-  //     Islands,
-  //     Munros,
-  //     MunroTops,
-  //     Corbetts,
-  //     CorbettTops,
-  //     Grahams,
-  //     SubTwos,
-  //     Donalds,
-  // }
-
-  // Old gen:
-
-  const projects: MappedProjects['projects'] = {
-    2026: sport[2026],
-    2025: sport[2025],
-    2024: sport[2024],
-    2023: sport[2023],
-    2022: sport[2022],
-    2021: sport[2021],
-    2020: sport[2020],
-  };
-
-  const number: MappedProjects['number'] = {
-    type: 'sansUnique',
-    total:
-      sport[2026].length +
-      sport[2025].length +
-      sport[2024].length +
-      sport[2023].length +
-      sport[2022].length +
-      sport[2021].length +
-      sport[2020].length,
-    2026: sport[2026].length,
-    2025: sport[2025].length,
-    2024: sport[2024].length,
-    2023: sport[2023].length,
-    2022: sport[2022].length,
-    2021: sport[2021].length,
-    2020: sport[2020].length,
-  };
-
-  const islandsTotal: string[] = [];
-  const munrosTotal: string[] = [];
-  const munroTopsTotal: string[] = [];
-  const corbettsTotal: string[] = [];
-  const corbettTopsTotal: string[] = [];
-  const grahamsTotal: string[] = [];
-  const subTwosTotal: string[] = [];
-  const donaldsTotal: string[] = [];
-
-  // 2026
-
-  let distance2026 = 0;
-  let elevation2026 = 0;
-
-  const islands2026: string[] = [];
-  const munros2026: string[] = [];
-  const munroTops2026: string[] = [];
-  const corbetts2026: string[] = [];
-  const corbettTops2026: string[] = [];
-  const grahams2026: string[] = [];
-  const subTwos2026: string[] = [];
-  const donalds2026: string[] = [];
-
-  sport[2026].forEach((event: Project) => {
-    distance2026 = distance2026 + event.distance;
-    elevation2026 = elevation2026 + event.elevation;
-
-    event.islands?.forEach((island: string) => {
-      islands2026.push(island);
+    years.forEach((year) => {
+      total += projects[year].length;
     });
-    event.munros?.forEach((munro: string) => {
-      munros2026.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2026.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2026.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2026.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2026.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2026.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2026.push(donald);
-    });
-  });
 
-  islands2026.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2026.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2026.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2026.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2026.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2026.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2026.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2026.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
+    return {
+      ...object,
+      type: 'sansUnique',
+      total,
+      [key]: projects[key].length,
+    };
+  }, {});
 
-  // 2025
+  // @ts-expect-error: Years will match type `EventYear`
+  const distance: MappedProjects['distance'] = years.reduce((object, key) => {
+    let total = 0;
+    let yearTotal = 0;
 
-  let distance2025 = 0;
-  let elevation2025 = 0;
+    years.forEach((year) => {
+      // eslint-disable-next-line no-return-assign, array-callback-return
+      projects[year].forEach((project) => (total += project.distance));
+    });
 
-  const islands2025: string[] = [];
-  const munros2025: string[] = [];
-  const munroTops2025: string[] = [];
-  const corbetts2025: string[] = [];
-  const corbettTops2025: string[] = [];
-  const grahams2025: string[] = [];
-  const subTwos2025: string[] = [];
-  const donalds2025: string[] = [];
+    // eslint-disable-next-line no-return-assign, array-callback-return
+    projects[key].forEach((project) => (yearTotal += project.distance));
 
-  sport[2025].forEach((event: Project) => {
-    distance2025 = distance2025 + event.distance;
-    elevation2025 = elevation2025 + event.elevation;
+    return {
+      ...object,
+      type: 'sansUnique',
+      total: toMiles(total),
+      [key]: toMiles(yearTotal),
+    };
+  }, {});
 
-    event.islands?.forEach((island: string) => {
-      islands2025.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2025.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2025.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2025.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2025.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2025.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2025.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2025.push(donald);
-    });
-  });
+  // @ts-expect-error: Years will match type `EventYear`
+  const elevation: MappedProjects['elevation'] = years.reduce((object, key) => {
+    let total = 0;
+    let yearTotal = 0;
 
-  islands2025.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2025.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2025.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2025.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2025.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2025.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2025.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2025.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
+    years.forEach((year) => {
+      projects[year].forEach(
+        // eslint-disable-next-line no-return-assign, array-callback-return
+        (project) => (total += project.elevation),
+      );
+    });
 
-  // 2024
+    projects[key].forEach(
+      // eslint-disable-next-line no-return-assign, array-callback-return
+      (project) => (yearTotal += project.elevation),
+    );
 
-  let distance2024 = 0;
-  let elevation2024 = 0;
+    return {
+      ...object,
+      type: 'sansUnique',
+      total: toFeet(total),
+      [key]: toFeet(yearTotal),
+    };
+  }, {});
 
-  const islands2024: string[] = [];
-  const munros2024: string[] = [];
-  const munroTops2024: string[] = [];
-  const corbetts2024: string[] = [];
-  const corbettTops2024: string[] = [];
-  const grahams2024: string[] = [];
-  const subTwos2024: string[] = [];
-  const donalds2024: string[] = [];
+  // @ts-expect-error: Years will match type `EventYear`
+  const islandsNames: MappedProjects['islands']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
 
-  sport[2024].forEach((event: Project) => {
-    distance2024 = distance2024 + event.distance;
-    elevation2024 = elevation2024 + event.elevation;
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.islands?.forEach((island) => total.push(island)),
+      );
+    });
 
-    event.islands?.forEach((island: string) => {
-      islands2024.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2024.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2024.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2024.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2024.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2024.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2024.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2024.push(donald);
-    });
-  });
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.islands?.forEach((island) => yearTotal.push(island)),
+    );
 
-  islands2024.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2024.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2024.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2024.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2024.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2024.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2024.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2024.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
 
-  // 2023
+  // @ts-expect-error: Years will match type `EventYear`
+  const islandsInstances: MappedProjects['islands']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
 
-  let distance2023 = 0;
-  let elevation2023 = 0;
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.islands?.forEach((island) => total.push(island)),
+      );
+    });
 
-  const islands2023: string[] = [];
-  const munros2023: string[] = [];
-  const munroTops2023: string[] = [];
-  const corbetts2023: string[] = [];
-  const corbettTops2023: string[] = [];
-  const grahams2023: string[] = [];
-  const subTwos2023: string[] = [];
-  const donalds2023: string[] = [];
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.islands?.forEach((island) => yearTotal.push(island)),
+    );
 
-  sport[2023].forEach((event: Project) => {
-    distance2023 = distance2023 + event.distance;
-    elevation2023 = elevation2023 + event.elevation;
-
-    event.islands?.forEach((island: string) => {
-      islands2023.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2023.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2023.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2023.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2023.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2023.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2023.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2023.push(donald);
-    });
-  });
-
-  islands2023.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2023.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2023.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2023.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2023.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2023.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2023.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2023.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
-
-  // 2022
-
-  let distance2022 = 0;
-  let elevation2022 = 0;
-
-  const islands2022: string[] = [];
-  const munros2022: string[] = [];
-  const munroTops2022: string[] = [];
-  const corbetts2022: string[] = [];
-  const corbettTops2022: string[] = [];
-  const grahams2022: string[] = [];
-  const subTwos2022: string[] = [];
-  const donalds2022: string[] = [];
-
-  sport[2022].forEach((event: Project) => {
-    distance2022 = distance2022 + event.distance;
-    elevation2022 = elevation2022 + event.elevation;
-
-    event.islands?.forEach((island: string) => {
-      islands2022.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2022.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2022.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2022.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2022.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2022.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2022.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2022.push(donald);
-    });
-  });
-
-  islands2022.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2022.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2022.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2022.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2022.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2022.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2022.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2022.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
-
-  // 2021
-
-  let distance2021 = 0;
-  let elevation2021 = 0;
-
-  const islands2021: string[] = [];
-  const munros2021: string[] = [];
-  const munroTops2021: string[] = [];
-  const corbetts2021: string[] = [];
-  const corbettTops2021: string[] = [];
-  const grahams2021: string[] = [];
-  const subTwos2021: string[] = [];
-  const donalds2021: string[] = [];
-
-  sport[2021].forEach((event: Project) => {
-    distance2021 = distance2021 + event.distance;
-    elevation2021 = elevation2021 + event.elevation;
-
-    event.islands?.forEach((island: string) => {
-      islands2021.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2021.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2021.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2021.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2021.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2021.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2021.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2021.push(donald);
-    });
-  });
-
-  islands2021.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2021.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2021.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2021.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2021.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2021.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2021.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2021.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
-
-  // 2020
-
-  let distance2020 = 0;
-  let elevation2020 = 0;
-
-  const islands2020: string[] = [];
-  const munros2020: string[] = [];
-  const munroTops2020: string[] = [];
-  const corbetts2020: string[] = [];
-  const corbettTops2020: string[] = [];
-  const grahams2020: string[] = [];
-  const subTwos2020: string[] = [];
-  const donalds2020: string[] = [];
-
-  sport[2020].forEach((event: Project) => {
-    distance2020 = distance2020 + event.distance;
-    elevation2020 = elevation2020 + event.elevation;
-
-    event.islands?.forEach((island: string) => {
-      islands2020.push(island);
-    });
-    event.munros?.forEach((munro: string) => {
-      munros2020.push(munro);
-    });
-    event.munroTops?.forEach((munroTop: string) => {
-      munroTops2020.push(munroTop);
-    });
-    event.corbetts?.forEach((corbett: string) => {
-      corbetts2020.push(corbett);
-    });
-    event.corbettTops?.forEach((corbettTop: string) => {
-      corbettTops2020.push(corbettTop);
-    });
-    event.grahams?.forEach((graham: string) => {
-      grahams2020.push(graham);
-    });
-    event.subTwos?.forEach((subTwo: string) => {
-      subTwos2020.push(subTwo);
-    });
-    event.donalds?.forEach((donald: string) => {
-      donalds2020.push(donald);
-    });
-  });
-
-  islands2020.forEach((island: string) => {
-    islandsTotal.push(island);
-  });
-  munros2020.forEach((munro: string) => {
-    munrosTotal.push(munro);
-  });
-  munroTops2020.forEach((munroTop: string) => {
-    munroTopsTotal.push(munroTop);
-  });
-  corbetts2020.forEach((corbett: string) => {
-    corbettsTotal.push(corbett);
-  });
-  corbettTops2020.forEach((corbettTop: string) => {
-    corbettTopsTotal.push(corbettTop);
-  });
-  grahams2020.forEach((graham: string) => {
-    grahamsTotal.push(graham);
-  });
-  subTwos2020.forEach((subTwo: string) => {
-    subTwosTotal.push(subTwo);
-  });
-  donalds2020.forEach((donald: string) => {
-    donaldsTotal.push(donald);
-  });
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const islands: MappedProjects['islands'] = {
-    names: {
-      type: 'unique',
-      total: islandsTotal.sort(),
-      unique: removeDuplicates(islandsTotal).sort(),
-      2026: islands2026.sort(),
-      2025: islands2025.sort(),
-      2024: islands2024.sort(),
-      2023: islands2023.sort(),
-      2022: islands2022.sort(),
-      2021: islands2021.sort(),
-      2020: islands2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: islandsTotal.length,
-      unique: removeDuplicates(islandsTotal).length,
-      2026: islands2026.length,
-      2025: islands2025.length,
-      2024: islands2024.length,
-      2023: islands2023.length,
-      2022: islands2022.length,
-      2021: islands2021.length,
-      2020: islands2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: islandsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: islandsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const munrosNames: MappedProjects['munros']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.munros?.forEach((munro) => total.push(munro)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.munros?.forEach((munro) => yearTotal.push(munro)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const munrosInstances: MappedProjects['munros']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.munros?.forEach((munro) => total.push(munro)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.munros?.forEach((munro) => yearTotal.push(munro)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const munros: MappedProjects['munros'] = {
-    names: {
-      type: 'unique',
-      total: munrosTotal.sort(),
-      unique: removeDuplicates(munrosTotal).sort(),
-      2026: munros2026.sort(),
-      2025: munros2025.sort(),
-      2024: munros2024.sort(),
-      2023: munros2023.sort(),
-      2022: munros2022.sort(),
-      2021: munros2021.sort(),
-      2020: munros2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: munrosTotal.length,
-      unique: removeDuplicates(munrosTotal).length,
-      2026: munros2026.length,
-      2025: munros2025.length,
-      2024: munros2024.length,
-      2023: munros2023.length,
-      2022: munros2022.length,
-      2021: munros2021.length,
-      2020: munros2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: munrosNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: munrosInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const munroTopsNames: MappedProjects['munroTops']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.munroTops?.forEach((munroTop) => total.push(munroTop)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.munroTops?.forEach((munroTop) => yearTotal.push(munroTop)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const munroTopsInstances: MappedProjects['munroTops']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.munroTops?.forEach((munroTop) => total.push(munroTop)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.munroTops?.forEach((munroTop) => yearTotal.push(munroTop)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const munroTops: MappedProjects['munroTops'] = {
-    names: {
-      type: 'unique',
-      total: munroTopsTotal.sort(),
-      unique: removeDuplicates(munroTopsTotal).sort(),
-      2026: munroTops2026.sort(),
-      2025: munroTops2025.sort(),
-      2024: munroTops2024.sort(),
-      2023: munroTops2023.sort(),
-      2022: munroTops2022.sort(),
-      2021: munroTops2021.sort(),
-      2020: munroTops2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: munroTopsTotal.length,
-      unique: removeDuplicates(munroTopsTotal).length,
-      2026: munroTops2026.length,
-      2025: munroTops2025.length,
-      2024: munroTops2024.length,
-      2023: munroTops2023.length,
-      2022: munroTops2022.length,
-      2021: munroTops2021.length,
-      2020: munroTops2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: munroTopsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: munroTopsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const corbettsNames: MappedProjects['corbetts']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.corbetts?.forEach((corbett) => total.push(corbett)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.corbetts?.forEach((corbett) => yearTotal.push(corbett)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const corbettsInstances: MappedProjects['corbetts']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.corbetts?.forEach((corbett) => total.push(corbett)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.corbetts?.forEach((corbett) => yearTotal.push(corbett)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const corbetts: MappedProjects['corbetts'] = {
-    names: {
-      type: 'unique',
-      total: corbettsTotal.sort(),
-      unique: removeDuplicates(corbettsTotal).sort(),
-      2026: corbetts2026.sort(),
-      2025: corbetts2025.sort(),
-      2024: corbetts2024.sort(),
-      2023: corbetts2023.sort(),
-      2022: corbetts2022.sort(),
-      2021: corbetts2021.sort(),
-      2020: corbetts2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: corbettsTotal.length,
-      unique: removeDuplicates(corbettsTotal).length,
-      2026: corbetts2026.length,
-      2025: corbetts2025.length,
-      2024: corbetts2024.length,
-      2023: corbetts2023.length,
-      2022: corbetts2022.length,
-      2021: corbetts2021.length,
-      2020: corbetts2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: corbettsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: corbettsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const corbettTopsNames: MappedProjects['corbettTops']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.corbettTops?.forEach((corbettTop) => total.push(corbettTop)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.corbettTops?.forEach((corbettTop) => yearTotal.push(corbettTop)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const corbettTopsInstances: MappedProjects['corbettTops']['names'] = years.reduce(
+    (object, key) => {
+      const total: string[] = [];
+      const yearTotal: string[] = [];
+
+      years.forEach((year) => {
+        // eslint-disable-next-line array-callback-return
+        projects[year].forEach((project) =>
+          // eslint-disable-next-line array-callback-return
+          project.corbettTops?.forEach((corbettTop) => total.push(corbettTop)),
+        );
+      });
+
+      // eslint-disable-next-line array-callback-return
+      projects[key].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.corbettTops?.forEach((corbettTop) => yearTotal.push(corbettTop)),
+      );
+
+      return {
+        ...object,
+        type: 'unique',
+        total: total.length,
+        unique: removeDuplicates(total).length,
+        [key]: yearTotal.length,
+      };
+    },
+    {},
+  );
 
   const corbettTops: MappedProjects['corbettTops'] = {
-    names: {
-      type: 'unique',
-      total: corbettTopsTotal.sort(),
-      unique: removeDuplicates(corbettTopsTotal).sort(),
-      2026: corbettTops2026.sort(),
-      2025: corbettTops2025.sort(),
-      2024: corbettTops2024.sort(),
-      2023: corbettTops2023.sort(),
-      2022: corbettTops2022.sort(),
-      2021: corbettTops2021.sort(),
-      2020: corbettTops2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: corbettTopsTotal.length,
-      unique: removeDuplicates(corbettTopsTotal).length,
-      2026: corbettTops2026.length,
-      2025: corbettTops2025.length,
-      2024: corbettTops2024.length,
-      2023: corbettTops2023.length,
-      2022: corbettTops2022.length,
-      2021: corbettTops2021.length,
-      2020: corbettTops2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: corbettTopsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: corbettTopsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const grahamsNames: MappedProjects['grahams']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.grahams?.forEach((graham) => total.push(graham)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.grahams?.forEach((graham) => yearTotal.push(graham)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const grahamsInstances: MappedProjects['grahams']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.grahams?.forEach((graham) => total.push(graham)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.grahams?.forEach((graham) => yearTotal.push(graham)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const grahams: MappedProjects['grahams'] = {
-    names: {
-      type: 'unique',
-      total: grahamsTotal.sort(),
-      unique: removeDuplicates(grahamsTotal).sort(),
-      2026: grahams2026.sort(),
-      2025: grahams2025.sort(),
-      2024: grahams2024.sort(),
-      2023: grahams2023.sort(),
-      2022: grahams2022.sort(),
-      2021: grahams2021.sort(),
-      2020: grahams2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: grahamsTotal.length,
-      unique: removeDuplicates(grahamsTotal).length,
-      2026: grahams2026.length,
-      2025: grahams2025.length,
-      2024: grahams2024.length,
-      2023: grahams2023.length,
-      2022: grahams2022.length,
-      2021: grahams2021.length,
-      2020: grahams2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: grahamsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: grahamsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const donaldsNames: MappedProjects['donalds']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.donalds?.forEach((donald) => total.push(donald)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.donalds?.forEach((donald) => yearTotal.push(donald)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const donaldsInstances: MappedProjects['donalds']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.donalds?.forEach((donald) => total.push(donald)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.donalds?.forEach((donald) => yearTotal.push(donald)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const donalds: MappedProjects['donalds'] = {
-    names: {
-      type: 'unique',
-      total: donaldsTotal.sort(),
-      unique: removeDuplicates(donaldsTotal).sort(),
-      2026: donalds2026.sort(),
-      2025: donalds2025.sort(),
-      2024: donalds2024.sort(),
-      2023: donalds2023.sort(),
-      2022: donalds2022.sort(),
-      2021: donalds2021.sort(),
-      2020: donalds2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: donaldsTotal.length,
-      unique: removeDuplicates(donaldsTotal).length,
-      2026: donalds2026.length,
-      2025: donalds2025.length,
-      2024: donalds2024.length,
-      2023: donalds2023.length,
-      2022: donalds2022.length,
-      2021: donalds2021.length,
-      2020: donalds2020.length,
-    },
+    // @ts-expect-error: Years will match type `EventYear`
+    names: donaldsNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: donaldsInstances,
   };
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const subTwosNames: MappedProjects['subTwos']['number'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.subTwos?.forEach((subTwo) => total.push(subTwo)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.subTwos?.forEach((subTwo) => yearTotal.push(subTwo)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.sort(),
+      unique: removeDuplicates(total).sort(),
+      [key]: yearTotal.sort(),
+    };
+  }, {});
+
+  // @ts-expect-error: Years will match type `EventYear`
+  const subTwosInstances: MappedProjects['subTwos']['names'] = years.reduce((object, key) => {
+    const total: string[] = [];
+    const yearTotal: string[] = [];
+
+    years.forEach((year) => {
+      // eslint-disable-next-line array-callback-return
+      projects[year].forEach((project) =>
+        // eslint-disable-next-line array-callback-return
+        project.subTwos?.forEach((subTwo) => total.push(subTwo)),
+      );
+    });
+
+    // eslint-disable-next-line array-callback-return
+    projects[key].forEach((project) =>
+      // eslint-disable-next-line array-callback-return
+      project.subTwos?.forEach((subTwo) => yearTotal.push(subTwo)),
+    );
+
+    return {
+      ...object,
+      type: 'unique',
+      total: total.length,
+      unique: removeDuplicates(total).length,
+      [key]: yearTotal.length,
+    };
+  }, {});
 
   const subTwos: MappedProjects['subTwos'] = {
-    names: {
-      type: 'unique',
-      total: subTwosTotal.sort(),
-      unique: removeDuplicates(subTwosTotal).sort(),
-      2026: subTwos2026.sort(),
-      2025: subTwos2025.sort(),
-      2024: subTwos2024.sort(),
-      2023: subTwos2023.sort(),
-      2022: subTwos2022.sort(),
-      2021: subTwos2021.sort(),
-      2020: subTwos2020.sort(),
-    },
-    number: {
-      type: 'unique',
-      total: subTwosTotal.length,
-      unique: removeDuplicates(subTwosTotal).length,
-      2026: subTwos2026.length,
-      2025: subTwos2025.length,
-      2024: subTwos2024.length,
-      2023: subTwos2023.length,
-      2022: subTwos2022.length,
-      2021: subTwos2021.length,
-      2020: subTwos2020.length,
-    },
-  };
-
-  const distance: MappedProjects['distance'] = {
-    type: 'sansUnique',
-    total: toMiles(
-      distance2026 +
-        distance2025 +
-        distance2024 +
-        distance2023 +
-        distance2022 +
-        distance2021 +
-        distance2020,
-    ),
-    2026: toMiles(distance2026),
-    2025: toMiles(distance2025),
-    2024: toMiles(distance2024),
-    2023: toMiles(distance2023),
-    2022: toMiles(distance2022),
-    2021: toMiles(distance2021),
-    2020: toMiles(distance2020),
-  };
-
-  const elevation: MappedProjects['elevation'] = {
-    type: 'sansUnique',
-    total: toFeet(
-      elevation2026 +
-        elevation2025 +
-        elevation2024 +
-        elevation2023 +
-        elevation2022 +
-        elevation2021 +
-        elevation2020,
-    ),
-    2026: toFeet(elevation2026),
-    2025: toFeet(elevation2025),
-    2024: toFeet(elevation2024),
-    2023: toFeet(elevation2023),
-    2022: toFeet(elevation2022),
-    2021: toFeet(elevation2021),
-    2020: toFeet(elevation2020),
+    // @ts-expect-error: Years will match type `EventYear`
+    names: subTwosNames,
+    // @ts-expect-error: Years will match type `EventYear`
+    number: subTwosInstances,
   };
 
   return {
     projects,
-    number,
+    instances,
     distance,
     elevation,
     islands,

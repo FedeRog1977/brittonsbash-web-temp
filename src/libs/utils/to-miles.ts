@@ -1,2 +1,2 @@
-export const toMiles = (distance: number) =>
-  distance.toLocaleString('en-UK', { minimumFractionDigits: 2 }) + ' mi';
+export const toMiles = (distance: number): string =>
+  `${distance.toLocaleString('en-UK', { minimumFractionDigits: 2 })} mi`;

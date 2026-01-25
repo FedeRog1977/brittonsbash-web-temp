@@ -148,14 +148,14 @@ export class Implementation implements Interface {
     const elevations: string[] = [];
 
     // @ts-expect-error safely remove type key
-    delete mappedProjects.number.type;
+    delete mappedProjects.instances.type;
     // @ts-expect-error safely remove type key
     delete mappedProjects.distance.type;
     // @ts-expect-error safely remove type key
     delete mappedProjects.elevation.type;
 
-    mapKeyValue('key', mappedProjects.number, labels);
-    mapKeyValue('value', mappedProjects.number, instances);
+    mapKeyValue('key', mappedProjects.instances, labels);
+    mapKeyValue('value', mappedProjects.instances, instances);
     mapKeyValue('value', mappedProjects.distance, distances);
     mapKeyValue('value', mappedProjects.elevation, elevations);
 

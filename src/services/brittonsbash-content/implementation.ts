@@ -55,7 +55,7 @@ export class Implementation implements Interface {
       const projectNames = await this.getProjectNames(year);
 
       for await (const projectName of projectNames) {
-        const project = await this.getProject(year, projectName.id.toLocaleLowerCase());
+        const project = await this.getProject(year, projectName.id.toLowerCase());
 
         parsedProjects[year].push(project);
       }

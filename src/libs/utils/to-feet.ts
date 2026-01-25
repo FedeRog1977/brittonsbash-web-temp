@@ -1,2 +1,2 @@
-export const toFeet = (elevation: number) =>
-  elevation.toLocaleString('en-UK', { maximumFractionDigits: 0 }) + ' ft';
+export const toFeet = (elevation: number): string =>
+  `${elevation.toLocaleString('en-UK', { maximumFractionDigits: 0 })} ft`;
