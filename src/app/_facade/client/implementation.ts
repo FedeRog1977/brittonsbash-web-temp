@@ -1,6 +1,6 @@
 import { Event, EventId, EventTag, EventYear, HillType } from '~/libs/types';
 import { mapKeyValue, removeDuplicates, toFeet, toMiles } from '~/libs/utils';
-import { BrittonsBashContentServiceClient } from '~/services/brittonsbash-content';
+import { BrittonsBashContentService } from '~/services/brittonsbash-content';
 import { ProjectsEvent } from '../../_schema/types/projects-event.js';
 import { ProjectsHills } from '../../_schema/types/projects-hills.js';
 import { ProjectsStats } from '../../_schema/types/projects-stats.js';
@@ -8,39 +8,39 @@ import { ProjectsSummary } from '../../_schema/types/projects-summary.js';
 import { Interface } from '../interface.js';
 
 type Config = {
-  brittonsBashContentServiceClient: BrittonsBashContentServiceClient;
+  brittonsBashContentService: BrittonsBashContentService;
 };
 
 export class Implementation implements Interface {
-  private readonly brittonsBashContentServiceClient: BrittonsBashContentServiceClient;
+  private readonly brittonsBashContentService: BrittonsBashContentService;
 
   public constructor(config: Config) {
-    this.brittonsBashContentServiceClient = config.brittonsBashContentServiceClient;
+    this.brittonsBashContentService = config.brittonsBashContentService;
   }
 
   public async getEventNames(
     year: EventYear,
   ): Promise<Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>> {
-    return this.brittonsBashContentServiceClient.getEventNames(year);
+    return this.brittonsBashContentService.getEventNames(year);
   }
 
   public async getEventTags(): Promise<EventTag[]> {
-    return this.brittonsBashContentServiceClient.getEventTags();
+    return this.brittonsBashContentService.getEventTags();
   }
 
   public async getEventYears(): Promise<EventYear[]> {
-    return this.brittonsBashContentServiceClient.getEventYears();
+    return this.brittonsBashContentService.getEventYears();
   }
 
   public async getEvent(
     year: EventYear,
     event: EventId,
   ): Promise<Extract<Event, { type: 'mapped' }>> {
-    return this.brittonsBashContentServiceClient.getEvent(year, event);
+    return this.brittonsBashContentService.getEvent(year, event);
   }
 
   public async getProjectsEvents(year: EventYear): Promise<ProjectsEvent[]> {
-    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentService.getAllProjects();
 
     const projectsEvents = allProjects.projects[year].reverse().map((project) => ({
       ...project,
@@ -61,7 +61,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsHills(hillType: HillType): Promise<ProjectsHills> {
-    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentService.getAllProjects();
     const hills: string[] = [];
 
     for (const hill of allProjects[hillType].names.total) {
@@ -87,7 +87,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsStats(): Promise<ProjectsStats> {
-    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentService.getAllProjects();
 
     const labels: string[] = [];
     const islands: string[] = [];
@@ -142,7 +142,7 @@ export class Implementation implements Interface {
   }
 
   public async getProjectsSummary(): Promise<ProjectsSummary> {
-    const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+    const allProjects = await this.brittonsBashContentService.getAllProjects();
 
     const labels: string[] = [];
     const instances: string[] = [];

@@ -1,23 +1,22 @@
 import { baseUrls } from '~/libs/constants';
 import { BrittonsBashContentServiceClient } from '~/services/brittonsbash-content';
 import { ValidatorAjv } from '~/services/validator-ajv';
-import { Implementation as ClientImplementation } from './client/implementation.js';
+import { Implementation as ImplementationClient } from './client/implementation.js';
 import { Interface } from './interface.js';
-import { Implementation as TestImplementation } from './test/implementation.js';
+import { Implementation as ImplementationTest } from './test/implementation.js';
 
 const getFacade = (): Interface => {
   if (process.env.APP_ENV === 'local') {
-    return new TestImplementation();
+    return new ImplementationTest();
   }
 
-  const validator = new ValidatorAjv();
+  const validatorAjv = new ValidatorAjv();
+  const brittonsBashContentServiceClient = new BrittonsBashContentServiceClient({
+    baseUrl: baseUrls.brittonsBashContent,
+    validator: validatorAjv,
+  });
 
-  const brittonsBashContentServiceClient = new BrittonsBashContentServiceClient(
-    baseUrls.brittonsBashContentService,
-    validator,
-  );
-
-  return new ClientImplementation({ brittonsBashContentServiceClient });
+  return new ImplementationClient({ brittonsBashContentService: brittonsBashContentServiceClient });
 };
 
 /**

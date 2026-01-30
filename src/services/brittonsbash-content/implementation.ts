@@ -26,14 +26,19 @@ import { EventYearsResponse } from './types/event-years-response.js';
 import { ProjectNamesResponse } from './types/project-names-response.js';
 import { ProjectResponse } from './types/project-response.js';
 
+type Config = {
+  baseUrl: string;
+  validator: Validator;
+};
+
 export class Implementation implements Interface {
   private readonly baseUrl: string;
 
   private readonly validator: Validator;
 
-  public constructor(baseUrl: string, validator: Validator) {
-    this.baseUrl = baseUrl;
-    this.validator = validator;
+  public constructor(config: Config) {
+    this.baseUrl = config.baseUrl;
+    this.validator = config.validator;
   }
 
   private get eventTagsUrl(): string {
