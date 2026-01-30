@@ -1,1 +1,3 @@
-export type EventYear = '2020' | '2021' | '2022' | '2023' | '2024' | '2025' | '2026';
+import { eventYears } from '../constants/event-years.js';
+
+export type EventYear = (typeof eventYears)[number];

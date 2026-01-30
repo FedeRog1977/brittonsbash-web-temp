@@ -26,6 +26,9 @@ export class Implementation implements Interface {
     const validationErrors = validator.errors as DefinedError[];
     const errors = validationErrors.map(mapValidationError);
 
+    // eslint-disable-next-line no-console
+    console.log('Validation errors:', errors);
+
     throw new ValidationError(errors);
   }
 

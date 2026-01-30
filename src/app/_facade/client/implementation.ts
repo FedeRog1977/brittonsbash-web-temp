@@ -64,9 +64,9 @@ export class Implementation implements Interface {
     const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
     const hills: string[] = [];
 
-    for (const hill of allProjects[hillType].instances.total) {
+    for (const hill of allProjects[hillType].names.total) {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-      const count = (allProjects[hillType].instances.total as string[]).reduce(
+      const count = (allProjects[hillType].names.total as string[]).reduce(
         (index, value) => (value === hill ? index + 1 : index),
         0,
       );
@@ -77,9 +77,9 @@ export class Implementation implements Interface {
     }
 
     const projectsHills = {
-      total: allProjects[hillType].number.total,
-      unique: allProjects[hillType].number.unique,
-      // Already `sort()`ed in the service client
+      total: allProjects[hillType].instances.total,
+      unique: allProjects[hillType].instances.unique,
+      // Already `sort()`ed in `getAllProjects()`
       hills: removeDuplicates(hills),
     };
 
@@ -88,6 +88,7 @@ export class Implementation implements Interface {
 
   public async getProjectsStats(): Promise<ProjectsStats> {
     const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+
     const labels: string[] = [];
     const islands: string[] = [];
     const munros: string[] = [];
@@ -95,35 +96,35 @@ export class Implementation implements Interface {
     const corbetts: string[] = [];
     const corbettTops: string[] = [];
     const grahams: string[] = [];
-    const subTwos: string[] = [];
     const donalds: string[] = [];
+    const subTwos: string[] = [];
 
     // @ts-expect-error safely remove type key
-    delete allProjects.islands.number.type;
+    delete allProjects.islands.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.munros.number.type;
+    delete allProjects.munros.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.munroTops.number.type;
+    delete allProjects.munroTops.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.corbetts.number.type;
+    delete allProjects.corbetts.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.corbettTops.number.type;
+    delete allProjects.corbettTops.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.grahams.number.type;
+    delete allProjects.grahams.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.subTwos.number.type;
+    delete allProjects.subTwos.instances.type;
     // @ts-expect-error safely remove type key
-    delete allProjects.donalds.number.type;
+    delete allProjects.donalds.instances.type;
 
-    mapKeyValue('key', allProjects.islands.number, labels);
-    mapKeyValue('value', allProjects.islands.number, islands);
-    mapKeyValue('value', allProjects.munros.number, munros);
-    mapKeyValue('value', allProjects.munroTops.number, munroTops);
-    mapKeyValue('value', allProjects.corbetts.number, corbetts);
-    mapKeyValue('value', allProjects.corbettTops.number, corbettTops);
-    mapKeyValue('value', allProjects.grahams.number, grahams);
-    mapKeyValue('value', allProjects.subTwos.number, subTwos);
-    mapKeyValue('value', allProjects.donalds.number, donalds);
+    mapKeyValue('key', allProjects.islands.instances, labels);
+    mapKeyValue('value', allProjects.islands.instances, islands);
+    mapKeyValue('value', allProjects.munros.instances, munros);
+    mapKeyValue('value', allProjects.munroTops.instances, munroTops);
+    mapKeyValue('value', allProjects.corbetts.instances, corbetts);
+    mapKeyValue('value', allProjects.corbettTops.instances, corbettTops);
+    mapKeyValue('value', allProjects.grahams.instances, grahams);
+    mapKeyValue('value', allProjects.subTwos.instances, subTwos);
+    mapKeyValue('value', allProjects.donalds.instances, donalds);
 
     const projectsHills = {
       labels: labels.reverse(),
@@ -133,8 +134,8 @@ export class Implementation implements Interface {
       corbetts: corbetts.reverse(),
       corbettTops: corbettTops.reverse(),
       grahams: grahams.reverse(),
-      subTwos: subTwos.reverse(),
       donalds: donalds.reverse(),
+      subTwos: subTwos.reverse(),
     };
 
     return projectsHills;
@@ -142,6 +143,7 @@ export class Implementation implements Interface {
 
   public async getProjectsSummary(): Promise<ProjectsSummary> {
     const allProjects = await this.brittonsBashContentServiceClient.getAllProjects();
+
     const labels: string[] = [];
     const instances: string[] = [];
     const distances: string[] = [];

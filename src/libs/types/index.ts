@@ -18,7 +18,6 @@ export * from './img.js';
 export * from './iso-date-string.js';
 export * from './landmass.js';
 export * from './mapped-event-project.js';
-export * from './mapped-event.js';
 export * from './mapped-projects.js';
 export * from './project-id.js';
 export * from './project.js';

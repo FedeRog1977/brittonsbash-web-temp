@@ -4,7 +4,7 @@ export const mockEvent: Extract<Event, { type: 'mapped' }> = {
   type: 'mapped',
   tags: ['general', 'projects'],
   id: 'E2025003',
-  projectId: ['P2025001'],
+  projectIds: ['P2025001'],
   prefix: 'Lorem Ipsum',
   names: ['Dolor', 'Sit'],
   startDate: 'Lorem of Ipsum',

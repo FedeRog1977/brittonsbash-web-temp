@@ -11,6 +11,6 @@ export type Project = {
   corbetts?: string[];
   corbettTops?: string[];
   grahams?: string[];
-  subTwos?: string[];
   donalds?: string[];
+  subTwos?: string[];
 };
