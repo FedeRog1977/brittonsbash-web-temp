@@ -1,6 +1,5 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { generateUniqueKey } from '~/libs/utils';
-import { useShowElement } from '~/libs/hooks';
 import { Background } from '../background/background.js';
 import { Button } from '../client-form/components/button/button.js';
 import { Flex } from '../flex/flex.js';
@@ -13,7 +12,7 @@ export type BookshelfProps = {
 };
 
 export const Bookshelf: FC<BookshelfProps> = ({ heading, items }) => {
-  const { showElement, setShowElement } = useShowElement();
+  const [showElement, setShowElement] = useState(false);
 
   return (
     <>
@@ -22,7 +21,9 @@ export const Bookshelf: FC<BookshelfProps> = ({ heading, items }) => {
         typeVariant="h3"
         typeColor={showElement ? 'lightBlue' : undefined}
         transition
-        onClick={() => setShowElement(!showElement)}
+        onClick={(): void => {
+          setShowElement(!showElement);
+        }}
         width="full"
       >
         {heading}

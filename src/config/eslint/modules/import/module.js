@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import plugin from 'eslint-plugin-import';
 
 import helpfulRules from './rules/helpful.js';

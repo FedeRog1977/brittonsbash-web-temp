@@ -14,7 +14,6 @@
       "~/libs/components-blocks/*": ["./src/libs/components/blocks/*/index.ts"],
       "~/libs/components-templates/*": ["./src/libs/components/templates/*/index.ts"],
       "~/libs/constants": ["./src/libs/constants/index.ts"],
-      "~/libs/hooks": ["./src/libs/hooks/index.ts"],
       "~/libs/types": ["./src/libs/types/index.ts"],
       "~/libs/utils": ["./src/libs/utils/index.ts"],
       "~/services/*": ["./src/services/*/index.ts"]

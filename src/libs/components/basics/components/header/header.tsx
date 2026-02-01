@@ -2,8 +2,7 @@
 
 // import { faBars } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FC } from 'react';
-import { useShowElement } from '~/libs/hooks';
+import { FC, useState } from 'react';
 import { isMobile as getIsMobile } from '~/libs/utils';
 import { routes } from '../../../../../app/_libs/constants/routes.js';
 import { Button } from '../client-form/components/button/button.js';
@@ -13,7 +12,7 @@ import styles from './header.module.scss.js';
 
 export const Header: FC = () => {
   const isMobile = getIsMobile();
-  const { showElement: showMobile, setShowElement: setShowMobile } = useShowElement();
+  const [showMobile, setShowMobile] = useState(false);
 
   return (
     <header>
