@@ -15,11 +15,7 @@ Next.js 15 and React web applications for BrittonsBash Web.
 - Runtime environment: Node.js
 - Post-transpiled programming language: JavaScript
 - Pre-transpiled programming language: TypeScript
-  - Target: `ESNext`
-  - Type: `module`
-  - Module resolution: `NodeNext`
 - Package manager: Node.js Package Manager (`npm`)
-  - Config: `package.json`
 
 ### TypeScript
 
@@ -42,7 +38,10 @@ https://stackoverflow.com/questions/71463698/why-we-need-nodenext-typescript-com
 
 Our TypeScript (JavaScript) modules depend on the `import` and `export` statements; these statements
 load and export ECMAScript modules (or ES modules), respectively. Made obvious from the prior, we
-can omit `CommonJS` from out considerations.
+can omit `CommonJS` from our considerations.
+
+There is no `"main": "./dist/<main-export-file>.js"` in the `package.json`. This is replaced with
+`"exports: {}"`. The `package.json` also requires `"type": "module"`.
 
 An extract:
 
@@ -64,10 +63,12 @@ asynchronous loading. This progress has made code more maintainable, reusable, a
 allowing developers to build more scalable applications.
 ```
 
-If questioning `ESModule` over `commonjs`, see this:
+If questioning `ESModule` over `CommonJS`, see this:
 https://en.wikipedia.org/wiki/ECMAScript#:~:text=The%20ECMAScript%20specification%20is%20a,JavaScript%20in%20a%20press%20release.
 
 ##### Module Resolution
+
+https://www.typescriptlang.org/tsconfig/#moduleResolution
 
 The idea was to keep the code as much in its "original" form as possible until the final app build,
 at which point you can bundle it for the browsers you're targeting.
