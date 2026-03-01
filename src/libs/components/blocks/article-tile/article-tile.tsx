@@ -1,7 +1,7 @@
+import { FC } from 'react';
 import { Flex } from '~/libs/components-basics/flex';
 import { TileProps, Tile } from '~/libs/components-basics/tile';
 import { Typography, TypographyProps } from '~/libs/components-basics/typography';
-import { FC } from 'react';
 import { Section } from './types/section.js';
 import { getContent } from './utils/get-content.js';
 
@@ -34,7 +34,7 @@ export const ArticleTile: FC<ArticleTileProps> = ({
     ) : null}
 
     <Flex direction="vertical" gap="md">
-      {sections.map((section) => getContent(section))}
+      {sections.map(async (section) => getContent(section))}
     </Flex>
   </Tile>
 );

@@ -1,38 +1,40 @@
 'use client';
 
-// import cx from 'classnames';
-import { ChangeEvent, FC, useId, useState } from 'react';
-
-// import { useError } from '../../hooks/use-error.js';
-// import { FieldHelp } from '../utilities/field-help/field-help.js';
-import { SelectOption } from './types/select-option.js';
-
-// import styles from './select.module.scss.js';
+import { FC, useId, useState, ChangeEvent } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { SelectOption } from '../../types/select-option.js';
+import { getErrorText } from '../../utils/get-error-text.js';
+import { Label } from '../label/label.jsx';
+import styles from './select.module.scss.js';
 
 export type SelectProps = {
   name: string;
   label: string;
-  options: SelectOption[];
-  value?: string;
-  narrow?: boolean;
+  options?: SelectOption[];
   disabled?: boolean;
-  helpText?: string;
+  defaultValue?: string;
+  onChange?: (value: string) => void;
 };
 
 export const Select: FC<SelectProps> = ({
   name,
   label,
-  value: initialValue,
   options,
-  narrow = false,
   disabled = false,
-  helpText,
+  defaultValue,
+  // eslint-disable-next-line react/no-object-type-as-default-prop, @typescript-eslint/no-empty-function
+  onChange = (): void => {},
 }) => {
   const id = useId();
-  // const error = useError(name);
   const [isFocused, setIsFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(Boolean(initialValue));
-  // const shrinkLabel = isFocused || hasValue;
+  const {
+    register,
+    formState: { errors },
+    // watch,
+  } = useFormContext();
+  // const hasValue = Boolean(watch(name));
+  // const shrinkLabel = isFocused || hasValue || Boolean(defaultValue);
+  const errorText = getErrorText(errors, name);
 
   const handleFocus = (): void => {
     setIsFocused(true);
@@ -42,52 +44,44 @@ export const Select: FC<SelectProps> = ({
     setIsFocused(false);
   };
 
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
-    setHasValue(Boolean(event.target.value));
+  const handleOnChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    onChange(event.target.value);
   };
 
-  // const inputWrapperClassnames = cx(styles.inputWrapper, {
-  //   [styles.narrow]: narrow,
-  // });
+  const controlProps = register(name, {
+    disabled,
+    onBlur: handleBlur,
+    onChange: handleOnChange,
+  });
 
   return (
-    <div
-    // className={styles.inputRoot}
-    >
-      <div
-        // className={inputWrapperClassnames}
-        data-testid="input-wrapper"
+    <div className={styles.container}>
+      <Label
+        htmlFor={id}
+        label={label}
+        errorText={errorText}
+        // shrink={shrinkLabel}
+        isFocused={isFocused}
+        isDisabled={disabled}
+        hasError={Boolean(errorText) && !disabled}
       >
-        {/* <Label
-          htmlFor={id}
-          label={label}
-          shrink={shrinkLabel}
-          isFocused={isFocused}
-          isDisabled={disabled}
-          hasError={Boolean(error)}
-        > */}
         <select
           id={id}
-          // className={styles.select}
-          name={name}
-          defaultValue={initialValue}
-          disabled={disabled}
+          className={styles.select}
           onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
+          defaultValue={defaultValue}
+          /* eslint-disable-next-line react/jsx-props-no-spreading */
+          {...controlProps}
         >
-          <option value={initialValue}>{initialValue}</option>
+          <option value={defaultValue}>{defaultValue}</option>
 
-          {options.map((option) => (
+          {options?.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
         </select>
-        {/* </Label> */}
-      </div>
-
-      {/* <FieldHelp fieldName={name} helpText={helpText} disabled={disabled} indented /> */}
+      </Label>
     </div>
   );
 };

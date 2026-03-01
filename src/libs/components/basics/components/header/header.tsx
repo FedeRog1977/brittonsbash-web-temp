@@ -5,7 +5,7 @@
 import { FC, useState } from 'react';
 import { isMobile as getIsMobile } from '~/libs/utils';
 import { routes } from '../../../../../app/_libs/constants/routes.js';
-import { Button } from '../client-form/components/button/button.js';
+import { Button } from '../form/components/button/button.jsx';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.jsx';
 import styles from './header.module.scss.js';

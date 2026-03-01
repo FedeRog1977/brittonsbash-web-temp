@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import { FC } from 'react';
-import { Typography } from '../typography/typography.js';
 import { TextStyle } from '../../reference/index.js';
+import { Typography } from '../typography/typography.js';
 
 export type ArticleProps = {
   sections: TextStyle[];

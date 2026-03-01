@@ -1,38 +1,34 @@
 'use client';
 
+import { FC } from 'react';
 import { ArticleProps, Article } from '~/libs/components-basics/article';
-import { CtaProps, Cta } from '~/libs/components-basics/cta';
 import { Flex } from '~/libs/components-basics/flex';
+import { Button } from '~/libs/components-basics/form';
 import { GradientProps } from '~/libs/components-basics/gradient';
 import { Grid, GridItem } from '~/libs/components-basics/grid';
 import { Tile } from '~/libs/components-basics/tile';
-import {
-  Typography,
-  // TypographyProps
-} from '~/libs/components-basics/typography';
+import { Typography } from '~/libs/components-basics/typography';
 import { Img } from '~/libs/types';
-import {
-  // isMobile,
-  generateUniqueKey,
-} from '~/libs/utils';
-import { FC } from 'react';
 import { formatArticle } from '../article-tile/utils/format-article.js';
 
 export type ImageTileProps = {
   imgDesktop?: Img;
-  imgMobile?: Img;
+  // imgMobile?: Img;
   gradient?: GradientProps;
   heading: string;
   subHeading?: string;
   body?: string | ArticleProps['sections'];
-  ctas?: CtaProps[];
+  ctas?: Array<{
+    content: string;
+    href: string;
+  }>;
   // textAlign?: TypographyProps['textAlign'];
   invert?: boolean;
 };
 
 export const ImageTile: FC<ImageTileProps> = ({
   imgDesktop,
-  imgMobile,
+  // imgMobile,
   gradient,
   heading,
   subHeading,
@@ -40,7 +36,8 @@ export const ImageTile: FC<ImageTileProps> = ({
   ctas,
   invert = false,
 }) => {
-  const invertedTypeVariant = invert ? 'white' : 'mediumGrey';
+  const typographyColor = invert ? 'white' : 'mediumGrey';
+  const buttonVariant = invert ? 'inverse' : 'solid';
 
   return (
     <Tile
@@ -52,11 +49,11 @@ export const ImageTile: FC<ImageTileProps> = ({
     >
       <Grid justifyContent="center" alignItems="center">
         <GridItem xs={12} md={7}>
-          <Typography variant="h4" color={invertedTypeVariant}>
+          <Typography variant="h4" color={typographyColor}>
             {subHeading}
           </Typography>
 
-          <Typography variant="t2" color={invertedTypeVariant} paragraphMargins>
+          <Typography variant="t2" color={typographyColor} paragraphMargins>
             {heading}
           </Typography>
 
@@ -68,7 +65,7 @@ export const ImageTile: FC<ImageTileProps> = ({
               sections={formatArticle(
                 body,
                 'body',
-                invertedTypeVariant,
+                typographyColor,
                 false,
                 false,
                 false,
@@ -79,12 +76,7 @@ export const ImageTile: FC<ImageTileProps> = ({
               extendParagraphMargins
             />
           ) : (
-            <Typography
-              variant="body"
-              textAlign="justify"
-              color={invertedTypeVariant}
-              paragraphMargins
-            >
+            <Typography variant="body" textAlign="justify" color={typographyColor} paragraphMargins>
               {body}
             </Typography>
           )}
@@ -92,16 +84,11 @@ export const ImageTile: FC<ImageTileProps> = ({
 
         {ctas ? (
           <GridItem xs={12} md={2}>
-            {/* <Flex
-              direction={isMobile() ? 'horizontal' : 'vertical'}
-              alignHorizontal={isMobile() ? 'center' : 'right'}
-              alignVertical="center"
-              wrap={isMobile()}
-              gap="2xs"
-            > */}
             <Flex direction="vertical" alignHorizontal="right" alignVertical="center" gap="2xs">
-              {ctas.map(({ content, href }, index) => (
-                <Cta key={generateUniqueKey(index)} content={content} href={href} invert={invert} />
+              {ctas.map(({ content, href }) => (
+                <Button key={content} variant={buttonVariant} link={{ href }}>
+                  {content}
+                </Button>
               ))}
             </Flex>
           </GridItem>

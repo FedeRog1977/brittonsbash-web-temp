@@ -1,13 +1,13 @@
 'use client';
 
-import { JSONSchema } from '~/libs/types';
 import { ReactNode, FC } from 'react';
 import { DeepPartial, useForm, DefaultValues, FormProvider } from 'react-hook-form';
-import styles from '../form/components/form-client.module.scss.js';
-import { CustomErrors } from '../form/types/custom-errors.js';
+import { JSONSchema } from '~/libs/types';
+import { CustomErrors } from './types/custom-errors.js';
+import styles from './util-components/form-client.module.scss.js';
 import { ajvResolver } from './utils/ajv-resolver.js';
 
-export type FormProps<FormValues extends object> = {
+export type ClientFormProps<FormValues extends object> = {
   children: ReactNode;
   defaultValues?: DeepPartial<FormValues>;
   validationSchema?: JSONSchema<FormValues>;
@@ -17,14 +17,14 @@ export type FormProps<FormValues extends object> = {
   onSubmit: (formValues: FormValues) => void;
 };
 
-export const Form = <FormValues extends object>({
+export const ClientForm = <FormValues extends object>({
   children,
   defaultValues,
   validationSchema,
   customErrors,
   mode,
   onSubmit,
-}: FormProps<FormValues>): ReturnType<FC<FormProps<FormValues>>> => {
+}: ClientFormProps<FormValues>): ReturnType<FC<ClientFormProps<FormValues>>> => {
   const methods = useForm({
     shouldUnregister: true,
     mode,

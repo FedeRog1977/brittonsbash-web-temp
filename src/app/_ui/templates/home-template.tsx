@@ -15,19 +15,16 @@ export const HomeTemplate: FC<HomeTemplateProps> = () => (
       body="Lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum, lorem ipsum"
       ctas={[
         {
-          content: 'Test CTA',
+          content: 'Test CTA 1',
           href: './',
-          invert: true,
         },
         {
-          content: 'Test CTA',
+          content: 'Test CTA 2',
           href: './',
-          invert: true,
         },
         {
-          content: 'Test CTA',
+          content: 'Test CTA 3',
           href: './',
-          invert: true,
         },
       ]}
       gradient={{

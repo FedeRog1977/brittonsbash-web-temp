@@ -4,7 +4,7 @@ import { FormErrors } from '../types/form-errors.js';
 import { getCustomErrorMessage } from './get-custom-error-message.js';
 import { getDefaultErrorMessage } from './get-default-error-message.js';
 
-export const mapValidationErrors = <FormValues extends object>(
+export const mapServerValidationErrors = <FormValues extends object>(
   errors: SpecificValidationError[],
   customErrors?: CustomErrors<FormValues>,
 ): FormErrors =>

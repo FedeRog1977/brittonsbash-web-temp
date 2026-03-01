@@ -1,16 +1,16 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
+import { Spacing } from '../../../spacing/spacing.jsx';
 import { Typography } from '../../../typography/typography.js';
 import styles from './label.module.scss.js';
-import { Spacing } from '../../../spacing/spacing.js';
 
 export type LabelProps = {
   children: ReactNode;
   htmlFor: string;
   label: string;
   errorText?: string;
-  shrink: boolean;
-  isTextArea?: boolean;
+  // shrink: boolean;
+  // isTextArea?: boolean;
   isFocused?: boolean;
   isDisabled?: boolean;
   hasError?: boolean;
@@ -21,8 +21,8 @@ export const Label: FC<LabelProps> = ({
   htmlFor,
   label,
   errorText,
-  shrink,
-  isTextArea = false,
+  // shrink,
+  // isTextArea = false,
   isFocused,
   isDisabled,
   hasError,

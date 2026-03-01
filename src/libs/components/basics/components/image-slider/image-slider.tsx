@@ -1,15 +1,15 @@
-import { FC, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronCircleLeft,
   faChevronCircleRight,
   faEject,
   faExchange,
 } from '@fortawesome/free-solid-svg-icons';
-import styles from './image-slider.module.scss.js';
-import { isMobile, generateUniqueKey } from '~/libs/utils';
-import { Typography } from '../typography/typography.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FC, useState } from 'react';
 import { Img } from '~/libs/types';
+import { isMobile } from '~/libs/utils';
+import { Typography } from '../typography/typography.js';
+import styles from './image-slider.module.scss.js';
 
 export type ImageSliderProps = {
   slides: Img[];
@@ -20,11 +20,11 @@ export const ImageSlider: FC<ImageSliderProps> = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
-  const nextSlide = () => {
+  const nextSlide = (): void => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
-  const prevSlide = () => {
+  const prevSlide = (): void => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
@@ -34,7 +34,13 @@ export const ImageSlider: FC<ImageSliderProps> = ({ slides }) => {
 
   return (
     <div className={styles.imageSlider}>
-      <FontAwesomeIcon icon={faExchange} className={styles.refresh} onClick={() => setCurrent(0)} />
+      <FontAwesomeIcon
+        icon={faExchange}
+        className={styles.refresh}
+        onClick={(): void => {
+          setCurrent(0);
+        }}
+      />
 
       <FontAwesomeIcon
         icon={faChevronCircleLeft}

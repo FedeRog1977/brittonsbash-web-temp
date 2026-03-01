@@ -1,11 +1,9 @@
 import cx from 'classnames';
 import { createElement, FC } from 'react';
-import ReactMarkdown from 'react-markdown';
 import { toUpperCase } from '~/libs/utils';
 import { TextStyle } from '../../reference/index.js';
 import { tagMap } from './constants/tag-map.js';
 import styles from './typography.module.scss.js';
-import { enrichMarkdown } from './utils/enrich-markdown.js';
 
 export type TypographyProps = TextStyle;
 
@@ -22,7 +20,6 @@ export const Typography: FC<TypographyProps> = ({
   fontFamily = 'sansSerif',
   textAlign = 'inherit',
   paragraphMargins = false,
-  markdown,
 }) => {
   const classNames = cx(styles.typography, {
     [styles[`variant${toUpperCase(fontFamily)}${toUpperCase(variant)}`]]: !element,
@@ -37,18 +34,8 @@ export const Typography: FC<TypographyProps> = ({
     [styles.paragraphMargins]: paragraphMargins,
   });
 
-  // Reason for downgrading to React 18
-  // https://github.com/remarkjs/react-markdown/issues/877
-  // react-markdown relies on JSX being in the global namespace, which has been removed in @types/react^19
-  return typeof children === 'string' && markdown ? (
-    <ReactMarkdown className={classNames} linkTarget="_blank">
-      {enrichMarkdown(children)}
-    </ReactMarkdown>
-  ) : (
-    // eslint-disable-next-line react/no-children-prop
-    createElement(element ?? tagMap[variant], {
-      className: classNames,
-      children,
-    })
-  );
+  return createElement(element ?? tagMap[variant], {
+    className: classNames,
+    children,
+  });
 };

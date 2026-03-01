@@ -2,5 +2,6 @@
 build/
 dist/
 node_modules/
-
+*.module.scss.ts
+*.svg.tsx
 next-env.d.ts

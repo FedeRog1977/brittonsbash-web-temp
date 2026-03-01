@@ -1,10 +1,10 @@
+import { FieldValues, ResolverResult } from 'react-hook-form';
 import { JSONSchema } from '~/libs/types';
 import { ValidationError, ValidatorAjv } from '~/services/validator-ajv';
-import { FieldValues, ResolverResult } from 'react-hook-form';
-import { CustomErrors } from '../../form/types/custom-errors.js';
-import { deepRemoveEmptyProperties } from '../../form/utils/deep-remove-entry-properties.js';
-import { deepTrim } from '../../form/utils/deep-trim.js';
-import { mapValidationErrors } from './map-validation-errors.js';
+import { CustomErrors } from '../types/custom-errors.js';
+import { deepRemoveEmptyProperties } from './deep-remove-entry-properties.js';
+import { deepTrim } from './deep-trim.js';
+import { mapClientValidationErrors } from './map-client-validation-errors.js';
 
 type AjvResolver<FormValues extends FieldValues> = (
   values: FormValues,
@@ -26,7 +26,7 @@ export const ajvResolver = <FormValues extends FieldValues>(
       if (error instanceof ValidationError) {
         return {
           values: {},
-          errors: mapValidationErrors(error.errors, customErrors),
+          errors: mapClientValidationErrors(error.errors, customErrors),
         };
       }
 

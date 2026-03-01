@@ -2,7 +2,7 @@
 
 import { FC, ReactNode } from 'react';
 import { useFormStatus } from 'react-dom';
-import { Loading } from '../../loading/loading.js';
+import { Loading } from '../../loading/loading.jsx';
 import styles from './form-content.module.scss.js';
 
 export type FormContentProps = {

@@ -5,7 +5,7 @@ import { useFormState } from 'react-dom';
 import { FormContextProvider } from '../context/form-context.js';
 import { FormErrors } from '../types/form-errors.js';
 import styles from './form-client.module.scss.js';
-import { FormContent } from './form-content.js';
+import { FormContent } from './form-content.jsx';
 
 export type FormClientProps = {
   children: ReactNode;

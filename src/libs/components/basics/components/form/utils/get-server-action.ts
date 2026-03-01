@@ -4,14 +4,14 @@ import { CustomErrors } from '../types/custom-errors.js';
 import { FormErrors } from '../types/form-errors.js';
 import { SubmitHandler } from '../types/submit-handler.js';
 import { createNestedErrors } from './create-nested-errors.js';
-import { deepTrim } from './deep-trim.js';
 import { deepRemoveEmptyProperties } from './deep-remove-entry-properties.js';
-import { mapValidationErrors } from './map-validation-errors.js';
+import { deepTrim } from './deep-trim.js';
+import { mapServerValidationErrors } from './map-server-validation-errors.js';
 import { removeServerActionFields } from './remove-server-action-fields.js';
 
 type FormAction = (prevState: FormErrors, formData: FormData) => Promise<FormErrors>;
 
-export const getFormServerAction =
+export const getServerAction =
   <FormValues extends object>(
     validationSchema: JSONSchema<FormValues>,
     customErrors: CustomErrors<FormValues> | undefined,
@@ -36,7 +36,7 @@ export const getFormServerAction =
       return formErrors || {};
     } catch (error: unknown) {
       if (error instanceof ValidationError) {
-        return mapValidationErrors(error.errors, customErrors);
+        return mapServerValidationErrors(error.errors, customErrors);
       }
 
       throw error;

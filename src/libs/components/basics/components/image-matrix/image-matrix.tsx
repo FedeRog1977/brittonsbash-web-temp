@@ -4,7 +4,6 @@
 import { FC, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Img } from '~/libs/types';
-import { generateUniqueKey } from '~/libs/utils';
 import { ColumnSpan } from '../../reference/index.js';
 import { FlexItem } from '../flex/flex-item.js';
 import { Flex } from '../flex/flex.js';
@@ -38,8 +37,8 @@ export const ImageMatrix: FC<ImageMatrixProps> = ({ images, columns }) => {
   return (
     <>
       <Flex direction="horizontal" alignHorizontal="center" alignVertical="center" wrap gap="2xs">
-        {images.map(({ url, alt, description }, index) => (
-          <FlexItem key={generateUniqueKey(index)} basis={{ xs: 12, lg: basis }}>
+        {images.map(({ url, alt, description }) => (
+          <FlexItem key={alt} basis={{ xs: 12, lg: basis }}>
             <Flex direction="vertical" alignHorizontal="center" gap="2xs">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
               <a

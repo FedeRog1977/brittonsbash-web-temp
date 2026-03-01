@@ -1,9 +1,8 @@
+import { FC } from 'react';
 import { Flex } from '~/libs/components-basics/flex';
 import { Grid, GridItem } from '~/libs/components-basics/grid';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
-import { generateUniqueKey } from '~/libs/utils';
-import { FC } from 'react';
 import { Items } from './types/items.js';
 
 export type TitleTileProps = {
@@ -22,8 +21,8 @@ export const TitleTile: FC<TitleTileProps> = ({ heading, titleItems, bodyItems }
       ) : null}
 
       {titleItems
-        ? titleItems.map(({ content, subContent }, index) => (
-            <Grid key={generateUniqueKey(index)} justifyContent="center" spacing="xs">
+        ? titleItems.map(({ content, subContent }) => (
+            <Grid key={content} justifyContent="center" spacing="xs">
               <GridItem xs={5}>
                 <Typography variant="h3" boldFace textAlign="right">
                   {content}
@@ -39,8 +38,8 @@ export const TitleTile: FC<TitleTileProps> = ({ heading, titleItems, bodyItems }
         : null}
 
       {bodyItems
-        ? bodyItems.map(({ content, subContent }, index) => (
-            <Grid key={generateUniqueKey(index)} justifyContent="center" spacing="xs">
+        ? bodyItems.map(({ content, subContent }) => (
+            <Grid key={content} justifyContent="center" spacing="xs">
               <GridItem xs={5}>
                 <Typography variant="body" boldFace textAlign="right">
                   {content}

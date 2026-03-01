@@ -1,5 +1,5 @@
 import { FC, JSX, useState } from 'react';
-import { Button } from '~/libs/components-basics/client-form';
+import { Button } from '~/libs/components-basics/form';
 import { Typography } from '~/libs/components-basics/typography';
 
 type DescriptionProps = {

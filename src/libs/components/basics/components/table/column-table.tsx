@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import styles from './table.module.scss.js';
-import { generateUniqueKey } from '~/libs/utils';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.js';
+import styles from './table.module.scss.js';
 import { Column } from './types/column.js';
 
 export type ColumnTableProps = {
@@ -17,11 +16,12 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
       <Flex direction="horizontal" alignHorizontal="apart">
         <Flex direction="vertical" alignVertical="bottom" gap="xs">
           <Typography variant="h4" boldFace>
-            {leftColumn.title != null ? leftColumn.title : <>&nbsp;</>}
+            {/* eslint-disable-next-line no-negated-condition, @typescript-eslint/no-unnecessary-condition */}
+            {leftColumn.title !== null ? leftColumn.title : <>&nbsp;</>}
           </Typography>
 
-          {leftColumn.entries?.map((entry, index) => (
-            <Typography key={generateUniqueKey(index)} variant="footnote" boldFace>
+          {leftColumn.entries.map((entry) => (
+            <Typography key={entry?.toString()} variant="footnote" boldFace>
               {entry}
             </Typography>
           ))}
@@ -30,7 +30,8 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
         <Flex direction="horizontal" gap="lg">
           {rightColumns.map(({ title, entries }, index) => (
             <Flex
-              key={generateUniqueKey(index)}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
               direction="vertical"
               alignVertical="bottom"
               alignHorizontal="right"
@@ -40,8 +41,8 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
                 {title}
               </Typography>
 
-              {entries?.map((entry, index) => (
-                <Typography key={generateUniqueKey(index)} variant="footnote">
+              {entries.map((entry) => (
+                <Typography key={entry?.toString()} variant="footnote">
                   {entry}
                 </Typography>
               ))}

@@ -1,10 +1,10 @@
-import { SpecificValidationError } from '~/services/validator-ajv';
 import { FieldValues, FieldErrors } from 'react-hook-form';
-import { CustomErrors } from '../../form/types/custom-errors.js';
-import { getCustomErrorMessage } from '../../form/utils/get-custom-error-message.js';
-import { getDefaultErrorMessage } from '../../form/utils/get-default-error-message.js';
+import { SpecificValidationError } from '~/services/validator-ajv';
+import { CustomErrors } from '../types/custom-errors.js';
+import { getCustomErrorMessage } from './get-custom-error-message.js';
+import { getDefaultErrorMessage } from './get-default-error-message.js';
 
-export const mapValidationErrors = <FormValues extends FieldValues>(
+export const mapClientValidationErrors = <FormValues extends FieldValues>(
   errors: SpecificValidationError[],
   customErrors?: CustomErrors<FormValues>,
 ): FieldErrors<FormValues> =>

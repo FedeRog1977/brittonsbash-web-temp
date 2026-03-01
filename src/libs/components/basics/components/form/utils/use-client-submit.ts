@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SubmitHandler } from '../../form/types/submit-handler.js';
+import { SubmitHandler } from '../types/submit-handler.js';
 
 type UseClientSubmit<T extends object> = {
   handleSubmit: SubmitHandler<T>;

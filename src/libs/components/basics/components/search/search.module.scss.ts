@@ -1,1 +1,0 @@
-export default {"search":"_search_1mtl7_2"} as const;

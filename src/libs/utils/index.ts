@@ -3,7 +3,6 @@ export * from './api/get-session-item.js';
 export * from './api/set-session-item.js';
 export * from './format-coordinates.js';
 export * from './format-items.js';
-export * from './generate-unique-key.js';
 export * from './get-parsed-date.js';
 export * from './get-rate.js';
 export * from './is-defined.js';

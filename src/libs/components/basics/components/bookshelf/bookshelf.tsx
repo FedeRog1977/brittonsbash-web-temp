@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
-import { generateUniqueKey } from '~/libs/utils';
 import { Background } from '../background/background.js';
-import { Button } from '../client-form/components/button/button.js';
+import { Button } from '../form/components/button/button.jsx';
 import { Flex } from '../flex/flex.js';
 import { Spacing } from '../spacing/spacing.js';
 import { Typography } from '../typography/typography.js';
@@ -33,13 +32,8 @@ export const Bookshelf: FC<BookshelfProps> = ({ heading, items }) => {
         <Background color="transparent">
           <Spacing paddingY="sm">
             <Flex direction="vertical" gap="sm">
-              {items.map((item, index) => (
-                <Typography
-                  key={generateUniqueKey(index)}
-                  variant="body"
-                  textAlign="center"
-                  markdown
-                >
+              {items.map((item) => (
+                <Typography key={item} variant="body" textAlign="center" markdown>
                   {item}
                 </Typography>
               ))}

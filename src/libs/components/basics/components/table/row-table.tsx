@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { generateUniqueKey } from '~/libs/utils';
 import { FlexItem } from '../flex/flex-item.js';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.js';
@@ -40,7 +39,8 @@ export const RowTable: FC<RowTableProps> = ({ titleRow, rows }) => (
           {rows.map(({ leftItem, rightItem }, index) => {
             if (leftItem && rightItem) {
               return (
-                <Flex key={generateUniqueKey(index)} direction="horizontal" alignHorizontal="apart">
+                // eslint-disable-next-line react/no-array-index-key
+                <Flex key={index} direction="horizontal" alignHorizontal="apart">
                   <FlexItem basis={4}>
                     <Typography variant="footnote" boldFace>
                       {leftItem}

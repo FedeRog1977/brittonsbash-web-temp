@@ -3,9 +3,15 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Button, Form, Select, useClientSubmit } from '~/libs/components-basics/client-form';
 import { Flex } from '~/libs/components-basics/flex';
-import { SelectOption, SubmitHandler } from '~/libs/components-basics/form';
+import {
+  Button,
+  ClientForm as Form,
+  Select,
+  SelectOption,
+  SubmitHandler,
+  useClientSubmit,
+} from '~/libs/components-basics/form';
 import { Spacing } from '~/libs/components-basics/spacing';
 import { Tile } from '~/libs/components-basics/tile';
 import { Typography } from '~/libs/components-basics/typography';
