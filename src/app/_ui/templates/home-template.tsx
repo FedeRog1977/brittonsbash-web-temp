@@ -8,7 +8,7 @@ export const HomeTemplate: FC<HomeTemplateProps> = () => (
   <PageLayout background={{ type: 'miami', content: 'Home Page' }}>
     <ImageTile
       imgDesktop={{
-        url: 'https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/images/general/home.jpg',
+        url: 'https://raw.githubusercontent.com/FedeRog1977/brittonsbash-api/refs/heads/master/images/general/home.jpg',
         alt: 'test',
       }}
       heading="Test heading"

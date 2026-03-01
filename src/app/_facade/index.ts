@@ -1,5 +1,5 @@
 import { baseUrls } from '~/libs/constants';
-import { BrittonsBashContentServiceClient } from '~/services/brittonsbash-content';
+import { BrittonsbashServiceClient } from '~/services/brittonsbash';
 import { ValidatorAjv } from '~/services/validator-ajv';
 import { Implementation as ImplementationClient } from './client/implementation.js';
 import { Interface } from './interface.js';
@@ -11,12 +11,12 @@ const getFacade = (): Interface => {
   }
 
   const validatorAjv = new ValidatorAjv();
-  const brittonsBashContentServiceClient = new BrittonsBashContentServiceClient({
+  const brittonsbashServiceClient = new BrittonsbashServiceClient({
     baseUrl: baseUrls.brittonsBashContent,
     validator: validatorAjv,
   });
 
-  return new ImplementationClient({ brittonsBashContentService: brittonsBashContentServiceClient });
+  return new ImplementationClient({ brittonsbashService: brittonsbashServiceClient });
 };
 
 /**

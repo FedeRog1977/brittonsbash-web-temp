@@ -1,7 +1,5 @@
 @use '../../reference/styles' as styles;
 
-@import url('https://raw.githubusercontent.com/FedeRog1977/brittonsbash-content/refs/heads/master/fonts/fonts.css');
-
 .header {
   background-color: styles.$black-special;
   backdrop-filter: saturate(180%) blur(10px);
