@@ -15,12 +15,6 @@ export const PageLayout: FC<PageLayoutProps> = ({ background, children }) => (
     <Header />
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     {background ? <PageBackground {...background} /> : null}
-    {/* <Spacing marginTop="md" marginBottom="md">
-        {children[0]}
-      </Spacing>
-      {children.slice(1, children.length).map((child) => (
-        <Spacing marginBottom="md">{child}</Spacing>
-      ))} */}
     {children}
     <Footer />
   </>

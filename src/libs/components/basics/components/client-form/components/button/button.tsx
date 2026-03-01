@@ -57,10 +57,6 @@ export const Button: FC<ButtonProps> = ({
 
   if (typeof children === 'string' && link) {
     return (
-      // <Typography variant={typeVariant} markdown>
-      //   {`[${children}](${link.href})`}
-      // </Typography>
-
       <a href={link.href} onClick={onClick}>
         {children}
       </a>
