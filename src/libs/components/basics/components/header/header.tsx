@@ -26,7 +26,7 @@ export const Header: FC = () => {
                 alt="header-logo"
               />
 
-              <Typography variant="h2">BrittonsBashRC</Typography>
+              <Typography variant="h2">brittonsbash</Typography>
             </Flex>
 
             {isMobile ? (

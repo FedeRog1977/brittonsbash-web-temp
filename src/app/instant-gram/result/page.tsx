@@ -11,8 +11,8 @@ export type InstantGramResultProps = {
 export const revalidate = 300;
 
 export const generateMetadata = (): Metadata => ({
-  title: 'BrittonsBash | Instant Gram',
-  description: 'BrittonsBash Instant Gram Page',
+  title: 'brittonsbash | Instant Gram',
+  description: 'brittonsbash Instant Gram Page',
   keywords: ['brittonsbash', 'instant', 'gram'],
 });
 

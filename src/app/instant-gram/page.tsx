@@ -12,8 +12,8 @@ import { InstantGramTemplate } from '../_ui/templates/index.js';
 export const revalidate = 300;
 
 export const generateMetadata = (): Metadata => ({
-  title: 'BrittonsBash | Instant Gram',
-  description: 'BrittonsBash Instant Gram Page',
+  title: 'brittonsbash | Instant Gram',
+  description: 'brittonsbash Instant Gram Page',
   keywords: ['brittonsbash', 'instant', 'gram'],
 });
 

@@ -1,9 +1,9 @@
 'use client';
 
+import { FC } from 'react';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.js';
 import styles from './footer.module.scss.js';
-import { FC } from 'react';
 
 export const Footer: FC = () => (
   <footer className={styles.footer}>
@@ -17,7 +17,7 @@ export const Footer: FC = () => (
           />
 
           <Flex direction="vertical" alignHorizontal="left">
-            <div className={styles.footerLogo}>BrittonsBashRC</div>
+            <div className={styles.footerLogo}>brittonsbash</div>
 
             <Typography variant="body" element="code" color="lightGrey">
               brittonsbash.com

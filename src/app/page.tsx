@@ -14,8 +14,8 @@ export const revalidate = 300;
 // Will make a call to the facade
 // eslint-disable-next-line @typescript-eslint/require-await
 export const generateMetadata = async (): Promise<Metadata> => ({
-  title: 'BrittonsBash | Home',
-  description: 'BrittonsBash Home Page',
+  title: 'brittonsbash | Home',
+  description: 'brittonsbash Home Page',
   keywords: ['brittonsbash'],
 });
 

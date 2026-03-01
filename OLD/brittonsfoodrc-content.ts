@@ -22,8 +22,6 @@ type BrittonsFoodRCProps = {
   tileSeven: FootnoteTileProps;
 };
 
-// const culinary = await brittonsBashContentFacade.getCulinary();
-
 export const brittonsFoodRCContent: BrittonsFoodRCProps = {
   background: { content: 'BrittonsFoodRC' },
   tileOne: {

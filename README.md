@@ -1,6 +1,6 @@
-# BrittonsBash Web
+# brittonsbash Web
 
-Next.js 15 and React web applications for BrittonsBash Web.
+Next.js 15 and React web applications for brittonsbash Web.
 
 ## Config
 

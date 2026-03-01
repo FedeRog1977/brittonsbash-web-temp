@@ -12,7 +12,7 @@ const getFacade = (): Interface => {
 
   const validatorAjv = new ValidatorAjv();
   const brittonsbashServiceClient = new BrittonsbashServiceClient({
-    baseUrl: baseUrls.brittonsBashContent,
+    baseUrl: baseUrls.brittonsbash,
     validator: validatorAjv,
   });
 

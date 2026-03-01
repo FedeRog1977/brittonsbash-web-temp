@@ -11,8 +11,8 @@ import { ProjectsTemplate } from '../_ui/templates/index.js';
 export const revalidate = 300;
 
 export const generateMetadata = (): Metadata => ({
-  title: 'BrittonsBash | Projects',
-  description: 'BrittonsBash Projects Page',
+  title: 'brittonsbash | Projects',
+  description: 'brittonsbash Projects Page',
   keywords: ['brittonsbash', 'sport', 'projects'],
 });
 
