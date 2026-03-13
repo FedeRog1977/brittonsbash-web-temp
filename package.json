@@ -8,7 +8,7 @@
     "build:css-modules": "node ./concat-files.js \"./build/css-modules/libs/components/basics/{components,reference}/**/*.css\" --output ./src/app/styles.css",
     "build:css": "postcss ./build/css --dir ./build/css-modules/libs/components/basics --base ./build/css/temp",
     "build:scss": "sass --no-source-map ./src:./build/css",
-    "build:storybook": "tsc --noEmit && storybook build --quiet --output-dir ./dist-storybook",
+    "build:storybook": "tsc --noEmit && storybook build --quiet --output-dir ./dist_storybook",
     "build:ts": "tsc",
     "clean": "rimraf ./node_modules",
     "dev": "next dev",
