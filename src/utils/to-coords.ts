@@ -1,10 +1,15 @@
-export const toCoords = (lat: number, lon: number) => {
-  var latMag = '';
-  var latSuffix = '';
+type Coords = {
+  latFormatted: string;
+  lonFormatted: string;
+};
+
+export const toCoords = (lat: number, lon: number): Coords => {
+  let latMag = '';
+  let latSuffix = '';
 
   if (lat >= 0) {
     latSuffix = 'N';
-    latMag = (lat * 1).toLocaleString('en-UK', { maximumFractionDigits: 1 });
+    latMag = Number(lat).toLocaleString('en-UK', { maximumFractionDigits: 1 });
   } else if (lat < 0) {
     latSuffix = 'S';
     latMag = (lat * -1).toLocaleString('en-UK', {
@@ -12,12 +17,12 @@ export const toCoords = (lat: number, lon: number) => {
     });
   }
 
-  var lonMag = '';
-  var lonSuffix = '';
+  let lonMag = '';
+  let lonSuffix = '';
 
   if (lon >= 0) {
     lonSuffix = 'E';
-    lonMag = (lon * 1).toLocaleString('en-UK', { maximumFractionDigits: 1 });
+    lonMag = Number(lon).toLocaleString('en-UK', { maximumFractionDigits: 1 });
   } else if (lon < 0) {
     lonSuffix = 'W';
     lonMag = (lon * -1).toLocaleString('en-UK', {
@@ -25,8 +30,8 @@ export const toCoords = (lat: number, lon: number) => {
     });
   }
 
-  const latFormatted = latMag + '°' + latSuffix;
-  const lonFormatted = lonMag + '°' + lonSuffix;
+  const latFormatted = `${latMag}°${latSuffix}`;
+  const lonFormatted = `${lonMag}°${lonSuffix}`;
 
   return { latFormatted, lonFormatted };
 };

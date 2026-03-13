@@ -1,6 +1,3 @@
-export * from './api/get-response.js';
-export * from './api/get-session-item.js';
-export * from './api/set-session-item.js';
 export * from './format-coordinates.js';
 export * from './format-items.js';
 export * from './get-ordered-stepper-steps.js';

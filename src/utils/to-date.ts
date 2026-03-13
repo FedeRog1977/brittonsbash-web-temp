@@ -1,4 +1,15 @@
-export const toDate = (dt: number) => {
+type Date = {
+  hour: string;
+  time: string;
+  day: string;
+  weekday: string;
+  weekdayPartial: string;
+  month: string;
+  dayOfMonth: string;
+  dayOfMonthPartial: string;
+};
+
+export const toDate = (dt: number): Date => {
   const hour = new Date(dt * 1000).toLocaleTimeString('en-us', {
     hour: 'numeric',
   });
@@ -20,7 +31,7 @@ export const toDate = (dt: number) => {
     weekday: 'short',
   });
 
-  var daySuffix = '';
+  let daySuffix = '';
 
   // st: 1, 21, 31
   // nd: 2, 22

@@ -1,5 +1,5 @@
-import { ImageMatrixProps, ImageMatrix } from '~/components-basics/image-matrix';
 import { FC } from 'react';
+import { ImageMatrixProps, ImageMatrix } from '~/components-basics/image-matrix';
 
 export type ImagesProps = { images: ImageMatrixProps['images'] };
 

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import styles from './spacing.module.scss.js';
 import { SpacingConfig, getResponsiveSpacingClassNames } from '../../reference/index.js';
+import styles from './spacing.module.scss.js';
 
 export type SpacingProps = {
   children?: ReactNode;

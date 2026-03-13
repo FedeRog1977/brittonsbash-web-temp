@@ -19,4 +19,5 @@
 //   return screenWidth <= 768;
 // };
 
-export const isMobile = () => (typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
+export const isMobile = (): boolean =>
+  typeof window === 'undefined' ? false : window.innerWidth <= 768;

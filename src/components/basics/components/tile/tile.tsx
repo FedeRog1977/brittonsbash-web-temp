@@ -25,7 +25,9 @@ export const Tile: FC<TileProps> = ({ type, width = 'wide', stacked, img, gradie
   return (
     <div className={tile}>
       <div className={container}>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         {img ? <Image {...img} /> : null}
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         {gradient ? <Gradient {...gradient} /> : null}
         <div className={innerContainer}>{children}</div>
       </div>

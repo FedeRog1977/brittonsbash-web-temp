@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC } from 'react';
-import styles from './gradient.module.scss.js';
 import { toUpperCase } from '~/utils';
+import styles from './gradient.module.scss.js';
 
 export type GradientProps = {
   value?: 'light' | 'dark';

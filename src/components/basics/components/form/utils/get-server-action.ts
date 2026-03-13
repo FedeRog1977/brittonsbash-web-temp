@@ -1,5 +1,5 @@
-import { JSONSchema } from '~/types';
 import { ValidatorAjv, ValidationError } from '~/services/validator-ajv';
+import { JSONSchema } from '~/types';
 import { CustomErrors } from '../types/custom-errors.js';
 import { FormErrors } from '../types/form-errors.js';
 import { SubmitHandler } from '../types/submit-handler.js';

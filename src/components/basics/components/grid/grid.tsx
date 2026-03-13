@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import styles from './grid.module.scss.js';
 import {
   SpacingConfig,
   JustifyConfig,
@@ -8,6 +7,7 @@ import {
   getResponsiveSpacingClassNames,
   getResponsiveAlignmentClassNames,
 } from '../../reference/index.js';
+import styles from './grid.module.scss.js';
 
 // Reminder: https://developer.mozilla.org/en-US/docs/Web/CSS/grid
 // Reminder: https://css-tricks.com/snippets/css/complete-guide-grid/

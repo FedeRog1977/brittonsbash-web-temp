@@ -1,7 +1,7 @@
+import { FC } from 'react';
 import { ArticleProps, Article } from '~/components-basics/article';
 import { Tile } from '~/components-basics/tile';
 import { Typography } from '~/components-basics/typography';
-import { FC } from 'react';
 import { formatArticle } from '../article-tile/utils/format-article.js';
 
 export type FootnoteTileProps = {

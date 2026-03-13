@@ -1,1 +1,2 @@
-export const toPrecipitation = (precipitation: number) => (precipitation * 100).toFixed(0) + '%';
+export const toPrecipitation = (precipitation: number): string =>
+  `${(precipitation * 100).toFixed(0)}%`;

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/prefer-reduce-type-parameter, @typescript-eslint/consistent-type-assertions, no-console */
 import fetch from 'node-fetch';
+import { Validator } from '~/services/validator-ajv';
 import {
   MappedProjects,
   Projects,
@@ -10,7 +11,6 @@ import {
   MappedEventProject,
 } from '~/types';
 import { removeDuplicates, toMiles, toFeet, toSum } from '~/utils';
-import { Validator } from '~/services/validator-ajv';
 import { eventNamesResponseValidationSchema } from './constants/event-names-response-validation-schema.js';
 import { eventResponseValidationSchema } from './constants/event-response-validation-schema.js';
 import { eventReturnValidationSchema } from './constants/event-return-validation-schema.js';

@@ -1,1 +1,1 @@
-export const toTemperature = (temperature: number) => temperature.toFixed(0) + '°';
+export const toTemperature = (temperature: number): string => `${temperature.toFixed(0)}°`;

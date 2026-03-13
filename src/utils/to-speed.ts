@@ -1,17 +1,13 @@
-export const toSpeed = (speed: number, isKmh: boolean) => {
-  var speedFormatted = '';
-
-  isKmh
-    ? (speedFormatted =
-        (speed * 2.23694).toLocaleString('en-UK', {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1,
-        }) + ' mph')
-    : (speedFormatted =
-        speed.toLocaleString('en-UK', {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 1,
-        }) + ' mph');
+export const toSpeed = (speed: number, isKmh: boolean): string => {
+  const speedFormatted = isKmh
+    ? `${(speed * 2.23694).toLocaleString('en-UK', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      })} mph`
+    : `${speed.toLocaleString('en-UK', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      })} mph`;
 
   return speedFormatted;
 };

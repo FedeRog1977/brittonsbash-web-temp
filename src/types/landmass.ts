@@ -13,7 +13,7 @@ export type Landmass = {
   corbetts?: Hill[];
   corbettTops?: Hill[];
   // TODO: change to string[]
-  corrie: { name: string }[];
+  corrie: Array<{ name: string }>;
   gully: boolean;
   lochain: boolean;
   waterfall: boolean;

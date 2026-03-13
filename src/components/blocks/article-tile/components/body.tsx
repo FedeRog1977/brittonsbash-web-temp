@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { ArticleProps, Article } from '~/components-basics/article';
 import { Typography } from '~/components-basics/typography';
-import { FC } from 'react';
 import { formatArticle } from '../utils/format-article.js';
 
 export type BodyProps = { body: string | ArticleProps['sections'] };

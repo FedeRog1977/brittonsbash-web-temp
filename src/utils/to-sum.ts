@@ -1,1 +1,1 @@
-export const toSum = (accumulator: number, i: number) => accumulator + i;
+export const toSum = (accumulator: number, i: number): number => accumulator + i;

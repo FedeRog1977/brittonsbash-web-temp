@@ -55,7 +55,7 @@ export const Footer: FC = () => (
         />
 
         <Typography variant="body" color="lightGrey">
-          <>&#169; Lewis Britton 2020&mdash;2024</>
+          &#169; Lewis Britton 2020&mdash;2024
         </Typography>
       </Flex>
     </div>

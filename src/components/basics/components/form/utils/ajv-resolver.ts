@@ -1,6 +1,6 @@
 import { FieldValues, ResolverResult } from 'react-hook-form';
-import { JSONSchema } from '~/types';
 import { ValidationError, ValidatorAjv } from '~/services/validator-ajv';
+import { JSONSchema } from '~/types';
 import { CustomErrors } from '../types/custom-errors.js';
 import { deepRemoveEmptyProperties } from './deep-remove-entry-properties.js';
 import { deepTrim } from './deep-trim.js';

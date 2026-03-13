@@ -1,11 +1,12 @@
 'use client';
 
-import ReactModal from 'react-modal';
-import styles from './modal.module.scss.js';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
 import { FC, ReactElement, ReactNode } from 'react';
+import ReactModal from 'react-modal';
+import styles from './modal.module.scss.js';
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export type ModalProps = {
   isOpen: boolean;
