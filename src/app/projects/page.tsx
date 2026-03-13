@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { SubmitHandler } from '~/libs/components-basics/form';
-import { facade } from '../_facade/index.js';
-import { routes } from '../_libs/constants/routes.js';
-import { ProjectsEventsData } from '../_schema/types/projects-events-data.js';
-import { ProjectsHillsData } from '../_schema/types/projects-hills-data.js';
-import { ProjectsTemplate } from '../_ui/templates/index.js';
+import { SubmitHandler } from '~/components-basics/form';
+import { ProjectsTemplate } from '~/components-templates';
+import { routes } from '~/constants';
+import { facade } from '~/facade';
+import { ProjectsEventsData, ProjectsHillsData } from '~/schema/types';
 
 export const revalidate = 300;
 

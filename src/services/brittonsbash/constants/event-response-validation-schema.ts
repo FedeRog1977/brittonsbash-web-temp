@@ -1,4 +1,4 @@
-import { Features, Img, JSONSchema } from '~/libs/types';
+import { Features, Img, JSONSchema } from '~/types';
 import { EventResponse } from '../types/event-response.js';
 
 const imgValidationSchema: JSONSchema<Img> = {

@@ -1,3 +1,3 @@
-import { Event } from '~/libs/types';
+import { Event } from '~/types';
 
 export type EventNamesResponse = Array<Pick<Event, 'id' | 'tags' | 'prefix' | 'names'>>;

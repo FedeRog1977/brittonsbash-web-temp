@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { SubmitHandler } from '~/libs/components-basics/form';
-import { facade } from '../_facade/index.js';
-import { routes } from '../_libs/constants/routes.js';
-import { getEventNamesByTag } from '../_libs/utils/get-event-names-by-tag.js';
-import { getEventNamesByYear } from '../_libs/utils/get-event-names-by-year.js';
-import { InstantGramData } from '../_schema/types/instant-gram-data.js';
-import { InstantGramTemplate } from '../_ui/templates/index.js';
+import { getEventNamesByTag, getEventNamesByYear } from '~/actions';
+import { SubmitHandler } from '~/components-basics/form';
+import { InstantGramTemplate } from '~/components-templates';
+import { routes } from '~/constants';
+import { facade } from '~/facade';
+import { InstantGramData } from '~/schema/types';
 
 export const revalidate = 300;
 

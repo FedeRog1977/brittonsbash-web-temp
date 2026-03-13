@@ -1,3 +1,3 @@
-import { Event } from '~/libs/types';
+import { Event } from '~/types';
 
 export type EventReturn = Extract<Event, { type: 'mapped' }>;

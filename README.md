@@ -10,63 +10,113 @@ Next.js 15 and React web applications for brittonsbash Web.
 
 ## Technologies
 
+- Package manager: Node.js Package Manager (`npm`)
 - Render framework: Next.js
 - Component framework: React
 - Runtime environment: Node.js
 - Post-transpiled programming language: JavaScript
 - Pre-transpiled programming language: TypeScript
-- Package manager: Node.js Package Manager (`npm`)
+- Type: ECMAScript ES Module (`module`)
+- Target: ES Next (`esnext`)
+- Module: Node Next (`NodeNext`)
+- Module resolution: Node Next (`NodeNext`)
+
+### Node.js Package Manager
+
+...
+
+Notes:
+
+- https://docs.npmjs.com/cli/v11/configuring-npm/package-json
+- https://docs.npmjs.com/cli/v11/using-npm/config
+
+### Next.js
+
+...
+
+### React
+
+...
+
+### Node.js
+
+...
+
+### JavaScript
+
+...
 
 ### TypeScript
 
 ...
 
-#### Docs
+### Type
 
-https://docs.npmjs.com/cli/v11/configuring-npm/package-json
-https://docs.npmjs.com/cli/v11/using-npm/config
-https://en.wikipedia.org/wiki/ECMAScript#:~:text=The%20ECMAScript%20specification%20is%20a,JavaScript%20in%20a%20press%20release.
-https://blog.logrocket.com/commonjs-vs-es-modules-node-js/
-https://www.typescriptlang.org/tsconfig/#moduleResolution
-https://stackoverflow.com/questions/71463698/why-we-need-nodenext-typescript-compiler-option-when-we-have-esnext
+Options:
+
+- `"type": "module"`
+- `"type": "commonjs"`
+
+We use `"type": "module"`.
+
+Our TypeScript (JavaScript) modules depend on the `import` and `export` statements to load and
+export using the ECMAScript module standard, which outputs ES Modules (ESM). The CommonJS approach
+uses the more traditional `require()` and `module.exports` statements to load and export using an
+unrefined, unspecified JavaScript method.
+
+There is no `"main": "./dist/<main-export-file>.js"` in the `package.json`. This is replaced with
+`"exports: {}"`. `exports` are, in theory, open-ended, and they can point to anywhere there is an
+export. This method can also keep a package clean of barrel `index.ts` files, and point to only
+exactly the exports that are required. The modularization under ECMAScript using the `exports`
+method also ensures that not all contents of a package will be loaded in a consumer when importing
+from an `exports` path. This is useful for segmenting server-side and client-side specific
+functionality.
+
+`CommonJS` is an older module ecosystem project for JavaScript, primarily used for server-side
+development and Node.js, that enables code organization through a synchronous module system using .
+Although it was an early solution for modularizing JavaScript, after vanilla JavaScript, it has
+largely been superseded by the standardized ECMAScript Modules (ESM) system for modern applications,
+but it remains important for legacy support and certain use cases in Node.js environments.
+
+CommonJS is an older module ecosystem project for JavaScript, primarily used for server-side only
+development and Node.js, that enables code organization through a synchronous module system.
+Although it was an early solution for modularizing JavaScript, after vanilla JavaScript, it has
+largely been superseded by the ECMAScript module standard, but it remains important for legacy
+support and particular use cases in Node.js environments.
+
+The ECMAScript module standard provides a native module system for both server-side and client-side
+JavaScript. The ES Modules provide a clear syntax, `import` and `export` statements, and support for
+asynchronous loading. This progress has made code more maintainable, reusable, and performant,
+allowing developers to build more scalable applications. Not to mention future-proof support for
+modern applications, modern browsers, and support in TypeScript. If we were to use a resolution such
+as `"NodeNext"`, for example. But we'll come to this.
+
+Given the above, we selected the most modern and robust specification for modularization. Therefore,
+vanilla JavaScript and `CommonJS` modularization is omitted from considerations.
+
+Notes:
+
+- https://en.wikipedia.org/wiki/ECMAScript#:~:text=The%20ECMAScript%20specification%20is%20a,JavaScript%20in%20a%20press%20release
+- https://blog.logrocket.com/commonjs-vs-es-modules-node-js/
+
+### Target
 
 ...
 
-#### Module
+Notes:
 
-##### Type
+- https://www.typescriptlang.org/tsconfig/#target
+- https://stackoverflow.com/questions/71463698/why-we-need-nodenext-typescript-compiler-option-when-we-have-esnext
 
-Our TypeScript (JavaScript) modules depend on the `import` and `export` statements; these statements
-load and export ECMAScript modules (or ES modules), respectively. Made obvious from the prior, we
-can omit `CommonJS` from our considerations.
+## Module
 
-There is no `"main": "./dist/<main-export-file>.js"` in the `package.json`. This is replaced with
-`"exports: {}"`. The `package.json` also requires `"type": "module"`.
+...
 
-An extract:
+Notes:
 
-```md
-`CommonJS` is a module ecosystem project for JavaScript, primarily used for server-side development
-and Node.js, that enables code organization through a synchronous module system using require() to
-import and module.exports to export functionality from files. Although it was an early solution for
-modularizing JavaScript, it has largely been superseded by the standardized ECMAScript Modules (ESM)
-system for modern applications, but it remains important for legacy support and certain use cases in
-Node.js environments.
-```
+- https://www.typescriptlang.org/tsconfig/#module
 
-An extract:
-
-```md
-Then came the ES modules, which provide a native module system for both client and server-side
-JavaScript. ES6 modules provide a clear syntax, import and export statements, and support for
-asynchronous loading. This progress has made code more maintainable, reusable, and performant,
-allowing developers to build more scalable applications.
-```
-
-If questioning `ESModule` over `CommonJS`, see this:
-https://en.wikipedia.org/wiki/ECMAScript#:~:text=The%20ECMAScript%20specification%20is%20a,JavaScript%20in%20a%20press%20release.
-
-##### Module Resolution
+### Module Resolution
 
 https://www.typescriptlang.org/tsconfig/#moduleResolution
 
@@ -95,3 +145,7 @@ extensionAlias: {
 '.jsx': ['.ts', '.tsx', '.js'],
 },
 ```
+
+Notes:
+
+- https://www.typescriptlang.org/tsconfig/#moduleResolution

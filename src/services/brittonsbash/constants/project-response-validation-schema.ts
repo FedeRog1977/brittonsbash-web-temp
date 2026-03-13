@@ -1,4 +1,4 @@
-import { JSONSchema } from '~/libs/types';
+import { JSONSchema } from '~/types';
 import { ProjectResponse } from '../types/project-response.js';
 
 export const projectResponseValidationSchema: JSONSchema<ProjectResponse> = {

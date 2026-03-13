@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { ReactElement } from 'react';
-import { facade } from '../../_facade/index.js';
-import { ProjectsSearchParams } from '../../_libs/types/projects-search-params.js';
-import { ProjectsEventsTemplate } from '../../_ui/templates/projects/events/projects-events-template.jsx';
+import { ProjectsEventsTemplate } from '~/components-templates';
+import { facade } from '~/facade';
+import { ProjectsSearchParams } from '~/schema/types';
 
 export type ProjectsEventsProps = {
   searchParams: Promise<ProjectsSearchParams>;

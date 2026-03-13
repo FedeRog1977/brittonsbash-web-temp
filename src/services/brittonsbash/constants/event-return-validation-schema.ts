@@ -1,4 +1,4 @@
-import { GenericDataContent, Img, JSONSchema, MappedEventProject } from '~/libs/types';
+import { GenericDataContent, Img, JSONSchema, MappedEventProject } from '~/types';
 import { EventReturn } from '../types/event-return.js';
 
 const imgValidationSchema: JSONSchema<Img> = {

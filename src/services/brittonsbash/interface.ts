@@ -1,4 +1,4 @@
-import { MappedProjects, EventYear, EventId, ProjectId } from '~/libs/types';
+import { MappedProjects, EventYear, EventId, ProjectId } from '~/types';
 import { EventNamesResponse } from './types/event-names-response.js';
 import { EventReturn } from './types/event-return.js';
 import { EventTagsResponse } from './types/event-tags-response.js';

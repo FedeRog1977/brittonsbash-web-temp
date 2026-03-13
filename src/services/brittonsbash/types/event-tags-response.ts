@@ -1,3 +1,3 @@
-import { EventTag } from '~/libs/types';
+import { EventTag } from '~/types';
 
 export type EventTagsResponse = EventTag[];

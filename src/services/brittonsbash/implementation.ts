@@ -8,8 +8,8 @@ import {
   Features,
   GenericDataContent,
   MappedEventProject,
-} from '~/libs/types';
-import { removeDuplicates, toMiles, toFeet, toSum } from '~/libs/utils';
+} from '~/types';
+import { removeDuplicates, toMiles, toFeet, toSum } from '~/utils';
 import { Validator } from '~/services/validator-ajv';
 import { eventNamesResponseValidationSchema } from './constants/event-names-response-validation-schema.js';
 import { eventResponseValidationSchema } from './constants/event-response-validation-schema.js';

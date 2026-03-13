@@ -1,7 +1,11 @@
 .next
 build/
 dist/
+dist-storybook/
 node_modules/
 *.module.scss.ts
 *.svg.tsx
 next-env.d.ts
+*storybook.log
+storybook-static
+tsconfig.tsbuildinfo

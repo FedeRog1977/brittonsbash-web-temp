@@ -1,3 +1,3 @@
-import { Project } from '~/libs/types';
+import { Project } from '~/types';
 
 export type ProjectResponse = Project;

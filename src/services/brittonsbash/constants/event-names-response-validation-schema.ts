@@ -1,4 +1,4 @@
-import { JSONSchema } from '~/libs/types';
+import { JSONSchema } from '~/types';
 import { EventNamesResponse } from '../types/event-names-response.js';
 
 export const eventNamesResponseValidationSchema: JSONSchema<EventNamesResponse> = {
