@@ -1,4 +1,4 @@
-import { CustomErrors } from '~/components-basics/form';
+import { CustomErrors } from '~/components-basics/client-form';
 import { InstantGramData } from '../types/instant-gram-data.js';
 
 export const instantGramCustomErrors: CustomErrors<InstantGramData> = {

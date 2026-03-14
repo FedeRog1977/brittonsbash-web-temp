@@ -1,4 +1,4 @@
-import '../src/app/_styles-temp/styles.css';
+import '../src/app/_reference/styles/styles.css';
 
 /** @type { import('@storybook/nextjs').Preview } */
 const preview = {

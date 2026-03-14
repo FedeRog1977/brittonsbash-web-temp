@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "build:styles": "run-s build:scss build:css build:css-modules",
-    "build:css-modules": "node ./concat-files.js \"./build/css-modules/libs/components/basics/{components,reference}/**/*.css\" --output ./src/app/styles.css",
-    "build:css": "postcss ./build/css --dir ./build/css-modules/libs/components/basics --base ./build/css/temp",
-    "build:scss": "sass --no-source-map ./src:./build/css",
+    "build:styles": "run-s build:scss build:css build:css-modules build:fonts build:ts",
+    "build:fonts": "cp -r ./src/components/basics/reference/fonts ./src/app/_reference",
+    "build:css-modules": "mkdir -p ./src/app/reference && node ./concat-files.js \"./build/css-modules/{components,reference}/**/*.css\" --output ./src/app/_reference/styles/styles.css",
+    "build:css": "postcss ./build/css --dir ./build/css-modules --base ./build/css",
+    "build:scss": "sass --no-source-map ./src/components/basics:./build/css",
     "build:storybook": "tsc --noEmit && storybook build --quiet --output-dir ./dist_storybook",
     "build:ts": "tsc",
     "clean": "rimraf ./node_modules",
@@ -15,9 +16,7 @@
     "dev:storybook": "storybook dev -p 6006",
     "format:check": "prettier --ignore-path ./.gitignore --check .",
     "format:fix": "prettier --ignore-path ./.gitignore --list-different --write .",
-    "lint": "eslint ./src",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "lint": "eslint ./src"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "7.1.0",

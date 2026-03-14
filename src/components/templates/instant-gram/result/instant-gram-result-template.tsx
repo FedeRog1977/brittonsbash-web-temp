@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, useState } from 'react';
+import { Button } from '~/components-basics/button';
 import { Flex } from '~/components-basics/flex';
-import { Button } from '~/components-basics/form';
 import { ImageMatrix } from '~/components-basics/image-matrix';
 import { ImageSlider } from '~/components-basics/image-slider';
 import { Modal } from '~/components-basics/modal';
