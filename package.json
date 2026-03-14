@@ -6,7 +6,7 @@
     "build": "next build",
     "build:styles": "run-s build:scss build:css build:css-modules build:fonts build:ts",
     "build:fonts": "cp -r ./src/components/basics/reference/fonts ./src/app/_reference",
-    "build:css-modules": "mkdir -p ./src/app/reference && node ./concat-files.js \"./build/css-modules/{components,reference}/**/*.css\" --output ./src/app/_reference/styles/styles.css",
+    "build:css-modules": "mkdir -p ./src/app/_reference && node ./concat-files.js \"./build/css-modules/{components,reference}/**/*.css\" --output ./src/app/_reference/styles/styles.css",
     "build:css": "postcss ./build/css --dir ./build/css-modules --base ./build/css",
     "build:scss": "sass --no-source-map ./src/components/basics:./build/css",
     "build:storybook": "tsc --noEmit && storybook build --quiet --output-dir ./dist_storybook",
