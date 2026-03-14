@@ -15,7 +15,6 @@
       "~/components-blocks/*": ["./src/components/blocks/*/index.ts"],
       "~/components-layouts/*": ["./src/components/layouts/*/index.ts"],
       "~/components-templates": ["./src/components/templates/index.ts"],
-      "~/config/*": ["./src/config/*/index.ts"],
       "~/constants": ["./src/constants/index.ts"],
       "~/facade": ["./src/facade/index.ts"],
       "~/schema/*": ["./src/schema/*/index.ts"],
