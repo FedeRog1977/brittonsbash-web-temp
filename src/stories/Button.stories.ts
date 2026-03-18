@@ -1,5 +1,5 @@
 import { fn } from 'storybook/test';
-import { Button as ButtonComponent } from '~/components-basics/button';
+import { Button as ButtonComponent } from '~/components-basics/client-form';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const meta = {
@@ -16,7 +16,16 @@ const meta = {
 
 export default meta;
 
-export const Primary: StoryObj<typeof meta> = {
+export const Button: StoryObj<typeof meta> = {
+  args: {
+    variant: 'default',
+    type: 'button',
+    children: 'Lorem ipsum',
+    onClick: fn(),
+  },
+};
+
+export const Nigger: StoryObj<typeof meta> = {
   args: {
     variant: 'default',
     type: 'button',

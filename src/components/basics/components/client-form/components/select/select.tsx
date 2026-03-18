@@ -2,8 +2,8 @@
 
 import { FC, useId, useState, ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { getErrorText } from '../../reference/index.js';
-import { Label } from '../../reference/components/label/label.jsx';
+import { getErrorText } from '../../../../reference/index.js';
+import { Label } from '../label/label.jsx';
 import styles from './select.module.scss.js';
 import { SelectOption } from './types/select-option.js';
 

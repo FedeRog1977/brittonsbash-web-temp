@@ -1,14 +1,15 @@
 'use client';
 
-// import { faBars } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, useState } from 'react';
 import { routes } from '~/constants';
 import { isMobile as getIsMobile } from '~/utils';
-import { Button } from '../button/button.jsx';
+import { Button } from '../client-form/components/button/button.jsx';
 import { Flex } from '../flex/flex.js';
 import { Typography } from '../typography/typography.js';
 import styles from './header.module.scss.js';
+
+// import { faBars } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Header: FC = () => {
   const isMobile = getIsMobile();

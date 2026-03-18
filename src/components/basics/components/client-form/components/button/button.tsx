@@ -4,12 +4,12 @@ import cx from 'classnames';
 import { FC, MouseEvent, ReactElement } from 'react';
 import { Url } from '~/types';
 import { toUpperCase } from '~/utils';
-import { TextStyle } from '../../reference/index.js';
-import { Flex } from '../flex/flex.jsx';
-import { GridItem } from '../grid/grid-item.jsx';
-import { Grid } from '../grid/grid.jsx';
-import { Loading } from '../loading/loading.jsx';
-import { Typography } from '../typography/typography.js';
+import { TextStyle } from '../../../../reference/index.js';
+import { Flex } from '../../../flex/flex.jsx';
+import { GridItem } from '../../../grid/grid-item.jsx';
+import { Grid } from '../../../grid/grid.jsx';
+import { Loading } from '../../../loading/loading.jsx';
+import { Typography } from '../../../typography/typography.js';
 import styles from './button.module.scss.js';
 
 export type ButtonProps = {

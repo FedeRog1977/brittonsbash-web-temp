@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { ArticleProps, Article } from '~/components-basics/article';
-import { Button } from '~/components-basics/button';
+import { Button } from '~/components-basics/client-form';
 import { Flex } from '~/components-basics/flex';
 import { GradientProps } from '~/components-basics/gradient';
 import { Grid, GridItem } from '~/components-basics/grid';
