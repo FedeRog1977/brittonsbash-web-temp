@@ -1,9 +1,9 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
-import { Footer } from '~/components-basics/footer';
-import { Header } from '~/components-basics/header';
-import { PageBackgroundProps, PageBackground } from '~/components-basics/page-background';
+import { Footer } from '~/components-core/footer';
+import { Header } from '~/components-core/header';
+import { PageBackgroundProps, PageBackground } from '~/components-core/page-background';
 
 export type PageLayoutProps = {
   background?: PageBackgroundProps;

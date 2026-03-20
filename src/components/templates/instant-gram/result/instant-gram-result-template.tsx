@@ -1,14 +1,14 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Button } from '~/components-basics/client-form';
-import { Flex } from '~/components-basics/flex';
-import { ImageMatrix } from '~/components-basics/image-matrix';
-import { ImageSlider } from '~/components-basics/image-slider';
-import { Modal } from '~/components-basics/modal';
-import { RowTable } from '~/components-basics/table';
-import { Tile } from '~/components-basics/tile';
-import { Typography } from '~/components-basics/typography';
+import { Button } from '~/components-core/client-form';
+import { Flex } from '~/components-core/flex';
+import { ImageMatrix } from '~/components-core/image-matrix';
+import { ImageSlider } from '~/components-core/image-slider';
+import { Modal } from '~/components-core/modal';
+import { RowTable } from '~/components-core/table';
+import { Tile } from '~/components-core/tile';
+import { Typography } from '~/components-core/typography';
 import { PageLayout } from '~/components-layouts/page-layout';
 import { mapEventTagReadable } from '~/constants';
 import { EventTag, GenericDataContent, Img, MappedEventProject } from '~/types';

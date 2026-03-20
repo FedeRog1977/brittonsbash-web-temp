@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Flex } from '~/components-basics/flex';
-import { TileProps, Tile } from '~/components-basics/tile';
-import { Typography, TypographyProps } from '~/components-basics/typography';
+import { Flex } from '~/components-core/flex';
+import { TileProps, Tile } from '~/components-core/tile';
+import { Typography, TypographyProps } from '~/components-core/typography';
 import { Section } from './types/section.js';
 import { getContent } from './utils/get-content.js';
 

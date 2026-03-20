@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { Flex } from '~/components-basics/flex';
-import { Grid, GridItem } from '~/components-basics/grid';
-import { Tile } from '~/components-basics/tile';
-import { Typography } from '~/components-basics/typography';
+import { Flex } from '~/components-core/flex';
+import { Grid, GridItem } from '~/components-core/grid';
+import { Tile } from '~/components-core/tile';
+import { Typography } from '~/components-core/typography';
 import { Items } from './types/items.js';
 
 export type TitleTileProps = {

@@ -1,5 +1,5 @@
-import { ArticleProps } from '~/components-basics/article';
-import { TypographyProps } from '~/components-basics/typography';
+import { ArticleProps } from '~/components-core/article';
+import { TypographyProps } from '~/components-core/typography';
 
 export const formatArticle = (
   sections: ArticleProps['sections'],

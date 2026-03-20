@@ -1,13 +1,13 @@
 'use client';
 
 import { FC } from 'react';
-import { ArticleProps, Article } from '~/components-basics/article';
-import { Button } from '~/components-basics/client-form';
-import { Flex } from '~/components-basics/flex';
-import { GradientProps } from '~/components-basics/gradient';
-import { Grid, GridItem } from '~/components-basics/grid';
-import { Tile } from '~/components-basics/tile';
-import { Typography } from '~/components-basics/typography';
+import { ArticleProps, Article } from '~/components-core/article';
+import { Button } from '~/components-core/client-form';
+import { Flex } from '~/components-core/flex';
+import { GradientProps } from '~/components-core/gradient';
+import { Grid, GridItem } from '~/components-core/grid';
+import { Tile } from '~/components-core/tile';
+import { Typography } from '~/components-core/typography';
 import { Img } from '~/types';
 import { formatArticle } from '../article-tile/utils/format-article.js';
 
@@ -60,8 +60,8 @@ export const ImageTile: FC<ImageTileProps> = ({
           {Array.isArray(body) ? (
             <Article
               // Not the ideal import, but it doesn't belong in:
-              // ~/utils, as it relies on types from ~/components-basics
-              // or ~/components-basics/reference/utils, as it must be used outwith ~/components-basics
+              // ~/utils, as it relies on types from ~/components-core
+              // or ~/components-core/reference/utils, as it must be used outwith ~/components-core
               sections={formatArticle(
                 body,
                 'body',

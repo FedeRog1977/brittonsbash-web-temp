@@ -10,11 +10,11 @@ import {
   useClientSubmit,
   Select,
   SelectOption,
-} from '~/components-basics/client-form';
-import { Flex } from '~/components-basics/flex';
-import { Spacing } from '~/components-basics/spacing';
-import { Tile } from '~/components-basics/tile';
-import { Typography } from '~/components-basics/typography';
+} from '~/components-core/client-form';
+import { Flex } from '~/components-core/flex';
+import { Spacing } from '~/components-core/spacing';
+import { Tile } from '~/components-core/tile';
+import { Typography } from '~/components-core/typography';
 import { PageLayout } from '~/components-layouts/page-layout';
 import { mapEventTagReadable } from '~/constants';
 import { instantGramCustomErrors, instantGramDataValidationSchema } from '~/schema/constants';

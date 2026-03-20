@@ -1,0 +1,35 @@
+// @use '../../../../../styles/mixins' as mixins;
+// @use '../../../../../styles/reference' as reference;
+
+// .input {
+//   @include mixins.visually-hidden;
+// }
+
+.label {
+  display: flex;
+  position: relative;
+  padding-right: reference.$spacing-3xs;
+}
+
+.input:enabled + .label {
+  cursor: pointer;
+}
+
+// .input:enabled:focus + .label,
+// .input:enabled + .label:active {
+//   &::before {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     top: -1 * reference.$spacing-2xs;
+//     right: 0;
+//     bottom: -1 * reference.$spacing-2xs;
+//     left: 0;
+//     background-color: reference.$color-neutral20-opacity11;
+
+//     @media (min-width: reference.$screen-sm) {
+//       top: -1 * reference.$spacing-xs;
+//       bottom: -1 * reference.$spacing-xs;
+//     }
+//   }
+// }

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import { Spacing } from '../../../spacing/spacing.jsx';
-import { Typography } from '../../../typography/typography.js';
+import { Spacing } from '../../../components/spacing/spacing.jsx';
+import { Typography } from '../../../components/typography/typography.js';
 import styles from './label.module.scss.js';
 
 export type LabelProps = {

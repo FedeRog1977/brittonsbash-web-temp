@@ -11,7 +11,7 @@
     "strictNullChecks": true,
     "paths": {
       "~/actions": ["./src/actions/index.ts"],
-      "~/components-basics/*": ["./src/components/basics/components/*/index.ts"],
+      "~/components-core/*": ["./src/components/core/components/*/index.ts"],
       "~/components-blocks/*": ["./src/components/blocks/*/index.ts"],
       "~/components-layouts/*": ["./src/components/layouts/*/index.ts"],
       "~/components-templates": ["./src/components/templates/index.ts"],

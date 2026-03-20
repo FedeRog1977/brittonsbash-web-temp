@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { BookshelfProps, Bookshelf } from '~/components-basics/bookshelf';
-import { Flex, FlexItem } from '~/components-basics/flex';
+import { BookshelfProps, Bookshelf } from '~/components-core/bookshelf';
+import { Flex, FlexItem } from '~/components-core/flex';
 
 export type BooksProps = { bookshelves: BookshelfProps[] };
 

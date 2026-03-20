@@ -1,9 +1,9 @@
 'use client';
 
 import { FC } from 'react';
-import { Flex } from '~/components-basics/flex';
-import { Tile } from '~/components-basics/tile';
-import { Typography } from '~/components-basics/typography';
+import { Flex } from '~/components-core/flex';
+import { Tile } from '~/components-core/tile';
+import { Typography } from '~/components-core/typography';
 import { PageLayout } from '~/components-layouts/page-layout';
 import { ProjectsHills } from '~/schema/types';
 import { HillType } from '~/types';

@@ -1,9 +1,9 @@
 'use client';
 
 import { FC } from 'react';
-import { Flex } from '~/components-basics/flex';
-import { RowTable } from '~/components-basics/table';
-import { Tile } from '~/components-basics/tile';
+import { Flex } from '~/components-core/flex';
+import { RowTable } from '~/components-core/table';
+import { Tile } from '~/components-core/tile';
 import { PageLayout } from '~/components-layouts/page-layout';
 import { ProjectsEvent } from '~/schema/types';
 import { isMobile } from '~/utils';

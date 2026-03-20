@@ -1,6 +1,6 @@
 import { FC, JSX, useState } from 'react';
-import { Button } from '~/components-basics/client-form';
-import { Typography } from '~/components-basics/typography';
+import { Button } from '~/components-core/client-form';
+import { Typography } from '~/components-core/typography';
 
 type DescriptionProps = {
   text: string | string[];

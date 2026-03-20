@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
-import { SubmitHandler } from '~/components-basics/client-form';
+import { SubmitHandler } from '~/components-core/client-form';
 import { ProjectsTemplate } from '~/components-templates';
 import { routes } from '~/constants';
 import { facade } from '~/facade';
