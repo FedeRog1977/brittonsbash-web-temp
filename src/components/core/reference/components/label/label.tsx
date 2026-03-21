@@ -1,68 +1,46 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import { Spacing } from '../../../components/spacing/spacing.jsx';
 import { Typography } from '../../../components/typography/typography.js';
+import { getTypographyColor } from '../../utils/get-typography-color.js';
 import styles from './label.module.scss.js';
 
-export type LabelProps = {
+type LabelProps = {
   children: ReactNode;
   htmlFor: string;
   label: string;
-  errorText?: string;
-  // shrink: boolean;
-  // isTextArea?: boolean;
-  isFocused?: boolean;
-  isDisabled?: boolean;
-  hasError?: boolean;
+  shrink: boolean;
+  disabled?: boolean;
+  error?: boolean;
 };
 
 export const Label: FC<LabelProps> = ({
   children,
   htmlFor,
   label,
-  errorText,
-  // shrink,
-  // isTextArea = false,
-  isFocused,
-  isDisabled,
-  hasError,
+  shrink,
+  disabled = false,
+  error = false,
 }) => {
-  // const labelClassnames = cx(styles.label, {
-  //   [styles.labelForInput]: !isTextArea,
-  //   [styles.labelForTextArea]: isTextArea,
-  //   [styles.labelShrink]: shrink,
-  //   [styles.labelFocused]: isFocused,
-  //   [styles.labelDisabled]: isDisabled,
-  //   [styles.labelError]: hasError,
-  // });
-
-  const inputContainerClassnames = cx(styles.inputContainer, {
-    [styles.inputContainerFocused]: isFocused,
-    [styles.inputContainerError]: hasError,
-    [styles.inputContainerDisabled]: isDisabled,
+  const labelClassNames = cx(styles.label, {
+    [styles.labelShrink]: shrink,
+    [styles.labelError]: error,
   });
+
+  const childrenContainerClassNames = cx(styles.childrenContainer, {
+    [styles.childrenContainerError]: error,
+  });
+
+  const typographyColor = getTypographyColor(disabled, error, !shrink);
 
   return (
     <>
-      {/* <label htmlFor={htmlFor} className={labelClassnames}> */}
-      <label htmlFor={htmlFor}>
-        <Spacing marginBottom="2xs">
-          <Typography variant="body" color={isDisabled ? 'lightGrey' : 'white'}>
-            {label}
-          </Typography>
-        </Spacing>
+      <label htmlFor={htmlFor} className={labelClassNames}>
+        <Typography variant="body" color={typographyColor}>
+          {label}
+        </Typography>
       </label>
 
-      <div className={inputContainerClassnames}>{children}</div>
-      {/* {children} */}
-
-      {errorText ? (
-        <Spacing marginTop="2xs">
-          <Typography variant="footnote" color="white">
-            {errorText}
-          </Typography>
-        </Spacing>
-      ) : null}
+      <div className={childrenContainerClassNames}>{children}</div>
     </>
   );
 };

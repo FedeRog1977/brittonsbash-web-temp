@@ -1,9 +1,9 @@
 'use client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FC, isValidElement, useId } from 'react';
+import { FC, useId } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Spacing } from '../../../components/spacing/spacing.jsx';
+import { Flex } from '../../../components/flex/flex.jsx';
 import { Typography, TypographyProps } from '../../../components/typography/typography.js';
 import { CheckboxProps } from '../../types/checkbox-props.js';
 import { RadioProps } from '../../types/radio-props.js';
@@ -25,9 +25,7 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
   name,
   label,
   subLabel,
-  subLabelBold,
   disabled,
-  showError = true,
   ...props
 }) => {
   const id = useId();
@@ -36,56 +34,48 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
     formState: { errors },
     watch,
   } = useFormContext<CheckboxRadioFormValues>();
+  const controlProps = register(name, { disabled });
   const controlValue = watch(name);
   const checked =
-    props.variant === 'checkbox' ? Boolean(controlValue) : controlValue === props.value;
+    props.variant === 'checkbox'
+      ? Boolean(controlValue?.toString() === 'on')
+      : controlValue === props.value;
+
   const iconDefinition = getIconName(props.variant, checked);
   const typographyColor: TypographyProps['color'] = disabled ? 'lightGrey' : 'white';
-  const controlProps = register(name, { disabled });
+
   const errorText = getErrorText(errors, name) ?? props.error;
 
   return (
-    <div>
-      <input
-        id={id}
-        className={styles.input}
-        type={props.variant}
-        value={props.variant === 'checkbox' ? undefined : props.value}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...controlProps}
-      />
+    <Flex direction="vertical" gap="2xs">
+      <label htmlFor={id}>
+        <input
+          id={id}
+          className={styles.input}
+          type={props.variant}
+          value={props.variant === 'checkbox' ? undefined : props.value}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...controlProps}
+        />
 
-      <label htmlFor={id} className={styles.label}>
-        <Spacing marginRight="sm">
+        <Flex direction="horizontal" alignVertical="center" gap="xs">
           <FontAwesomeIcon icon={iconDefinition} color={typographyColor} />
-        </Spacing>
 
-        <div>
-          <Typography variant="body" color={typographyColor}>
-            {label}
-          </Typography>
-
-          {Boolean(subLabel) && typeof subLabel === 'string' && (
+          <Flex direction="vertical" gap="3xs">
             <Typography variant="body" color={typographyColor}>
-              {subLabel}
+              {label}
             </Typography>
-          )}
 
-          {Boolean(subLabel) && isValidElement(subLabel) && (
-            <Typography variant="body" color={typographyColor}>
-              {subLabel}
-            </Typography>
-          )}
-
-          {Boolean(subLabelBold) && (
-            <Typography variant="body" color={typographyColor}>
-              {subLabelBold}
-            </Typography>
-          )}
-        </div>
+            {subLabel ? (
+              <Typography variant="tiny" color={typographyColor}>
+                {subLabel}
+              </Typography>
+            ) : null}
+          </Flex>
+        </Flex>
       </label>
 
-      {Boolean(showError) && <FieldHelp errorText={errorText} disabled={disabled} />}
-    </div>
+      <FieldHelp errorText={errorText} disabled={disabled} />
+    </Flex>
   );
 };

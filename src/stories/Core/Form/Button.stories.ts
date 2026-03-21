@@ -9,7 +9,7 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    variant: { options: [''] },
+    variant: { options: ['default', 'clear', 'inverse', 'solid', 'solidDark'] },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof ButtonComponent>;

@@ -2,7 +2,9 @@
 
 import { FC, useId, useState, ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { getErrorText, Label } from '../../../../reference/index.js';
+import { noop } from '~/utils';
+import { FieldHelp, getErrorText, Label } from '../../../../reference/index.js';
+import { Flex } from '../../../flex/flex.jsx';
 import styles from './select.module.scss.js';
 import { SelectOption } from './types/select-option.js';
 
@@ -10,6 +12,7 @@ export type SelectProps = {
   name: string;
   label: string;
   options?: SelectOption[];
+  helpText?: string;
   disabled?: boolean;
   defaultValue?: string;
   onChange?: (value: string) => void;
@@ -19,20 +22,20 @@ export const Select: FC<SelectProps> = ({
   name,
   label,
   options,
+  helpText,
   disabled = false,
   defaultValue,
-  // eslint-disable-next-line react/no-object-type-as-default-prop, @typescript-eslint/no-empty-function
-  onChange = (): void => {},
+  onChange = noop,
 }) => {
   const id = useId();
   const [isFocused, setIsFocused] = useState(false);
   const {
     register,
     formState: { errors },
-    // watch,
+    watch,
   } = useFormContext();
-  // const hasValue = Boolean(watch(name));
-  // const shrinkLabel = isFocused || hasValue || Boolean(defaultValue);
+  const hasValue = Boolean(watch(name));
+  const shrink = isFocused || hasValue || Boolean(defaultValue);
   const errorText = getErrorText(errors, name);
 
   const handleFocus = (): void => {
@@ -55,32 +58,36 @@ export const Select: FC<SelectProps> = ({
 
   return (
     <div className={styles.container}>
-      <Label
-        htmlFor={id}
-        label={label}
-        errorText={errorText}
-        // shrink={shrinkLabel}
-        isFocused={isFocused}
-        isDisabled={disabled}
-        hasError={Boolean(errorText) && !disabled}
-      >
-        <select
-          id={id}
-          className={styles.select}
-          onFocus={handleFocus}
-          defaultValue={defaultValue}
-          /* eslint-disable-next-line react/jsx-props-no-spreading */
-          {...controlProps}
-        >
-          <option value={defaultValue}>{defaultValue}</option>
+      <Flex direction="vertical" gap="2xs">
+        <div className={styles.wrapper}>
+          <Label
+            htmlFor={id}
+            label={label}
+            shrink={shrink}
+            disabled={disabled}
+            error={Boolean(errorText)}
+          >
+            <select
+              id={id}
+              className={styles.select}
+              onFocus={handleFocus}
+              defaultValue={defaultValue}
+              /* eslint-disable-next-line react/jsx-props-no-spreading */
+              {...controlProps}
+            >
+              <option value={defaultValue}>{defaultValue}</option>
 
-          {options?.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </Label>
+              {options?.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </Label>
+        </div>
+
+        <FieldHelp helpText={helpText} errorText={errorText} disabled={disabled} />
+      </Flex>
     </div>
   );
 };

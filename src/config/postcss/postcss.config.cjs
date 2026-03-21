@@ -1,16 +1,10 @@
-// Cheers @PeteWilliams
-
 /**
- * This config causes trouble with `next build`.
+ * Cheers @PeteWilliams
  *
- * Therefore, to build `styles.css`, I do the following:
- *
- * - Copy this config file to the root directory
- * - Run `npm run build:styles`
- * - Delete this config file from the root directory
- *
- * This is also why `build:styles` is not included in the
+ * This config causes trouble with `next build`. This is also why `build:styles` is not included in the
  * primary `build` command.
+ *
+ * See `package.json` for more.
  */
 
 'use strict';
@@ -50,7 +44,7 @@ module.exports = {
          */
         const outputFilePath = inputFilePath
           .replace('.module.css', '.module.scss.ts')
-          .replace('/build/css/', '/src/components/basics/');
+          .replace('/build/css/', '/src/components/core/');
 
         /**
          * We generate the new contents for the output file as a default export within an ES Module

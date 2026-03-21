@@ -11,6 +11,7 @@ export * from './get-object-property.js';
 export * from './get-responsive-alignment-classnames.js';
 export * from './get-responsive-column-span-classnames.js';
 export * from './get-responsive-spacing-classnames.js';
+export * from './get-typography-color.js';
 export * from './is-defined.js';
 export * from './map-client-validation-errors.js';
 export * from './map-server-validation-errors.js';

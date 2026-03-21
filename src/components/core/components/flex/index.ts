@@ -1,2 +1,2 @@
-export * from './flex.js';
-export * from './flex-item.js';
+export * from './flex.jsx';
+export * from './flex-item.jsx';

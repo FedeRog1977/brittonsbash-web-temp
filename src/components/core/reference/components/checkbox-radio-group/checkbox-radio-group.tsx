@@ -4,8 +4,8 @@ import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Flex } from '../../../components/flex/index.js';
 import { getErrorText } from '../../utils/get-error-text.js';
-import { CheckboxRadio, CheckboxRadioProps } from '../checkbox-radio/checkbox-radio.js';
-import { FieldHelp } from '../field-help/field-help.js';
+import { CheckboxRadio, CheckboxRadioProps } from '../checkbox-radio/checkbox-radio.jsx';
+import { FieldHelp } from '../field-help/field-help.jsx';
 import { useValidateOnChildChange } from './hooks/validate-on-child-change.js';
 import { CheckboxRadioOption } from './types/checkbox-radio-option.js';
 import { getChildFieldName } from './utils/get-child-field-name.js';
@@ -32,12 +32,11 @@ export const CheckboxRadioGroup: FC<CheckboxRadioGroupProps> = ({ name, ...props
 
   return (
     <div>
-      <Flex direction="vertical" gap={{ xs: 'sm', sm: 'md' }}>
+      <Flex direction="vertical" gap="2xs">
         {props.options.map((option) =>
           props.variant === 'checkbox' ? (
             <CheckboxRadio
               key={option.value}
-              showError={false}
               variant="checkbox"
               name={getChildFieldName(name, option.value)}
               // eslint-disable-next-line react/jsx-props-no-spreading
@@ -46,7 +45,6 @@ export const CheckboxRadioGroup: FC<CheckboxRadioGroupProps> = ({ name, ...props
           ) : (
             <CheckboxRadio
               key={option.value}
-              showError={false}
               variant="radio"
               name={name}
               // eslint-disable-next-line react/jsx-props-no-spreading
@@ -54,9 +52,9 @@ export const CheckboxRadioGroup: FC<CheckboxRadioGroupProps> = ({ name, ...props
             />
           ),
         )}
-      </Flex>
 
-      <FieldHelp errorText={errorText} />
+        <FieldHelp errorText={errorText} />
+      </Flex>
     </div>
   );
 };

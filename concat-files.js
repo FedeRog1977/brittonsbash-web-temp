@@ -1,4 +1,6 @@
-// Cheers @PeteWilliams
+/**
+ * Cheers @PeteWilliams
+ */
 
 import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';
 import commandLineArgs from 'command-line-args';

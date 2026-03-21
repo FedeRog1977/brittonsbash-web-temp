@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Typography } from '../../../components/typography/typography.js';
-import { getTypographyColor } from './utils/get-typography-color.js';
+import { getTypographyColor } from '../../utils/get-typography-color.js';
 
 export type HelpTextProps = {
   children: ReactNode;

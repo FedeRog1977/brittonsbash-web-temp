@@ -10,9 +10,9 @@ import {
   useClientSubmit,
   Select,
   SelectOption,
+  FormSection,
 } from '~/components-core/client-form';
 import { Flex } from '~/components-core/flex';
-import { Spacing } from '~/components-core/spacing';
 import { Tile } from '~/components-core/tile';
 import { Typography } from '~/components-core/typography';
 import { PageLayout } from '~/components-layouts/page-layout';
@@ -105,6 +105,8 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
     <PageLayout background={{ type: 'instagram', content: 'Instant Gram' }}>
       <Tile type="clear" width="wide">
         <Flex direction="vertical" gap="md">
+          <Typography variant="t2">Search Events</Typography>
+
           <Form
             mode="onTouched"
             validationSchema={instantGramDataValidationSchema}
@@ -112,13 +114,12 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
             onSubmit={handleSubmit}
             defaultValues={defaultValues}
           >
-            <Flex direction="vertical" alignHorizontal="left" gap="md">
-              <Typography variant="t2">Search Events</Typography>
-
+            <FormSection>
               <Select
                 name="tag"
                 label="Filter by Tag"
                 options={tagOptions}
+                helpText="Events organized by type"
                 onChange={(event): void => {
                   // This type cannot be inferred from `tagOptions` -> `value`, despite line 56
                   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -132,26 +133,29 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
                 name="year"
                 label="Filter By Year"
                 options={yearOptions}
+                helpText="Events organized by year"
                 onChange={(event): void => {
                   onSelectYear(event);
                 }}
                 defaultValue=""
                 disabled={Boolean(selectedTag)}
               />
+            </FormSection>
 
-              <Spacing marginBottom="xl" />
-
+            <FormSection>
               <Select
                 name="event"
                 label="Select Event"
                 options={eventsOptions}
                 disabled={eventsDisabled}
               />
+            </FormSection>
 
+            <FormSection>
               <Button variant="solidDark" type="submit" width="quarter" isSubmitting={isSubmitting}>
                 Submit
               </Button>
-            </Flex>
+            </FormSection>
           </Form>
         </Flex>
       </Tile>

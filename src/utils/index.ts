@@ -7,6 +7,7 @@ export * from './get-rate.js';
 export * from './is-defined.js';
 export * from './is-mobile.js';
 export * from './map-key-value.js';
+export * from './noop.js';
 export * from './remove-duplicates.js';
 export * from './report-web-vitals.js';
 export * from './sort-alphabetical.js';

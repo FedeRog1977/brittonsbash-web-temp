@@ -1,0 +1,9 @@
+@use '../../../../reference/styles' as styles;
+
+.formSection:not(:last-child) {
+  margin-bottom: styles.$spacing-lg;
+
+  @media (min-width: styles.$screen-sm) {
+    margin-bottom: styles.$spacing-xl;
+  }
+}
