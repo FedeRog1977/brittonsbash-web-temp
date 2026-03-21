@@ -1,11 +1,11 @@
 import cx from 'classnames';
 import { FC } from 'react';
 import { toUpperCase } from '~/utils';
-import { TypographyProps } from '../typography/typography.js';
+import { TextStyle } from '../../types/text-style.js';
 import styles from './page-background.module.scss.js';
 
 export type PageBackgroundProps = {
-  type?: TypographyProps['fontFamily'];
+  type?: TextStyle['fontFamily'];
   content: string;
 };
 

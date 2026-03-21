@@ -3,16 +3,16 @@
 'use client';
 
 import { FC, useState } from 'react';
+import { Flex } from '~/components-core/flex';
 import {
   Button,
-  ClientForm as Form,
+  Form,
   SubmitHandler,
   useClientSubmit,
   Select,
   SelectOption,
   FormSection,
-} from '~/components-core/client-form';
-import { Flex } from '~/components-core/flex';
+} from '~/components-core/form';
 import { Tile } from '~/components-core/tile';
 import { Typography } from '~/components-core/typography';
 import { PageLayout } from '~/components-layouts/page-layout';

@@ -2,8 +2,8 @@
 
 import { FC } from 'react';
 import { ArticleProps, Article } from '~/components-core/article';
-import { Button } from '~/components-core/client-form';
 import { Flex } from '~/components-core/flex';
+import { Button } from '~/components-core/form';
 import { GradientProps } from '~/components-core/gradient';
 import { Grid, GridItem } from '~/components-core/grid';
 import { Tile } from '~/components-core/tile';

@@ -1,4 +1,4 @@
-@use '../../reference' as reference;
+@use '../../styles' as styles;
 
 .background {
   width: 100%;
@@ -7,42 +7,42 @@
 
 .color {
   &Black {
-    background-color: reference.$black;
+    background-color: styles.$black;
   }
 
   &DarkerGrey {
-    background-color: reference.$darker-grey;
+    background-color: styles.$darker-grey;
   }
 
   &DarkGrey {
-    background-color: reference.$dark-grey;
+    background-color: styles.$dark-grey;
   }
 
   &MediumGrey {
-    background-color: reference.$medium-grey;
+    background-color: styles.$medium-grey;
   }
 
   &LightGrey {
-    background-color: reference.$light-grey;
+    background-color: styles.$light-grey;
   }
 
   &LighterGrey {
-    background-color: reference.$lighter-grey;
+    background-color: styles.$lighter-grey;
   }
 
   &LightBlue {
-    background-color: reference.$light-blue;
+    background-color: styles.$light-blue;
   }
 
   &White {
-    background-color: reference.$white;
+    background-color: styles.$white;
   }
 
   &Red {
-    background-color: reference.$white;
+    background-color: styles.$white;
   }
 
   &Transparent {
-    background-color: reference.$transparent;
+    background-color: styles.$transparent;
   }
 }

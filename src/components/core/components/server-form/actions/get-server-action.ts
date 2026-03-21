@@ -1,13 +1,13 @@
 import { ValidatorAjv, ValidationError } from '~/services/validator-ajv';
 import { JSONSchema } from '~/types';
-import { CustomErrors } from '../../../reference/types/custom-errors.js';
-import { FormErrors } from '../../../reference/types/form-errors.js';
-import { SubmitHandler } from '../../../reference/types/submit-handler.js';
-import { createNestedErrors } from '../../../reference/utils/create-nested-errors.js';
-import { deepRemoveEmptyProperties } from '../../../reference/utils/deep-remove-entry-properties.js';
-import { deepTrim } from '../../../reference/utils/deep-trim.js';
-import { mapServerValidationErrors } from '../../../reference/utils/map-server-validation-errors.js';
-import { removeServerActionFields } from '../../../reference/utils/remove-server-action-fields.js';
+import { CustomErrors } from '../../form/types/custom-errors.js';
+import { FormErrors } from '../../form/types/form-errors.js';
+import { SubmitHandler } from '../../form/types/submit-handler.js';
+import { mapServerValidationErrors } from '../../form/utils/map-server-validation-errors.js';
+import { createNestedErrors } from '../utils/create-nested-errors.js';
+import { deepRemoveEmptyProperties } from '../utils/deep-remove-entry-properties.js';
+import { deepTrim } from '../utils/deep-trim.js';
+import { removeServerActionFields } from '../utils/remove-server-action-fields.js';
 
 type FormAction = (prevState: FormErrors, formData: FormData) => Promise<FormErrors>;
 

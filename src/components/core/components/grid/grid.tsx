@@ -1,12 +1,10 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import {
-  SpacingConfig,
-  JustifyConfig,
-  AlignConfig,
-  getResponsiveSpacingClassNames,
-  getResponsiveAlignmentClassNames,
-} from '../../reference/index.js';
+import { AlignConfig } from '../../types/align-config.js';
+import { JustifyConfig } from '../../types/justify-config.js';
+import { SpacingConfig } from '../../types/spacing-config.js';
+import { getResponsiveAlignmentClassNames } from '../../utils/get-responsive-alignment-classnames.js';
+import { getResponsiveSpacingClassNames } from '../../utils/get-responsive-spacing-classnames.js';
 import styles from './grid.module.scss.js';
 
 // Reminder: https://developer.mozilla.org/en-US/docs/Web/CSS/grid

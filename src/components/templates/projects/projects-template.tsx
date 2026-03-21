@@ -1,16 +1,16 @@
 'use client';
 
 import { FC } from 'react';
+import { Flex } from '~/components-core/flex';
 import {
   Button,
   CustomErrors,
-  ClientForm as Form,
+  Form,
   SubmitHandler,
   useClientSubmit,
   Select,
   SelectOption,
-} from '~/components-core/client-form';
-import { Flex } from '~/components-core/flex';
+} from '~/components-core/form';
 import { ColumnTable } from '~/components-core/table';
 import { Tile } from '~/components-core/tile';
 import { Typography } from '~/components-core/typography';

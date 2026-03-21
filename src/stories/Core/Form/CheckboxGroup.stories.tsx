@@ -1,22 +1,22 @@
 import { FC } from 'react';
 import {
-  ClientForm,
+  Form,
   FormSection,
   CheckboxGroup as CheckboxGroupComponent,
   CheckboxGroupProps,
-} from '~/components-core/client-form';
+} from '~/components-core/form';
 import { noop } from '~/utils';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const CheckboxGroupStory: FC<CheckboxGroupProps> = ({ options }) => (
   <div style={{ width: '500px' }}>
-    <ClientForm onSubmit={noop}>
+    <Form onSubmit={noop}>
       <FormSection heading="Series of CheckboxGroup components" helpText="FormSection help text">
         <CheckboxGroupComponent name="lorem-name" options={options} />
 
         <CheckboxGroupComponent name="lorem-name" options={options} />
       </FormSection>
-    </ClientForm>
+    </Form>
   </div>
 );
 

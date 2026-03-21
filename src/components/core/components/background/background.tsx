@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
 import { toUpperCase } from '~/utils';
-import { Color } from '../../reference/index.js';
+import { Color } from '../../types/color.js';
 import styles from './background.module.scss.js';
 
 export type BackgroundProps = {

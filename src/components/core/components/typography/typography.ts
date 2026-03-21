@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { createElement, FC } from 'react';
 import { toUpperCase } from '~/utils';
-import { TextStyle } from '../../reference/index.js';
+import { TextStyle } from '../../types/text-style.js';
 import { tagMap } from './constants/tag-map.js';
 import styles from './typography.module.scss.js';
 

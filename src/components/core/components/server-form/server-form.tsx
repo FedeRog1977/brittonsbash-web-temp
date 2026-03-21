@@ -1,6 +1,8 @@
 import { FC, ReactNode } from 'react';
 import { JSONSchema } from '~/types';
-import { CustomErrors, SubmitHandler, FormClient } from '../../reference/index.js';
+import { CustomErrors } from '../form/types/custom-errors.js';
+import { SubmitHandler } from '../form/types/submit-handler.js';
+import { FormClient } from '../form/utility-components/form-client/form-client.jsx';
 import { getServerAction } from './actions/get-server-action.js';
 
 export type ServerFormProps<FormValues extends object> = {

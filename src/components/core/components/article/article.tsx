@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 import { FC } from 'react';
-import { TextStyle } from '../../reference/index.js';
+import { TextStyle } from '../../types/text-style.js';
 import { Typography } from '../typography/typography.js';
 
 export type ArticleProps = {

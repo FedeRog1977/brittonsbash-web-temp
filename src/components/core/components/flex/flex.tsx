@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC } from 'react';
 import { toUpperCase } from '~/utils';
-import { getResponsiveSpacingClassNames } from '../../reference/index.js';
+import { getResponsiveSpacingClassNames } from '../../utils/get-responsive-spacing-classnames.js';
 import styles from './flex.module.scss.js';
 import { Horizontal } from './types/horizontal.js';
 import { Vertical } from './types/vertical.js';

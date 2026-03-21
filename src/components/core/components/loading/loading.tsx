@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { FC } from 'react';
 import { toUpperCase } from '~/utils';
-import { TextStyle } from '../../reference/types/text-style.js';
+import { TextStyle } from '../../types/text-style.js';
 import styles from './loading.module.scss.js';
 
 type LoadingProps = {

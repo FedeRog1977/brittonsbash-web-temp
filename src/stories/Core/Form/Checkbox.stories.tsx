@@ -1,16 +1,16 @@
 import { FC } from 'react';
 import {
-  ClientForm,
+  Form,
   FormSection,
   Checkbox as CheckboxComponent,
-} from '~/components-core/client-form';
+  CheckboxProps,
+} from '~/components-core/form';
 import { noop } from '~/utils';
-import { CheckboxProps } from '../../../components/core/reference/index.js';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const CheckboxStory: FC<CheckboxProps> = ({ name, label, subLabel, disabled, error }) => (
   <div style={{ width: '500px' }}>
-    <ClientForm onSubmit={noop}>
+    <Form onSubmit={noop}>
       <FormSection heading="Series of Checkbox components" helpText="FormSection help text">
         <CheckboxComponent
           name={name}
@@ -28,7 +28,7 @@ const CheckboxStory: FC<CheckboxProps> = ({ name, label, subLabel, disabled, err
           error={error}
         />
       </FormSection>
-    </ClientForm>
+    </Form>
   </div>
 );
 

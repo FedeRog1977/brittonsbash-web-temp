@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { ClientForm, FormSection, Radio as RadioComponent } from '~/components-core/client-form';
+import { Form, FormSection, Radio as RadioComponent, RadioProps } from '~/components-core/form';
 import { noop } from '~/utils';
-import { RadioProps } from '../../../components/core/reference/index.js';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const RadioStory: FC<RadioProps> = ({ name, label, subLabel, disabled, error, value }) => (
   <div style={{ width: '500px' }}>
-    <ClientForm onSubmit={noop}>
+    <Form onSubmit={noop}>
       <FormSection heading="Series of Radio components" helpText="FormSection help text">
         <RadioComponent
           name={name}
@@ -26,7 +25,7 @@ const RadioStory: FC<RadioProps> = ({ name, label, subLabel, disabled, error, va
           value={value}
         />
       </FormSection>
-    </ClientForm>
+    </Form>
   </div>
 );
 

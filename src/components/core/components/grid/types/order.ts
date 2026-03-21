@@ -1,3 +1,3 @@
-import { Breakpoints } from '../../../reference/index.js';
+import { Breakpoints } from '../../../types/breakpoints.js';
 
 export type Order = number | Partial<Record<Breakpoints, number>>;

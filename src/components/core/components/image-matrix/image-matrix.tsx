@@ -4,7 +4,7 @@
 import { FC, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Img } from '~/types';
-import { ColumnSpan } from '../../reference/index.js';
+import { ColumnSpan } from '../../types/column-span.js';
 import { FlexItem } from '../flex/flex-item.js';
 import { Flex } from '../flex/flex.js';
 import { Image } from '../image/image.js';

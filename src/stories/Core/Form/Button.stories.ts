@@ -1,5 +1,5 @@
 import { fn } from 'storybook/test';
-import { Button as ButtonComponent } from '~/components-core/client-form';
+import { Button as ButtonComponent } from '~/components-core/form';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const meta = {

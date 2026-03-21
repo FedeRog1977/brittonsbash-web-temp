@@ -1,6 +1,6 @@
 @use 'sass:math' as math;
-@use '../../reference/mixins' as mixins;
-@use '../../reference/styles' as styles;
+@use '../../mixins' as mixins;
+@use '../../styles' as styles;
 
 @include mixins.responsive-column-span('width') using ($percentage) {
   width: $percentage;

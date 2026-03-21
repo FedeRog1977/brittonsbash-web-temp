@@ -1,3 +1,4 @@
+export * from '../form/types/checkbox-option.js';
+export * from '../form/types/custom-errors.js';
+export * from '../form/types/submit-handler.js';
 export * from './server-form.jsx';
-export * from '../../reference/types/custom-errors.js';
-export * from '../../reference/types/submit-handler.js';

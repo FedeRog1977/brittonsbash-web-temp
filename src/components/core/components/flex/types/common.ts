@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SpacingConfig } from '../../../reference/index.js';
+import { SpacingConfig } from '../../../types/spacing-config.js';
 
 export type Common = {
   children: ReactNode;

@@ -1,5 +1,0 @@
-@use '../../../reference/mixins' as mixins;
-
-.input {
-  @include mixins.visually-hidden;
-}

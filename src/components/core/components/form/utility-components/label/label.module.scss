@@ -1,0 +1,36 @@
+@use '../../../../styles' as styles;
+
+.label {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  transform-origin: top left;
+  transition: 300ms cubic-bezier(0, 0, 0.2, 1) transform, 300ms cubic-bezier(0, 0, 0.2, 1) top,
+    300ms cubic-bezier(0, 0, 0.2, 1) left;
+  transform: translateY(-10%);
+  padding: styles.$spacing-xs;
+
+  &Shrink {
+    top: 0;
+    transform: scale(0.8) translateY(-125%);
+    padding: 0;
+
+    &.labelError {
+      color: styles.$red;
+    }
+  }
+}
+
+.childrenContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: styles.$corners-sm;
+
+  &Error {
+    outline-width: 2px;
+    outline-color: styles.$red;
+  }
+}

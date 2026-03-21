@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "build:styles": "run-s build:postcss-up build:scss build:css build:css-modules build:fonts build:ts build:postcss-down",
-    "build:fonts": "cp -r ./src/components/core/reference/fonts ./src/app/_reference",
+    "build:fonts": "cp -r ./src/components/core/fonts ./src/app/_reference",
     "build:css-modules": "mkdir -p ./src/app/_reference && node ./concat-files.js \"./build/css-modules/{components,reference}/**/*.css\" --output ./src/app/_reference/styles/styles.css",
     "build:css": "postcss ./build/css --dir ./build/css-modules --base ./build/css",
     "build:postcss-down": "rm ./postcss.config.cjs",

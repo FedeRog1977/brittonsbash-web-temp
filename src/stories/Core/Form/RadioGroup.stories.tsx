@@ -1,22 +1,22 @@
 import { FC } from 'react';
 import {
-  ClientForm,
+  Form,
   FormSection,
   RadioGroup as RadioGroupComponent,
   RadioGroupProps,
-} from '~/components-core/client-form';
+} from '~/components-core/form';
 import { noop } from '~/utils';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 const RadioGroupStory: FC<RadioGroupProps> = ({ options }) => (
   <div style={{ width: '500px' }}>
-    <ClientForm onSubmit={noop}>
+    <Form onSubmit={noop}>
       <FormSection heading="Series of RadioGroup components" helpText="FormSection help text">
         <RadioGroupComponent name="lorem-name" options={options} />
 
         <RadioGroupComponent name="lorem-name" options={options} />
       </FormSection>
-    </ClientForm>
+    </Form>
   </div>
 );
 

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import {
-  ClientForm,
+  Form,
   FormSection,
   Select as SelectComponent,
   SelectOption,
   SelectProps,
-} from '~/components-core/client-form';
+} from '~/components-core/form';
 import { noop } from '~/utils';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
@@ -48,7 +48,7 @@ const SelectStory: FC<Omit<SelectProps, 'onChange'> & { optionCount: number }> =
 
   return (
     <div style={{ width: '500px' }}>
-      <ClientForm onSubmit={noop}>
+      <Form onSubmit={noop}>
         <FormSection heading="Series of Select components" helpText="FormSection help text">
           <SelectComponent
             name={name}
@@ -70,7 +70,7 @@ const SelectStory: FC<Omit<SelectProps, 'onChange'> & { optionCount: number }> =
             onChange={noop}
           />
         </FormSection>
-      </ClientForm>
+      </Form>
     </div>
   );
 };

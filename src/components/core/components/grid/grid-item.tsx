@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
-import { ColumnSpan, getResponsiveColumnSpanClassNames } from '../../reference/index.js';
+import { ColumnSpan } from '../../types/column-span.js';
+import { getResponsiveColumnSpanClassNames } from '../../utils/get-responsive-column-span-classnames.js';
 import styles from './grid-item.module.scss.js';
 import { Order } from './types/order.js';
 import { getOrderClassNames } from './utils/get-order-classnames.js';

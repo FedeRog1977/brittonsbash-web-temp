@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation.js';
 import { ReactElement } from 'react';
 import { getEventNamesByTag, getEventNamesByYear } from '~/actions';
-import { SubmitHandler } from '~/components-core/client-form';
+import { SubmitHandler } from '~/components-core/form';
 import { InstantGramTemplate } from '~/components-templates';
 import { routes } from '~/constants';
 import { facade } from '~/facade';

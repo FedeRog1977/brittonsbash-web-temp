@@ -3,8 +3,8 @@
 import { FC, useState } from 'react';
 import { routes } from '~/constants';
 import { isMobile as getIsMobile } from '~/utils';
-import { Button } from '../client-form/components/button/button.jsx';
 import { Flex } from '../flex/flex.js';
+import { Button } from '../form/components/button/button.jsx';
 import { Typography } from '../typography/typography.js';
 import styles from './header.module.scss.js';
 

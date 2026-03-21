@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Button } from '~/components-core/client-form';
+import { Button } from '~/components-core/form';
 import { Flex } from '~/components-core/flex';
 import { ImageMatrix } from '~/components-core/image-matrix';
 import { ImageSlider } from '~/components-core/image-slider';
