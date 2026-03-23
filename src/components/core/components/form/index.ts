@@ -6,6 +6,8 @@ export * from './components/radio/radio.jsx';
 export * from './components/radio-group/radio-group.jsx';
 export * from './components/select/select.jsx';
 export * from './components/select/types/select-option.js';
+export * from './components/text-area/text-area.jsx';
+export * from './components/text-input/text-input.jsx';
 export * from './form.jsx';
 export * from './types/checkbox-option.js';
 export * from './types/custom-errors.js';

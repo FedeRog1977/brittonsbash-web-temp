@@ -1,0 +1,40 @@
+@use '../../../../styles' as styles;
+@use '../../../../utility-styles' as utility-styles;
+
+.container {
+  position: relative;
+}
+
+.textarea {
+  height: 64px;
+  resize: none;
+}
+
+.input {
+  height: 36px;
+}
+
+.textarea,
+.input {
+  width: 100%;
+  font-family: 'Lato'; // No `Typography` component used
+  font-size: 16px; // No `Typography` component used
+  line-height: 36px;
+  padding-right: styles.$spacing-xs;
+  padding-left: styles.$spacing-xs;
+  border: none;
+  border-radius: styles.$corners-sm;
+  outline: none;
+  cursor: text;
+
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+
+  &Icon {
+    display: flex;
+    flex: 0 0 auto;
+    padding-right: styles.$spacing-xs;
+  }
+}

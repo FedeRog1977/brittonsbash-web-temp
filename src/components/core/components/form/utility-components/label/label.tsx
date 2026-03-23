@@ -9,6 +9,7 @@ type LabelProps = {
   htmlFor: string;
   label: string;
   shrink: boolean;
+  large?: boolean;
   disabled?: boolean;
   error?: boolean;
 };
@@ -18,15 +19,16 @@ export const Label: FC<LabelProps> = ({
   htmlFor,
   label,
   shrink,
+  large = false,
   disabled = false,
   error = false,
 }) => {
   const labelClassNames = cx(styles.label, {
     [styles.labelShrink]: shrink,
-    [styles.labelError]: error,
   });
 
   const childrenContainerClassNames = cx(styles.childrenContainer, {
+    [styles.childrenContainerExtended]: large,
     [styles.childrenContainerError]: error,
   });
 

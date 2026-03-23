@@ -61,32 +61,30 @@ export const Select: FC<SelectProps> = ({
   return (
     <div className={styles.container}>
       <Flex direction="vertical" gap="2xs">
-        <div className={styles.wrapper}>
-          <Label
-            htmlFor={id}
-            label={label}
-            shrink={shrink}
-            disabled={disabled}
-            error={Boolean(errorText)}
+        <Label
+          htmlFor={id}
+          label={label}
+          shrink={shrink}
+          disabled={disabled}
+          error={Boolean(errorText)}
+        >
+          <select
+            id={id}
+            className={styles.select}
+            onFocus={handleFocus}
+            defaultValue={defaultValue}
+            /* eslint-disable-next-line react/jsx-props-no-spreading */
+            {...controlProps}
           >
-            <select
-              id={id}
-              className={styles.select}
-              onFocus={handleFocus}
-              defaultValue={defaultValue}
-              /* eslint-disable-next-line react/jsx-props-no-spreading */
-              {...controlProps}
-            >
-              <option value={defaultValue}>{defaultValue}</option>
+            <option value={defaultValue}>{defaultValue}</option>
 
-              {options?.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </Label>
-        </div>
+            {options?.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </Label>
 
         <FieldHelp helpText={helpText} errorText={errorText} disabled={disabled} />
       </Flex>

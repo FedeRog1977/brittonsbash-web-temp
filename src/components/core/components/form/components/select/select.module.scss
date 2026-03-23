@@ -1,24 +1,18 @@
 @use '../../../../styles' as styles;
 
 .container {
-  width: 100%;
-}
-
-.wrapper {
   position: relative;
 }
 
 .select {
   width: 100%;
   height: 36px;
-  line-height: 36px; // Prevent text cut-off caused by `appearance: none`
+  // line-height: 36px;
+  font-family: 'Lato'; // No `Typography` component used
+  font-size: 16px; // No `Typography` component used
   padding-right: styles.$spacing-xs;
   padding-left: styles.$spacing-xs;
-  appearance: none;
-  font-family: 'Lato';
-  font-size: 16px;
-  color: styles.$darker-grey;
-  background-color: styles.$lighter-grey;
+  appearance: none; // Hide arrow
   border: none;
   border-radius: styles.$corners-sm;
   outline: none;
