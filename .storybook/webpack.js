@@ -12,6 +12,9 @@ export const webpackConfig = (config) => ({
       ...config.resolve?.extensionAlias,
       '.js': ['.ts', '.js'],
       '.jsx': ['.tsx', '.jsx'],
+
+      // '.js': ['.ts', '.tsx', '.js'],
+      // '.jsx': ['.ts', '.tsx', '.js'],
     },
   },
 });

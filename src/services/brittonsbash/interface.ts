@@ -10,6 +10,9 @@ export interface Interface {
   getAllEventFeatures: () => Promise<void>;
   getAllEventImages: () => Promise<void>;
   getAllProjects: () => Promise<MappedProjects>;
+  // TODO: implement this or `Image` from `next/image`
+  // https://nextjs.org/docs/app/api-reference/components/image
+  getBackgroundImg: () => Promise<void>;
   getEventNames: (year: EventYear) => Promise<EventNamesResponse>;
   getEventTags: () => Promise<EventTagsResponse>;
   getEventYears: () => Promise<EventYearsResponse>;
