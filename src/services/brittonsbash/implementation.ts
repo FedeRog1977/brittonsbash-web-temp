@@ -224,11 +224,6 @@ export class Implementation implements Interface {
         const validReturnData = await this.validator.validate(
           {
             ...returnDataSport,
-            tags:
-              // TODO: remove temporary fix for missing `tags`, `tags` property is required
-              //       in the type, but not yet in `eventResponseValidationSchema`
-              // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-              returnDataSport.tags === undefined ? ['general', 'projects'] : returnDataSport.tags,
             // TODO: remove temporary fix for zero-character `description`s
             description:
               returnDataSport.description === ''
@@ -250,13 +245,6 @@ export class Implementation implements Interface {
       const validReturnData = await this.validator.validate(
         {
           ...returnDataSansSport,
-          tags:
-            // TODO: remove temporary fix for missing `tags`, `tags` property is required
-            //       in the type, but not yet in `eventResponseValidationSchema`
-            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-            returnDataSansSport.tags === undefined
-              ? ['general', 'projects']
-              : returnDataSansSport.tags,
           // TODO: remove temporary fix for zero-character `description`s
           description:
             returnDataSansSport.description === ''

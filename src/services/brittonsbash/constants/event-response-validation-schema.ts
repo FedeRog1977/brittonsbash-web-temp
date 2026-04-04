@@ -64,13 +64,5 @@ export const eventResponseValidationSchema: JSONSchema<EventResponse> = {
     images: { type: 'array', items: imgValidationSchema },
     features: featuresValidationSchema,
   },
-  required: [
-    'id',
-    // TODO: reintroduce as required when fully populated in API
-    // 'tags',
-    'names',
-    'startDate',
-    'description',
-    'images',
-  ],
+  required: ['id', 'tags', 'names', 'startDate', 'description', 'images'],
 };
