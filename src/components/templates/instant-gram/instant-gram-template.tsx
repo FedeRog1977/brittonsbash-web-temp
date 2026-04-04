@@ -108,7 +108,6 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
           <Typography variant="t2">Search Events</Typography>
 
           <Form
-            mode="onTouched"
             validationSchema={instantGramDataValidationSchema}
             customErrors={instantGramCustomErrors}
             onSubmit={handleSubmit}

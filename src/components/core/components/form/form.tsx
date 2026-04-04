@@ -22,7 +22,7 @@ export const Form = <FormValues extends object>({
   defaultValues,
   validationSchema,
   customErrors,
-  mode,
+  mode = 'onTouched',
   onSubmit,
 }: FormProps<FormValues>): ReturnType<FC<FormProps<FormValues>>> => {
   const methods = useForm({
