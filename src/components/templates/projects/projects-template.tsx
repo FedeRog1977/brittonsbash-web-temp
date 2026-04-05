@@ -10,6 +10,7 @@ import {
   useClientSubmit,
   Select,
   SelectOption,
+  FormSection,
 } from '~/components-core/form';
 import { ColumnTable } from '~/components-core/table';
 import { Tile } from '~/components-core/tile';
@@ -94,8 +95,13 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             onSubmit={handleEventsSubmit}
             defaultValues={defaultEventsValues}
           >
-            <Flex direction="vertical" alignHorizontal="left" gap="md">
-              <Select name="year" label="Find Projects by Year" options={yearOptions} />
+            <FormSection heading="Select a project">
+              <Select
+                name="year"
+                label="Find Projects by Year"
+                options={yearOptions}
+                width="half"
+              />
 
               <Button
                 variant="solidDark"
@@ -105,7 +111,7 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
               >
                 Find Projects
               </Button>
-            </Flex>
+            </FormSection>
           </Form>
 
           <Form
@@ -114,8 +120,8 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
             onSubmit={handleHillsSubmit}
             defaultValues={defaultHillsValues}
           >
-            <Flex direction="vertical" alignHorizontal="left" gap="md">
-              <Select name="type" label="Find Hills by Type" options={typeOptions} />
+            <FormSection heading="Select a hill">
+              <Select name="type" label="Find Hills by Type" options={typeOptions} width="half" />
 
               <Button
                 variant="solidDark"
@@ -125,7 +131,7 @@ export const ProjectsTemplate: FC<ProjectsTemplateProps> = ({
               >
                 Find Hills
               </Button>
-            </Flex>
+            </FormSection>
           </Form>
 
           <ColumnTable

@@ -78,11 +78,13 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             alignHorizontal="apart"
             gap={{ xs: 'xs', lg: 'sm' }}
           >
-            {tags.map((tag) => (
-              <Button key={tag} variant="outline" width="auto">
-                {mapEventTagReadable(tag)}
-              </Button>
-            ))}
+            <Flex direction="horizontal" alignHorizontal="left" gap="sm">
+              {tags.map((tag) => (
+                <Button key={tag} variant="outline" width="auto">
+                  {mapEventTagReadable(tag)}
+                </Button>
+              ))}
+            </Flex>
 
             <Button
               variant="solidDark"

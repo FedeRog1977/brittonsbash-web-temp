@@ -20,8 +20,9 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
             {leftColumn.title !== null ? leftColumn.title : <>&nbsp;</>}
           </Typography>
 
-          {leftColumn.entries.map((entry) => (
-            <Typography key={entry?.toString()} variant="footnote" boldFace>
+          {leftColumn.entries.map((entry, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <Typography key={index} variant="footnote" boldFace>
               {entry}
             </Typography>
           ))}
@@ -41,8 +42,9 @@ export const ColumnTable: FC<ColumnTableProps> = ({ leftColumn, rightColumns }) 
                 {title}
               </Typography>
 
-              {entries.map((entry) => (
-                <Typography key={entry?.toString()} variant="footnote">
+              {entries.map((entry, entriesIndex) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <Typography key={entriesIndex} variant="footnote">
                   {entry}
                 </Typography>
               ))}
