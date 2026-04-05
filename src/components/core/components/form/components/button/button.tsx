@@ -10,10 +10,11 @@ import { GridItem } from '../../../grid/grid-item.jsx';
 import { Grid } from '../../../grid/grid.jsx';
 import { Loading } from '../../../loading/loading.jsx';
 import { Typography } from '../../../typography/typography.js';
+import { FieldWidth } from '../../types/field-width.js';
 import styles from './button.module.scss.js';
 
 export type ButtonProps = {
-  variant?: 'default' | 'clear' | 'solid' | 'solidDark' | 'inverse';
+  variant?: 'default' | 'clear' | 'solid' | 'solidDark' | 'inverse' | 'outline';
   type?: 'button' | 'reset' | 'submit';
   typeVariant?: TextStyle['variant'];
   typeColor?: TextStyle['color'];
@@ -26,7 +27,7 @@ export type ButtonProps = {
   onClick?: (() => void) | ((event: MouseEvent) => void);
   isSubmitting?: boolean;
   link?: Url;
-  width?: 'default' | 'quarter' | 'half' | 'full';
+  width?: FieldWidth | 'auto';
   transition?: boolean;
 };
 
@@ -44,7 +45,7 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   isSubmitting,
   link,
-  width = 'default',
+  width = 'full',
   transition,
 }) => {
   const classNames = cx(

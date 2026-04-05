@@ -113,12 +113,12 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
             onSubmit={handleSubmit}
             defaultValues={defaultValues}
           >
-            <FormSection>
+            <FormSection heading="Select a filter">
               <Select
                 name="tag"
                 label="Filter by Tag"
                 options={tagOptions}
-                helpText="Events organized by type"
+                // helpText="Events organized by type"
                 onChange={(event): void => {
                   // This type cannot be inferred from `tagOptions` -> `value`, despite line 56
                   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -126,31 +126,32 @@ export const InstantGramTemplate: FC<InstantGramTemplateProps> = ({
                 }}
                 defaultValue=""
                 disabled={Boolean(selectedYear)}
+                width="half"
               />
 
               <Select
                 name="year"
                 label="Filter By Year"
                 options={yearOptions}
-                helpText="Events organized by year"
+                // helpText="Events organized by year"
                 onChange={(event): void => {
                   onSelectYear(event);
                 }}
                 defaultValue=""
                 disabled={Boolean(selectedTag)}
+                width="half"
               />
             </FormSection>
 
-            <FormSection>
+            <FormSection heading="Select an event">
               <Select
                 name="event"
                 label="Select Event"
                 options={eventsOptions}
                 disabled={eventsDisabled}
+                width="half"
               />
-            </FormSection>
 
-            <FormSection>
               <Button variant="solidDark" type="submit" width="quarter" isSubmitting={isSubmitting}>
                 Submit
               </Button>

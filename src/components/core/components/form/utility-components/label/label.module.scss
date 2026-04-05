@@ -27,7 +27,21 @@
   background-color: styles.$white;
   border-radius: styles.$corners-sm;
 
-  &Extended {
+  &Width {
+    &Quarter {
+      width: 25%;
+    }
+
+    &Half {
+      width: 50%;
+    }
+
+    &Full {
+      width: 100%;
+    }
+  }
+
+  &Large {
     height: 64px;
   }
 

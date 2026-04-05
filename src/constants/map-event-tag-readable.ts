@@ -5,14 +5,17 @@ export const mapEventTagReadable = (tag: EventTag): string => {
     case 'general':
       return 'General';
 
-    case 'miles':
-      return 'Miles';
-
     case 'projects':
       return 'Projects';
 
     case 'roadies':
       return 'Roadies';
+
+    case 'tennis':
+      return 'Tennis';
+
+    case 'miles':
+      return 'Miles';
 
     case 'sleazyJetting':
       return 'Sleazy Jetting';

@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Button } from '~/components-core/form';
 import { Flex } from '~/components-core/flex';
+import { Button } from '~/components-core/form';
 import { ImageMatrix } from '~/components-core/image-matrix';
 import { ImageSlider } from '~/components-core/image-slider';
 import { Modal } from '~/components-core/modal';
@@ -72,20 +72,27 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
             {`${startDate}${endDate ? ` - ${endDate}` : ''}, ${year}`}
           </Typography>
 
-          <Flex direction="horizontal" alignVertical="center" gap={{ xs: 'xs', lg: 'sm' }}>
+          <Flex
+            direction="horizontal"
+            alignVertical="center"
+            alignHorizontal="apart"
+            gap={{ xs: 'xs', lg: 'sm' }}
+          >
             {tags.map((tag) => (
-              // TODO: add this functionality to the `Typography` component once concat is repaired
-              <div
-                key={tag}
-                style={{
-                  border: '0.5px solid white',
-                  borderRadius: '8px',
-                  padding: '4px 8px 4px 8px',
-                }}
-              >
-                <Typography variant="body">{mapEventTagReadable(tag)}</Typography>
-              </div>
+              <Button key={tag} variant="outline" width="auto">
+                {mapEventTagReadable(tag)}
+              </Button>
             ))}
+
+            <Button
+              variant="solidDark"
+              onClick={(): void => {
+                setShowModal(true);
+              }}
+              width="quarter"
+            >
+              Slideshow
+            </Button>
           </Flex>
 
           {features ? (
@@ -116,15 +123,6 @@ export const InstantGramResultTemplate: FC<InstantGramResultTemplateProps> = ({
           ) : null}
 
           <Description text={description} />
-
-          <Button
-            variant="solidDark"
-            onClick={(): void => {
-              setShowModal(true);
-            }}
-          >
-            Show Modal
-          </Button>
 
           <Modal
             isOpen={showModal}

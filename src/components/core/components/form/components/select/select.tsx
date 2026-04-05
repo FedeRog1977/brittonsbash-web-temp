@@ -4,6 +4,7 @@ import { FC, useId, useState, ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { noop } from '~/utils';
 import { Flex } from '../../../flex/flex.jsx';
+import { FieldWidth } from '../../types/field-width.js';
 import { FieldHelp } from '../../utility-components/field-help/field-help.jsx';
 import { Label } from '../../utility-components/label/label.jsx';
 import { getErrorText } from '../../utils/get-error-text.js';
@@ -18,6 +19,7 @@ export type SelectProps = {
   disabled?: boolean;
   defaultValue?: string;
   onChange?: (value: string) => void;
+  width?: FieldWidth;
 };
 
 export const Select: FC<SelectProps> = ({
@@ -28,6 +30,7 @@ export const Select: FC<SelectProps> = ({
   disabled = false,
   defaultValue,
   onChange = noop,
+  width = 'full',
 }) => {
   const id = useId();
   const [isFocused, setIsFocused] = useState(false);
@@ -64,6 +67,7 @@ export const Select: FC<SelectProps> = ({
         <Label
           htmlFor={id}
           label={label}
+          width={width}
           shrink={shrink}
           disabled={disabled}
           error={Boolean(errorText)}

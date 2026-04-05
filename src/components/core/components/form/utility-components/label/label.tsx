@@ -1,6 +1,8 @@
 import cx from 'classnames';
 import { FC, ReactNode } from 'react';
+import { toUpperCase } from '~/utils';
 import { Typography } from '../../../typography/typography.js';
+import { FieldWidth } from '../../types/field-width.js';
 import { getTypographyColor } from '../../utils/get-typography-color.js';
 import styles from './label.module.scss.js';
 
@@ -9,6 +11,7 @@ type LabelProps = {
   htmlFor: string;
   label: string;
   shrink: boolean;
+  width?: FieldWidth;
   large?: boolean;
   disabled?: boolean;
   error?: boolean;
@@ -19,6 +22,7 @@ export const Label: FC<LabelProps> = ({
   htmlFor,
   label,
   shrink,
+  width = 'full',
   large = false,
   disabled = false,
   error = false,
@@ -27,10 +31,14 @@ export const Label: FC<LabelProps> = ({
     [styles.labelShrink]: shrink,
   });
 
-  const childrenContainerClassNames = cx(styles.childrenContainer, {
-    [styles.childrenContainerExtended]: large,
-    [styles.childrenContainerError]: error,
-  });
+  const childrenContainerClassNames = cx(
+    styles.childrenContainer,
+    styles[`childrenContainerWidth${toUpperCase(width)}`],
+    {
+      [styles.childrenContainerLarge]: large,
+      [styles.childrenContainerError]: error,
+    },
+  );
 
   const typographyColor = getTypographyColor(disabled, error, !shrink);
 
