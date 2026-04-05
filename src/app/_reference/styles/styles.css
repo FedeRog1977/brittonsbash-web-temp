@@ -1276,198 +1276,6 @@ img {
   vertical-align: bottom;
 }
 
-@media (min-width: 768px) {
-  ._background_1xi27_120 {
-    background-image: url("https://lewisbritton.com/images/general/background.jpg");
-    background-attachment: fixed;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height: 500px;
-    overflow: hidden;
-    top: -80px;
-  }
-}
-@media (max-width: 768px) {
-  ._background_1xi27_120 {
-    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
-    background-size: 100% auto;
-    height: 150px;
-  }
-}
-
-._text_1xi27_142 {
-  color: #f5f5f5;
-  background-image: linear-gradient(0deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
-  display: grid;
-  align-items: end;
-  position: absolute;
-}
-@media (min-width: 768px) {
-  ._text_1xi27_142 {
-    width: 100%;
-    height: 500px;
-  }
-}
-@media (max-width: 768px) {
-  ._text_1xi27_142 {
-    width: 100%;
-    height: 150px;
-  }
-}
-@media (min-width: 768px) {
-  ._textContent_1xi27_162 {
-    font-size: 64px;
-    margin: 20px auto;
-    width: 960px;
-  }
-}
-@media (max-width: 768px) {
-  ._textContent_1xi27_162 {
-    font-size: 28px;
-    margin: 10px auto;
-    width: 390px;
-  }
-}
-._textSerif_1xi27_175 {
-  font-family: "Lato";
-}
-._textSansSerif_1xi27_178 {
-  font-family: "Lato";
-}
-._textInstagram_1xi27_181 {
-  font-family: Instagram;
-}
-._textSport_1xi27_184 {
-  font-family: "Lato";
-}
-._textMiami_1xi27_187 {
-  font-family: "Lato";
-}
-._textCalligraphy_1xi27_190 {
-  font-family: "Lato";
-}
-@font-face {
-  font-family: Lato;
-  src: url(../fonts/lato/lato-light.ttf);
-}
-@font-face {
-  font-family: Instagram;
-  src: url(../fonts/grandista/grandista.ttf);
-}
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-hr,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-body {
-  margin: 0;
-  line-height: 1.25;
-  background-color: #282828;
-}
-
-code {
-  font-family: "Courier New", Courier, monospace;
-}
-
-ul {
-  padding: 0px 0px 0px 15px;
-  list-style-type: square;
-  list-style-position: outside;
-}
-
-img {
-  vertical-align: bottom;
-}
-
 ._inline_pod0f_119 {
   display: inline-block;
 }
@@ -7397,6 +7205,198 @@ img {
   vertical-align: bottom;
 }
 
+@media (min-width: 768px) {
+  ._background_1xi27_120 {
+    background-image: url("https://lewisbritton.com/images/general/background.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 500px;
+    overflow: hidden;
+    top: -80px;
+  }
+}
+@media (max-width: 768px) {
+  ._background_1xi27_120 {
+    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
+    background-size: 100% auto;
+    height: 150px;
+  }
+}
+
+._text_1xi27_142 {
+  color: #f5f5f5;
+  background-image: linear-gradient(0deg, rgba(24, 24, 24, 0.6) 24%, rgba(24, 24, 24, 0.4) 48%, rgba(255, 255, 255, 0) 70%);
+  display: grid;
+  align-items: end;
+  position: absolute;
+}
+@media (min-width: 768px) {
+  ._text_1xi27_142 {
+    width: 100%;
+    height: 500px;
+  }
+}
+@media (max-width: 768px) {
+  ._text_1xi27_142 {
+    width: 100%;
+    height: 150px;
+  }
+}
+@media (min-width: 768px) {
+  ._textContent_1xi27_162 {
+    font-size: 64px;
+    margin: 20px auto;
+    width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  ._textContent_1xi27_162 {
+    font-size: 28px;
+    margin: 10px auto;
+    width: 390px;
+  }
+}
+._textSerif_1xi27_175 {
+  font-family: "Lato";
+}
+._textSansSerif_1xi27_178 {
+  font-family: "Lato";
+}
+._textInstagram_1xi27_181 {
+  font-family: Instagram;
+}
+._textSport_1xi27_184 {
+  font-family: "Lato";
+}
+._textMiami_1xi27_187 {
+  font-family: "Lato";
+}
+._textCalligraphy_1xi27_190 {
+  font-family: "Lato";
+}
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/lato/lato-light.ttf);
+}
+@font-face {
+  font-family: Instagram;
+  src: url(../fonts/grandista/grandista.ttf);
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+hr,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  margin: 0;
+  line-height: 1.25;
+  background-color: #282828;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+  padding: 0px 0px 0px 15px;
+  list-style-type: square;
+  list-style-position: outside;
+}
+
+img {
+  vertical-align: bottom;
+}
+
 ._modal_118dy_119 {
   max-width: 1080px;
   max-height: 1080px;
@@ -7853,6 +7853,9 @@ img {
   transform: scale(0.99);
   transition: transform 0.25s;
 }
+._image_7wv6x_1 {
+  max-width: 100%;
+}
 @font-face {
   font-family: Lato;
   src: url(../fonts/lato/lato-light.ttf);
@@ -7971,116 +7974,31 @@ img {
   vertical-align: bottom;
 }
 
-._header_12mhu_119 {
-  background-color: rgba(22, 22, 23, 0.8);
-  backdrop-filter: saturate(180%) blur(10px);
-  display: grid;
-  align-items: center;
-  color: #ffffff;
-  position: absolute;
-  top: 0px;
-  z-index: 1500;
-}
-@media (min-width: 768px) {
-  ._header_12mhu_119 {
-    width: 100%;
-    height: 80px;
-  }
-}
-@media (max-width: 768px) {
-  ._header_12mhu_119 {
-    width: 100%;
-    height: 40px;
-  }
-}
-._headerContent_12mhu_141 {
-  font-family: "Lato";
-  color: #ffffff;
-}
-._headerContent_12mhu_141 a {
-  text-decoration: none;
-  color: #ffffff;
-  transition: color 0.5s;
-}
-._headerContent_12mhu_141 a:hover {
-  color: #96b9ee;
-  transition: color 0.5s;
-  cursor: pointer;
-}
-@media (min-width: 768px) {
-  ._headerContent_12mhu_141 {
-    margin: 0 auto;
-    width: 960px;
-  }
-}
-@media (max-width: 768px) {
-  ._headerContent_12mhu_141 {
-    margin: 0 auto;
-    width: 390px;
-  }
-}
-@media (min-width: 768px) {
-  ._headerImage_12mhu_168 {
-    height: 32px;
-  }
-}
-@media (max-width: 768px) {
-  ._headerImage_12mhu_168 {
-    height: 24px;
-  }
-}
-._headerLogo_12mhu_177 {
-  font-family: "Lato";
-  font-size: 24px;
+._image_jntrt_119 {
+  display: block;
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
-._subheader_12mhu_182 {
-  background-color: rgba(22, 22, 23, 0.8);
-  backdrop-filter: saturate(180%) blur(10px);
-  display: grid;
-  align-items: center;
+._imageContainer_jntrt_127 {
+  position: relative;
+}
+
+._imageCaption_jntrt_131 {
   position: absolute;
-  z-index: 1500;
-}
-@media (min-width: 768px) {
-  ._subheader_12mhu_182 {
-    width: 100%;
-    top: 80px;
-  }
-}
-@media (max-width: 768px) {
-  ._subheader_12mhu_182 {
-    width: 100%;
-    top: 40px;
-  }
-}
-._subheaderContent_12mhu_202 {
-  font-family: "Lato";
-  color: #ffffff;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-._subheaderContent_12mhu_202 a {
-  text-decoration: none;
-  color: #ffffff;
-  transition: color 0.5s;
-}
-._subheaderContent_12mhu_202 a:hover {
-  color: #96b9ee;
-  transition: color 0.5s;
-  cursor: pointer;
-}
-@media (min-width: 768px) {
-  ._subheaderContent_12mhu_202 {
-    margin: 0 auto;
-    width: 960px;
-  }
+  z-index: 10;
+  text-shadow: 0px 0px 5px #181818;
+  bottom: 24px;
+  left: 24px;
+  max-width: 75%;
+  opacity: 0.75;
 }
 @media (max-width: 768px) {
-  ._subheaderContent_12mhu_202 {
-    margin: 0 auto;
-    width: 390px;
-    padding: 1rem;
+  ._imageCaption_jntrt_131 {
+    bottom: 16px;
+    left: 12px;
   }
 }
 @font-face {
@@ -10430,35 +10348,266 @@ img {
   vertical-align: bottom;
 }
 
-._image_jntrt_119 {
-  display: block;
-  object-fit: fill;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-}
-
-._imageContainer_jntrt_127 {
-  position: relative;
-}
-
-._imageCaption_jntrt_131 {
+._header_12mhu_119 {
+  background-color: rgba(22, 22, 23, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: grid;
+  align-items: center;
+  color: #ffffff;
   position: absolute;
-  z-index: 10;
-  text-shadow: 0px 0px 5px #181818;
-  bottom: 24px;
-  left: 24px;
-  max-width: 75%;
-  opacity: 0.75;
+  top: 0px;
+  z-index: 1500;
 }
-@media (max-width: 768px) {
-  ._imageCaption_jntrt_131 {
-    bottom: 16px;
-    left: 12px;
+@media (min-width: 768px) {
+  ._header_12mhu_119 {
+    width: 100%;
+    height: 80px;
   }
 }
-._image_7wv6x_1 {
-  max-width: 100%;
+@media (max-width: 768px) {
+  ._header_12mhu_119 {
+    width: 100%;
+    height: 40px;
+  }
+}
+._headerContent_12mhu_141 {
+  font-family: "Lato";
+  color: #ffffff;
+}
+._headerContent_12mhu_141 a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.5s;
+}
+._headerContent_12mhu_141 a:hover {
+  color: #96b9ee;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  ._headerContent_12mhu_141 {
+    margin: 0 auto;
+    width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  ._headerContent_12mhu_141 {
+    margin: 0 auto;
+    width: 390px;
+  }
+}
+@media (min-width: 768px) {
+  ._headerImage_12mhu_168 {
+    height: 32px;
+  }
+}
+@media (max-width: 768px) {
+  ._headerImage_12mhu_168 {
+    height: 24px;
+  }
+}
+._headerLogo_12mhu_177 {
+  font-family: "Lato";
+  font-size: 24px;
+}
+
+._subheader_12mhu_182 {
+  background-color: rgba(22, 22, 23, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: grid;
+  align-items: center;
+  position: absolute;
+  z-index: 1500;
+}
+@media (min-width: 768px) {
+  ._subheader_12mhu_182 {
+    width: 100%;
+    top: 80px;
+  }
+}
+@media (max-width: 768px) {
+  ._subheader_12mhu_182 {
+    width: 100%;
+    top: 40px;
+  }
+}
+._subheaderContent_12mhu_202 {
+  font-family: "Lato";
+  color: #ffffff;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+._subheaderContent_12mhu_202 a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.5s;
+}
+._subheaderContent_12mhu_202 a:hover {
+  color: #96b9ee;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  ._subheaderContent_12mhu_202 {
+    margin: 0 auto;
+    width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  ._subheaderContent_12mhu_202 {
+    margin: 0 auto;
+    width: 390px;
+    padding: 1rem;
+  }
+}
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/lato/lato-light.ttf);
+}
+@font-face {
+  font-family: Instagram;
+  src: url(../fonts/grandista/grandista.ttf);
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+hr,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  margin: 0;
+  line-height: 1.25;
+  background-color: #282828;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+  padding: 0px 0px 0px 15px;
+  list-style-type: square;
+  list-style-position: outside;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+@media (min-width: 768px) {
+  ._footer_hjabw_120 {
+    background-image: url("https://lewisbritton.com/images/general/background.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+}
+@media (max-width: 768px) {
+  ._footer_hjabw_120 {
+    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
+    background-size: 100% auto;
+  }
+}
+._footerContent_hjabw_137 {
+  background-color: rgba(22, 22, 23, 0.8);
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: #a2a2a2;
+  padding: 3rem 0 3rem 0;
+}
+._footerLogo_hjabw_146 {
+  font-family: Audi-Light;
+  font-size: 24px;
 }
 @font-face {
   font-family: Lato;
@@ -12507,155 +12656,6 @@ img {
   vertical-align: bottom;
 }
 
-@media (min-width: 768px) {
-  ._footer_hjabw_120 {
-    background-image: url("https://lewisbritton.com/images/general/background.jpg");
-    background-attachment: fixed;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-  }
-}
-@media (max-width: 768px) {
-  ._footer_hjabw_120 {
-    background-image: url("https://lewisbritton.com/images/general/background-mobile.jpg");
-    background-size: 100% auto;
-  }
-}
-._footerContent_hjabw_137 {
-  background-color: rgba(22, 22, 23, 0.8);
-  text-align: center;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  color: #a2a2a2;
-  padding: 3rem 0 3rem 0;
-}
-._footerLogo_hjabw_146 {
-  font-family: Audi-Light;
-  font-size: 24px;
-}
-@font-face {
-  font-family: Lato;
-  src: url(../fonts/lato/lato-light.ttf);
-}
-@font-face {
-  font-family: Instagram;
-  src: url(../fonts/grandista/grandista.ttf);
-}
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-hr,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-body {
-  margin: 0;
-  line-height: 1.25;
-  background-color: #282828;
-}
-
-code {
-  font-family: "Courier New", Courier, monospace;
-}
-
-ul {
-  padding: 0px 0px 0px 15px;
-  list-style-type: square;
-  list-style-position: outside;
-}
-
-img {
-  vertical-align: bottom;
-}
-
 ._background_15g6c_119 {
   width: 100%;
   height: 100%;
@@ -13243,17 +13243,17 @@ img {
   outline-width: 2px;
   outline-color: #9d131f;
 }
-._formContent_18ds9_1 {
-  text-align: center;
-}
-._formContent_18ds9_1 > :last-child {
-  margin-bottom: 0;
-}
 ._form_5dijx_1 {
   width: 100%;
 }
 
 ._formContent_5dijx_5 > :last-child {
+  margin-bottom: 0;
+}
+._formContent_18ds9_1 {
+  text-align: center;
+}
+._formContent_18ds9_1 > :last-child {
   margin-bottom: 0;
 }
 @font-face {
@@ -13501,22 +13501,13 @@ img {
   vertical-align: bottom;
 }
 
-._container_13pn2_119 {
-  position: relative;
+._formSection_17k34_119:not(:last-child) {
+  margin-bottom: 2.5rem;
 }
-
-._select_13pn2_123 {
-  width: 100%;
-  height: 36px;
-  font-family: "Lato";
-  font-size: 16px;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  appearance: none;
-  border: none;
-  border-radius: 0.125em;
-  outline: none;
-  cursor: pointer;
+@media (min-width: 640px) {
+  ._formSection_17k34_119:not(:last-child) {
+    margin-bottom: 3rem;
+  }
 }
 @font-face {
   font-family: Lato;
@@ -13636,13 +13627,22 @@ img {
   vertical-align: bottom;
 }
 
-._formSection_17k34_119:not(:last-child) {
-  margin-bottom: 2.5rem;
+._container_13pn2_119 {
+  position: relative;
 }
-@media (min-width: 640px) {
-  ._formSection_17k34_119:not(:last-child) {
-    margin-bottom: 3rem;
-  }
+
+._select_13pn2_123 {
+  width: 100%;
+  height: 36px;
+  font-family: "Lato";
+  font-size: 16px;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  appearance: none;
+  border: none;
+  border-radius: 0.125em;
+  outline: none;
+  cursor: pointer;
 }
 @font-face {
   font-family: Lato;
