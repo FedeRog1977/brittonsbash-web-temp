@@ -1,7 +1,6 @@
 'use client';
 
 import { FC } from 'react';
-import { ArticleProps, Article } from '~/components-core/article';
 import { Flex } from '~/components-core/flex';
 import { Button } from '~/components-core/form';
 import { GradientProps } from '~/components-core/gradient';
@@ -9,15 +8,14 @@ import { Grid, GridItem } from '~/components-core/grid';
 import { Tile } from '~/components-core/tile';
 import { Typography } from '~/components-core/typography';
 import { Img } from '~/types';
-import { formatArticle } from '../article-tile/utils/format-article.js';
 
 export type ImageTileProps = {
   imgDesktop?: Img;
   // imgMobile?: Img;
   gradient?: GradientProps;
   heading: string;
-  subHeading?: string;
-  body?: string | ArticleProps['sections'];
+  subheading?: string;
+  content?: string;
   ctas?: Array<{
     content: string;
     href: string;
@@ -31,8 +29,8 @@ export const ImageTile: FC<ImageTileProps> = ({
   // imgMobile,
   gradient,
   heading,
-  subHeading,
-  body,
+  subheading,
+  content,
   ctas,
   invert = false,
 }) => {
@@ -50,44 +48,29 @@ export const ImageTile: FC<ImageTileProps> = ({
       <Grid justifyContent="center" alignItems="center">
         <GridItem xs={12} md={7}>
           <Typography variant="h4" color={typographyColor}>
-            {subHeading}
+            {subheading}
           </Typography>
 
-          <Typography variant="t2" color={typographyColor} paragraphMargins>
+          <Typography variant="h1" color={typographyColor} paragraphMargins>
             {heading}
           </Typography>
 
-          {Array.isArray(body) ? (
-            <Article
-              // Not the ideal import, but it doesn't belong in:
-              // ~/utils, as it relies on types from ~/components-core
-              // or ~/components-core/reference/utils, as it must be used outwith ~/components-core
-              sections={formatArticle(
-                body,
-                'body',
-                typographyColor,
-                false,
-                false,
-                false,
-                'none',
-                false,
-              )}
-              textAlign="justify"
-              extendParagraphMargins
-            />
-          ) : (
-            <Typography variant="body" textAlign="justify" color={typographyColor} paragraphMargins>
-              {body}
-            </Typography>
-          )}
+          <Typography
+            variant="footnote"
+            textAlign="justify"
+            color={typographyColor}
+            paragraphMargins
+          >
+            {content}
+          </Typography>
         </GridItem>
 
         {ctas ? (
           <GridItem xs={12} md={2}>
             <Flex direction="vertical" alignHorizontal="right" alignVertical="center" gap="2xs">
-              {ctas.map(({ content, href }) => (
-                <Button key={content} variant={buttonVariant} link={{ href }}>
-                  {content}
+              {ctas.map(({ content: ctaContent, href }) => (
+                <Button key={ctaContent} variant={buttonVariant} link={{ href }}>
+                  {ctaContent}
                 </Button>
               ))}
             </Flex>

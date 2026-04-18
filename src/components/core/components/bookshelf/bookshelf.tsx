@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useState } from 'react';
 import { Background } from '../background/background.js';
 import { Flex } from '../flex/flex.js';

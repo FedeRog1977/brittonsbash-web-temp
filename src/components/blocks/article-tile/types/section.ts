@@ -2,12 +2,12 @@ import { BodyProps } from '../components/body.js';
 import { BooksProps } from '../components/books.js';
 import { ImagesProps } from '../components/images.js';
 
-type OrderedSection<T extends string, P extends object> = {
-  component: T;
-  content: P;
+type Content<Type extends string, Props extends object> = {
+  type: Type;
+  props: Props;
 };
 
 export type Section =
-  | OrderedSection<'body', BodyProps>
-  | OrderedSection<'books', BooksProps>
-  | OrderedSection<'images', ImagesProps>;
+  | Content<'Body', BodyProps>
+  | Content<'Books', BooksProps>
+  | Content<'Images', ImagesProps>;

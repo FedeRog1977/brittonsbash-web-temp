@@ -1,10 +1,6 @@
-export * from './academia-data.js';
-export * from './academia-resources.js';
 export * from './data.js';
 export * from './event-names-by-tag.js';
 export * from './event-names-by-year.js';
-export * from './home-data.js';
-export * from './home-resources.js';
 export * from './home-search-params.js';
 export * from './instant-gram-data.js';
 export * from './instant-gram-resources.js';
@@ -19,3 +15,4 @@ export * from './projects-search-params.js';
 export * from './projects-stats.js';
 export * from './projects-summary.js';
 export * from './resources.js';
+export * from './static-resources.js';

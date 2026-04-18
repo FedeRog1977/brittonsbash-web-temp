@@ -1,4 +1,4 @@
 export type Items = {
-  content: string;
-  subContent: string;
+  heading: string;
+  subheading: string;
 };

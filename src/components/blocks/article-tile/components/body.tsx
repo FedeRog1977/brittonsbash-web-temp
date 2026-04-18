@@ -1,19 +1,22 @@
 import { FC } from 'react';
-import { ArticleProps, Article } from '~/components-core/article';
 import { Typography } from '~/components-core/typography';
-import { formatArticle } from '../utils/format-article.js';
 
-export type BodyProps = { body: string | ArticleProps['sections'] };
+export type BodyProps = {
+  content: string | string[];
+};
 
-export const Body: FC<BodyProps> = ({ body }) =>
-  Array.isArray(body) ? (
-    <Article
-      sections={formatArticle(body, 'body', 'white', false, false, false, 'none', false)}
-      textAlign="justify"
-      extendParagraphMargins
-    />
+export const Body: FC<BodyProps> = ({ content }) =>
+  Array.isArray(content) ? (
+    <>
+      {content.map((contentSection, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Typography key={index} variant="body" textAlign="justify" paragraphMargins>
+          {contentSection}
+        </Typography>
+      ))}
+    </>
   ) : (
-    <Typography variant="body" textAlign="justify" paragraphMargins>
-      {body}
+    <Typography variant="body" textAlign="justify">
+      {content}
     </Typography>
   );

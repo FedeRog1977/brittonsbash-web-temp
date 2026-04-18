@@ -2,28 +2,28 @@ import { FC } from 'react';
 import { Flex } from '~/components-core/flex';
 import { TileProps, Tile } from '~/components-core/tile';
 import { Typography, TypographyProps } from '~/components-core/typography';
+import { Content } from './components/content.jsx';
 import { Section } from './types/section.js';
-import { getContent } from './utils/get-content.js';
 
 export type ArticleTileProps = {
   type?: TileProps['type'];
   heading?: string;
-  subHeading?: string;
+  subheading?: string;
   textAlign?: TypographyProps['textAlign'];
-  sections: Section[];
+  content: Section[];
 };
 
 export const ArticleTile: FC<ArticleTileProps> = ({
   type = 'clear',
   heading,
-  subHeading,
+  subheading,
   textAlign = 'center',
-  sections,
+  content,
 }) => (
   <Tile type={type}>
-    {subHeading ? (
+    {subheading ? (
       <Typography variant="h2" textAlign={textAlign}>
-        {subHeading}
+        {subheading}
       </Typography>
     ) : null}
 
@@ -34,7 +34,10 @@ export const ArticleTile: FC<ArticleTileProps> = ({
     ) : null}
 
     <Flex direction="vertical" gap="md">
-      {sections.map(async (section) => getContent(section))}
+      {content.map((contentSection, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Content key={index} content={contentSection} />
+      ))}
     </Flex>
   </Tile>
 );

@@ -1,25 +1,24 @@
 import { FC } from 'react';
-import { ArticleProps, Article } from '~/components-core/article';
 import { Tile } from '~/components-core/tile';
 import { Typography } from '~/components-core/typography';
-import { formatArticle } from '../article-tile/utils/format-article.js';
 
 export type FootnoteTileProps = {
-  content: string | ArticleProps['sections'];
+  content: string | string[];
 };
 
 export const FootnoteTile: FC<FootnoteTileProps> = ({ content }) => (
   <Tile type="clear">
     {Array.isArray(content) ? (
-      <Article
-        // Not the ideal import, but it doesn't belong in:
-        // @libs/utils, as it relies on types from @libs/components-core
-        // or @libs/components-core/reference/utils, as it must be used outwith @libs/components-core
-        sections={formatArticle(content, 'footnote', 'white', false, false, false, 'none', false)}
-        textAlign="justify"
-      />
+      <>
+        {content.map((contentSection, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Typography key={index} variant="footnote" textAlign="justify" paragraphMargins>
+            {contentSection}
+          </Typography>
+        ))}
+      </>
     ) : (
-      <Typography variant="footnote" textAlign="justify" markdown>
+      <Typography variant="footnote" textAlign="justify">
         {content}
       </Typography>
     )}

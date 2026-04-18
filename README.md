@@ -20,6 +20,7 @@ Next.js 15 and React web applications for brittonsbash Web.
 - Target: ES Next (`esnext`)
 - Module: Node Next (`NodeNext`)
 - Module resolution: Node Next (`NodeNext`)
+- Manifest: `package.json`
 
 ### Node.js Package Manager
 

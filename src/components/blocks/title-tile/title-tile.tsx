@@ -21,16 +21,16 @@ export const TitleTile: FC<TitleTileProps> = ({ heading, titleItems, bodyItems }
       ) : null}
 
       {titleItems
-        ? titleItems.map(({ content, subContent }) => (
-            <Grid key={content} justifyContent="center" spacing="xs">
+        ? titleItems.map(({ heading: titleHeading, subheading }) => (
+            <Grid key={titleHeading} justifyContent="center" spacing="xs">
               <GridItem xs={5}>
                 <Typography variant="h3" boldFace textAlign="right">
-                  {content}
+                  {titleHeading}
                 </Typography>
               </GridItem>
               <GridItem xs={5}>
                 <Typography variant="h3" markdown>
-                  {subContent}
+                  {subheading}
                 </Typography>
               </GridItem>
             </Grid>
@@ -38,16 +38,16 @@ export const TitleTile: FC<TitleTileProps> = ({ heading, titleItems, bodyItems }
         : null}
 
       {bodyItems
-        ? bodyItems.map(({ content, subContent }) => (
-            <Grid key={content} justifyContent="center" spacing="xs">
+        ? bodyItems.map(({ heading: bodyHeading, subheading }) => (
+            <Grid key={bodyHeading} justifyContent="center" spacing="xs">
               <GridItem xs={5}>
                 <Typography variant="body" boldFace textAlign="right">
-                  {content}
+                  {bodyHeading}
                 </Typography>
               </GridItem>
               <GridItem xs={5}>
                 <Typography variant="body" markdown>
-                  {subContent}
+                  {subheading}
                 </Typography>
               </GridItem>
             </Grid>
