@@ -2,9 +2,9 @@ import { Event } from '~/types';
 
 export const mockEvent: Extract<Event, { type: 'mapped' }> = {
   type: 'mapped',
-  tags: ['general', 'projects'],
   id: 'E2025003',
   projectIds: ['P2025001'],
+  tags: ['general', 'projects'],
   prefix: 'Lorem Ipsum',
   names: ['Dolor', 'Sit'],
   startDate: 'Lorem of Ipsum',

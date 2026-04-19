@@ -54,8 +54,8 @@ export const eventResponseValidationSchema: JSONSchema<EventResponse> = {
   type: 'object',
   properties: {
     id: { type: 'string' },
-    tags: { type: 'array', items: { type: 'string' } },
     projectIds: { type: 'array', items: { type: 'string' } },
+    tags: { type: 'array', items: { type: 'string' } },
     prefix: { type: 'string' },
     names: { type: 'array', items: { type: 'string' } },
     startDate: { type: 'string' },
