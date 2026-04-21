@@ -54,7 +54,7 @@ export class Implementation implements Interface {
   }
 
   private get projectsUrl(): string {
-    return `${this.baseUrl}/projects/:year/:projectId.json`;
+    return `${this.baseUrl}/sport/projects/events/:year/:projectId.json`;
   }
 
   public async getAllEventFeatures(): Promise<void> {
