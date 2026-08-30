@@ -3,7 +3,6 @@ import { HillType } from '~/types';
 export const getParsedHillUrl = (hill: string, hillType: HillType): string => {
   const parsedHill = hill
     .replace(' ', '-')
-    .replace(' ', '-')
     .replace('(', '')
     .replace(')', '')
     .replace("'", '')
